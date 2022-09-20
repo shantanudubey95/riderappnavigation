@@ -1,18 +1,18 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
-const HomeScreen = ({ navigation }: { navigation: any }) => {
+const ServiceNotAvailableScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home Screen</Text>
+      <Text>Service Not Available Screen</Text>
       <Button
         title="Navigate to next screen"
         onPress={() => {
-          navigation.navigate("LocationErrorScreen");
+          navigation.navigate("InternetErrorScreen");
         }}
       />
     </View>
   );
 };
 
-export default HomeScreen;
+export default ServiceNotAvailableScreen;

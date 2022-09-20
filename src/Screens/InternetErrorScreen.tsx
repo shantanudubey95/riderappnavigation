@@ -1,18 +1,18 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
-const HomeScreen = ({ navigation }: { navigation: any }) => {
+const InternetErrorScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home Screen</Text>
+      <Text>Internet Error Screen</Text>
       <Button
         title="Navigate to next screen"
         onPress={() => {
-          navigation.navigate("LocationErrorScreen");
+          navigation.navigate("VerifyEmailScreen");
         }}
       />
     </View>
   );
 };
 
-export default HomeScreen;
+export default InternetErrorScreen;

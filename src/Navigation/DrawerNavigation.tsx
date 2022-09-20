@@ -1,15 +1,15 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import ProfileScreen from "../Screens/ProfileScreen";
 import AuthNavigation from "./AuthNavigation";
+import HomeNavigator from "./HomeNavigator";
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigation() {
   return (
     <Drawer.Navigator useLegacyImplementation>
-      <Drawer.Screen name="HomeScreen" component={AuthNavigation} />
-      <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Drawer.Screen name="Onboarding" component={AuthNavigation} />
+      <Drawer.Screen name="Home" component={HomeNavigator} />
     </Drawer.Navigator>
   );
 }
