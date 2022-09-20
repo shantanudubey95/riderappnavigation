@@ -1,18 +1,18 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
-const VerifyEmailScreen = ({ navigation }: { navigation: any }) => {
+const EmergencyContactScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Verify Email Screen</Text>
+      <Text>Emergency Contact Screen</Text>
       <Button
         title="Navigate to next screen"
         onPress={() => {
-          navigation.navigate("HomeScreen");
+          navigation.navigate("SelectLocationScreen");
         }}
       />
     </View>
   );
 };
 
-export default VerifyEmailScreen;
+export default EmergencyContactScreen;
