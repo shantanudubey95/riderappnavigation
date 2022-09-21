@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
-const UpdateEmailScreen = ({ navigation }: { navigation: any }) => {
+const SettingScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Update Email Screen</Text>
+      <Text>Setting Screen</Text>
       <Button
         title="Navigate to next screen"
         onPress={() => {
@@ -15,4 +15,4 @@ const UpdateEmailScreen = ({ navigation }: { navigation: any }) => {
   );
 };
 
-export default UpdateEmailScreen;
+export default SettingScreen;
