@@ -1,7 +1,6 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import ReferAndEarnScreen from '../Screens/ReferAndEarnScreen';
-import AboutNavigation from './AboutNavigation';
 
+import AboutNavigation from './AboutNavigation';
 import AccountNavigation from './AccountNavigation';
 import AuthNavigation from './AuthNavigation';
 import HomeNavigator from './HomeNavigator';
@@ -16,7 +15,7 @@ const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigation() {
   return (
-    <Drawer.Navigator useLegacyImplementation>
+    <Drawer.Navigator useLegacyImplementation screenOptions={{ headerShown: false }}>
       <Drawer.Screen name="Onboarding" component={AuthNavigation} />
       <Drawer.Screen name="Home" component={HomeNavigator} />
       <Drawer.Screen name="Account" component={AccountNavigation} />
