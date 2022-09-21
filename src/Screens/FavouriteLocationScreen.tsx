@@ -1,14 +1,14 @@
-import React from "react";
-import { View, Text, Button } from "react-native";
+import React from 'react';
+import { View, Text, Button } from 'react-native';
 
 const FavoritesLocationScreen = ({ navigation }: { navigation: any }) => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Favorite Location Screen</Text>
       <Button
         title="Navigate to next screen"
         onPress={() => {
-          navigation.navigate("EmergencyContactScreen");
+          navigation.navigate('EmergencyContactScreen');
         }}
       />
     </View>
