@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
-const AccountScreen = ({ navigation }: { navigation: any }) => {
+const EnterDestinationScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Account Screen</Text>
+      <Text>Enter Destination Screen</Text>
       <Button
         title="Navigate to next screen"
         onPress={() => {
@@ -15,4 +15,4 @@ const AccountScreen = ({ navigation }: { navigation: any }) => {
   );
 };
 
-export default AccountScreen;
+export default EnterDestinationScreen;

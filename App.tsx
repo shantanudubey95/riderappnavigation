@@ -13,8 +13,10 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView } from 'react-native';
+import tw from 'twrnc';
 
 import DrawerNavigation from './src/Navigation/DrawerNavigation';
+import * as COLORS from './src/config/colors';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,7 +34,7 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
         <NavigationContainer>
           <DrawerNavigation />
         </NavigationContainer>

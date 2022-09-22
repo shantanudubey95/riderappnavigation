@@ -6,16 +6,12 @@ import tw from 'twrnc';
 import * as COLORS from '../config/colors';
 const SplashScreen = ({ navigation }: { navigation: any }) => {
   const ANIMATION = require('../../assets/logoIntro.json');
-  const [animationFinish, setAnimationFinished] = React.useState(false);
-  React.useEffect(() => {
-    if (animationFinish) navigation.navigate('WelcomeScreen');
-  }, [animationFinish]);
   return (
     <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
       <View style={tw`flex-1 bg-[${COLORS.WHITE}] justify-center`}>
         <LottieView
-          onAnimationFinish={() => setAnimationFinished(true)}
+          onAnimationFinish={() => navigation.navigate('WelcomeScreen')}
           autoPlay
           source={ANIMATION}
           loop={false}

@@ -15,7 +15,7 @@ export default function EnterPhoneNumberScreen({ navigation }: Props) {
       <View style={tw`h-4`} />
       <PhoneNumberTextInput
         COUNTRY_CODE={COUNTRY_CODE}
-        selectionColor="#04825C"
+        selectionColor={COLORS.SPANISH_VIRIDIAN}
         value={phoneNumber}
         onChangeText={(text) => setPhoneNumber(text)}
         style={tw`w-full items-center flex-row border-2 border-[#04825C] rounded-md h-12 px-4`}

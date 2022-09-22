@@ -49,7 +49,7 @@ export default function AuthNavigation({ navigation }: { navigation: any }) {
       <Stack.Screen
         name="EnterPhoneNumberScreen"
         component={EnterPhoneNumberScreen}
-        options={{ title: 'Enter Phone Number', ...HEADER }}
+        options={{ title: 'Enter Phone Number', ...HEADER(navigation) }}
       />
       <Stack.Screen
         name="WelcomeScreen"

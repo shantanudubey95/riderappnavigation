@@ -76,3 +76,7 @@ export const CASH = require('../../assets/cash.png');
 export const INDIAN_FLAG = require('../../assets/indianFlag.png');
 export const SPLASH_SCREEN_LOGO = require('../../assets/splashScreenLogo.png');
 export const HEADER_BACK_ARROW = require('../../assets/headerBackArrow.png');
+export const CITY_SELECTED = require('../../assets/City.png');
+export const OUTSTATION_UNSELECTED = require('../../assets/OutstationUnselected.png');
+export const OUTSTATION_SELECTED = require('../../assets/OutstationSelected.png');
+export const CITY_UNSELECTED = require('../../assets/CityUnselected.png');
