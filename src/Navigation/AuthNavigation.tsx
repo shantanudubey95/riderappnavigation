@@ -71,7 +71,11 @@ export default function AuthNavigation({ navigation }: { navigation: any }) {
         component={SelectGenderScreen}
         options={{ title: 'Final step', ...HEADER(navigation) }}
       />
-      <Stack.Screen name="ProfileCreatedSplashScreen" component={ProfileCreatedSplashScreen} />
+      <Stack.Screen
+        name="ProfileCreatedSplashScreen"
+        component={ProfileCreatedSplashScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="PrivacyAndTermsScreen" component={PrivacyAndTermsScreen} />
     </Stack.Navigator>
   );

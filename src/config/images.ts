@@ -80,3 +80,5 @@ export const CITY_SELECTED = require('../../assets/City.png');
 export const OUTSTATION_UNSELECTED = require('../../assets/OutstationUnselected.png');
 export const OUTSTATION_SELECTED = require('../../assets/OutstationSelected.png');
 export const CITY_UNSELECTED = require('../../assets/CityUnselected.png');
+export const SUGGAA_LOGO = require('../../assets/Suggaa_logo.png');
+export const BIG_TICK = require('../../assets/Big_Tick.png');
