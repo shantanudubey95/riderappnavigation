@@ -6,14 +6,18 @@ import tw from 'twrnc';
 import * as COLORS from '../config/colors';
 interface Props {
   numberOfInputs: 4 | 6;
+  setOTP: (otp: string) => void;
 }
-
-export default function OTPInputs({ numberOfInputs }: Props) {
+export default function OTPInputs({ numberOfInputs, setOTP }: Props) {
   const [direction, setDirection] = useState<'forward' | 'back'>('forward');
   const textInputRefs = Array.from({ length: numberOfInputs }).map(() =>
     React.createRef<TextInput>()
   );
   const [pin, setPin] = useState<string[]>(Array.from({ length: numberOfInputs }).map(() => ''));
+  useEffect(() => {
+    if (pin && pin.join('').length === numberOfInputs) setOTP(pin.join(''));
+    else setOTP('');
+  }, [pin]);
   const onKeyPress = useCallback(
     (index: number | undefined) =>
       ({ nativeEvent: { key: keyValue } }: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
@@ -34,7 +38,6 @@ export default function OTPInputs({ numberOfInputs }: Props) {
       },
     [numberOfInputs]
   );
-
   useEffect(() => {
     let activeIndex = -1;
     for (let index = 0; index < pin.length; index++) {
@@ -51,10 +54,9 @@ export default function OTPInputs({ numberOfInputs }: Props) {
       textInputRefs[activeIndex + 1].current?.focus();
     }
   }, [direction, numberOfInputs, pin, textInputRefs]);
-
   const onChangeText = useCallback(
     (index: number) => (text: string) => {
-      getStringAsync().then((textInClipboard) => {
+      getStringAsync().then((textInClipboard: string) => {
         if (
           textInClipboard.length === numberOfInputs &&
           /[0-9]{4}/g.test(textInClipboard) &&
@@ -67,7 +69,6 @@ export default function OTPInputs({ numberOfInputs }: Props) {
     },
     [numberOfInputs]
   );
-
   return (
     <View style={tw`w-full flex-row justify-center items-center `}>
       {textInputRefs.map((value, index) => (

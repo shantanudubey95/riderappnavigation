@@ -16,8 +16,8 @@ const Drawer = createDrawerNavigator();
 export default function DrawerNavigation() {
   return (
     <Drawer.Navigator useLegacyImplementation screenOptions={{ headerShown: false }}>
-      <Drawer.Screen name="Home" component={HomeNavigator} />
       <Drawer.Screen name="Onboarding" component={AuthNavigation} />
+      <Drawer.Screen name="Home" component={HomeNavigator} />
       <Drawer.Screen name="Account" component={AccountNavigation} />
       <Drawer.Screen name="Your Rides" component={YourRidesNavigation} />
       <Drawer.Screen name="Payments" component={PaymentNavigation} />

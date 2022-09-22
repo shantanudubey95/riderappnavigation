@@ -61,8 +61,16 @@ export default function AuthNavigation({ navigation }: { navigation: any }) {
         component={EnterOTPScreen}
         options={{ title: 'Enter OTP', ...HEADER(navigation) }}
       />
-      <Stack.Screen name="EnterNameAndEmailScreen" component={EnterNameAndEmailScreen} />
-      <Stack.Screen name="SelectGenderScreen" component={SelectGenderScreen} />
+      <Stack.Screen
+        name="EnterNameAndEmailScreen"
+        component={EnterNameAndEmailScreen}
+        options={{ title: 'We need some details', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="SelectGenderScreen"
+        component={SelectGenderScreen}
+        options={{ title: 'Final step', ...HEADER(navigation) }}
+      />
       <Stack.Screen name="ProfileCreatedSplashScreen" component={ProfileCreatedSplashScreen} />
       <Stack.Screen name="PrivacyAndTermsScreen" component={PrivacyAndTermsScreen} />
     </Stack.Navigator>

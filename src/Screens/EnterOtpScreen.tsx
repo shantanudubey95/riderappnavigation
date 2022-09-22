@@ -26,7 +26,7 @@ export default function EnterOTPScreen({ navigation }: Props) {
         Edit phone number
       </TextRegular15>
       <View style={tw`h-4.25`} />
-      <OTPInputs numberOfInputs={4} />
+      <OTPInputs numberOfInputs={4} setOTP={setOTP} />
       <View style={tw`flex-1`} />
       <View style={tw`flex-row items-center justify-center`}>
         <TextRegular15 style={tw`text-[${COLORS.FELDGRAU}]`}>Resend OTP in</TextRegular15>
