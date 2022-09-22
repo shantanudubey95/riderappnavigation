@@ -1,14 +1,13 @@
 import LottieView from 'lottie-react-native';
 import React from 'react';
-import { View, Text, Image, SafeAreaView, StatusBar, Pressable } from 'react-native';
+import { View, Image, SafeAreaView, StatusBar, Pressable } from 'react-native';
 import tw from 'twrnc';
 
-import SuggaaButton from '../Components/SuggaaButton';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular20 from '../Typography/TextRegular20';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
-const EnterPhoneNumberScreen = ({ navigation }: { navigation: any }) => {
+const WelcomeScreen = ({ navigation }: { navigation: any }) => {
   const ANIMATION = require('../../assets/OnboardingAnimation.json');
   const [, setAnimationFinished] = React.useState(false);
   return (
@@ -57,4 +56,4 @@ const EnterPhoneNumberScreen = ({ navigation }: { navigation: any }) => {
   );
 };
 
-export default EnterPhoneNumberScreen;
+export default WelcomeScreen;

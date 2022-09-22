@@ -2,18 +2,16 @@
 import * as React from 'react';
 import { View, Text, TextInput, Image, Pressable } from 'react-native';
 import type { TextInputProps } from 'react-native';
-// import tw from "twrnc";
 
+// import tw from "twrnc";
+import * as IMAGES from '../config/images';
 type props = TextInputProps & {
   COUNTRY_CODE: string;
 };
 export default function PhoneNumberTextInput(props: props) {
   return (
     <View style={props.style}>
-      <Image
-        source={require('../../assets/Flag.png')}
-        style={{ height: 20, width: 33, paddingVertical: 11 }}
-      />
+      <Image source={require('../../assets/Flag.png')} style={{ height: 20, width: 33 }} />
       <Text style={{ fontSize: 20, marginLeft: 11 }}>{props.COUNTRY_CODE}</Text>
       <TextInput
         value={props.value}
@@ -29,7 +27,7 @@ export default function PhoneNumberTextInput(props: props) {
           right: 50,
         }}
         style={{
-          height: 20,
+          height: '100%',
           marginLeft: 17,
           fontSize: 20,
           flex: 1,
@@ -39,7 +37,7 @@ export default function PhoneNumberTextInput(props: props) {
         onPress={() => {
           props.onChangeText?.('');
         }}>
-        <Image source={require('../assets/cross.png')} style={{ height: 26, width: 33 }} />
+        {props.value && <Image source={IMAGES.CLEAR_INPUT} style={{ height: 26, width: 33 }} />}
       </Pressable>
     </View>
   );

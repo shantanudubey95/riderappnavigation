@@ -75,3 +75,4 @@ export const COUPON = require('../../assets/coupon.png');
 export const CASH = require('../../assets/cash.png');
 export const INDIAN_FLAG = require('../../assets/indianFlag.png');
 export const SPLASH_SCREEN_LOGO = require('../../assets/splashScreenLogo.png');
+export const HEADER_BACK_ARROW = require('../../assets/headerBackArrow.png');

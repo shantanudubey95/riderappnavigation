@@ -1,4 +1,10 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { CommonActions } from '@react-navigation/native';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationOptions,
+} from '@react-navigation/native-stack';
+import { Image, Pressable } from 'react-native';
+import tw from 'twrnc';
 
 import EnterNameAndEmailScreen from '../Screens/EnterNameAndEmailScreen';
 import EnterOTPScreen from '../Screens/EnterOtpScreen';
@@ -8,16 +14,53 @@ import ProfileCreatedSplashScreen from '../Screens/ProfileCreatedSplashScreen';
 import SelectGenderScreen from '../Screens/SelectGenderScreen';
 import SplashScreen from '../Screens/SplashScreen';
 import WelcomeScreen from '../Screens/WelcomeScreen';
-
+import * as COLORS from '../config/colors';
+import * as IMAGES from '../config/images';
 const Stack = createNativeStackNavigator();
 
-export default function AuthNavigation() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const TITLE_ONLY_HEADER: NativeStackNavigationOptions = {
+  headerStyle: { backgroundColor: COLORS.WHITE },
+  headerTitleStyle: { fontFamily: 'Poppins_600SemiBold', fontSize: 18 },
+  headerShadowVisible: false,
+  headerBackTitleVisible: false,
+  headerTitleAlign: 'center',
+  headerBackVisible: false,
+};
+function HEADER(navigation: any): NativeStackNavigationOptions {
+  return {
+    headerStyle: { backgroundColor: COLORS.WHITE },
+    headerTitleStyle: { fontFamily: 'Poppins_600SemiBold', fontSize: 18 },
+    headerShadowVisible: false,
+    headerBackTitleVisible: false,
+    headerTitleAlign: 'center',
+    headerLeft: () => (
+      <Pressable style={tw`ml-1.5`} onPress={() => navigation.dispatch(CommonActions.goBack())}>
+        <Image source={IMAGES.HEADER_BACK_ARROW} />
+      </Pressable>
+    ),
+  };
+}
+
+export default function AuthNavigation({ navigation }: { navigation: any }) {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="SplashScreen" component={SplashScreen} />
-      <Stack.Screen name="EnterPhoneNumberScreen" component={EnterPhoneNumberScreen} />
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-      <Stack.Screen name="EnterOTPScreen" component={EnterOTPScreen} />
+    <Stack.Navigator>
+      <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
+      <Stack.Screen
+        name="EnterPhoneNumberScreen"
+        component={EnterPhoneNumberScreen}
+        options={{ title: 'Enter Phone Number', ...HEADER }}
+      />
+      <Stack.Screen
+        name="WelcomeScreen"
+        component={WelcomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="EnterOTPScreen"
+        component={EnterOTPScreen}
+        options={{ title: 'Enter OTP', ...HEADER(navigation) }}
+      />
       <Stack.Screen name="EnterNameAndEmailScreen" component={EnterNameAndEmailScreen} />
       <Stack.Screen name="SelectGenderScreen" component={SelectGenderScreen} />
       <Stack.Screen name="ProfileCreatedSplashScreen" component={ProfileCreatedSplashScreen} />

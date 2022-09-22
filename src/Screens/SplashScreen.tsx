@@ -5,13 +5,11 @@ import tw from 'twrnc';
 
 import * as COLORS from '../config/colors';
 const SplashScreen = ({ navigation }: { navigation: any }) => {
-  React.useEffect(() => {
-    setTimeout(() => {
-      navigation.navigate('WelcomeScreen');
-    }, 500);
-  }, []);
   const ANIMATION = require('../../assets/logoIntro.json');
-  const [, setAnimationFinished] = React.useState(false);
+  const [animationFinish, setAnimationFinished] = React.useState(false);
+  React.useEffect(() => {
+    if (animationFinish) navigation.navigate('WelcomeScreen');
+  }, [animationFinish]);
   return (
     <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />

@@ -12,6 +12,7 @@ import {
 } from '@expo-google-fonts/poppins';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import { SafeAreaView } from 'react-native';
 
 import DrawerNavigation from './src/Navigation/DrawerNavigation';
 
@@ -31,9 +32,11 @@ export default function App() {
     return null;
   } else {
     return (
-      <NavigationContainer>
-        <DrawerNavigation />
-      </NavigationContainer>
+      <SafeAreaView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <DrawerNavigation />
+        </NavigationContainer>
+      </SafeAreaView>
     );
   }
 }
