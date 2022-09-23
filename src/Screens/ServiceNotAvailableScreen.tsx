@@ -27,7 +27,7 @@ const ServiceNotAvailableScreen = ({ navigation }: { navigation: any }) => {
           }}
         />
       </View>
-      <View style={tw`h-3`} />
+      <View style={tw`h-10`} />
     </View>
   );
 };

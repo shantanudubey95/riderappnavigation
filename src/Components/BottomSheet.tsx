@@ -43,7 +43,7 @@ const BottomSheet = ({ navigation, scrollable }: { navigation: any; scrollable: 
       }
     });
   React.useEffect(() => {
-    scrollTo(-SCREEN_HEIGHT / 2.2);
+    scrollTo(-SCREEN_HEIGHT / 2.5);
   }, []);
 
   const BottomSheetStyle = useAnimatedStyle(() => {
@@ -76,9 +76,13 @@ const BottomSheet = ({ navigation, scrollable }: { navigation: any; scrollable: 
             )}
 
             {selected === 'City' ? (
-              <TextBold22 style={tw`text-[${COLORS.SPANISH_VIRIDIAN}] mb-3`}>City</TextBold22>
+              <TextBold22 style={[tw`text-[${COLORS.SPANISH_VIRIDIAN}] mb-3 `, { top: -8 }]}>
+                City
+              </TextBold22>
             ) : (
-              <TextMedium15 style={tw`text-[${COLORS.LIGHT_GRAY_BORDER}]`}>City</TextMedium15>
+              <TextMedium15 style={[tw`text-[${COLORS.LIGHT_GRAY_BORDER}]`, { top: -8 }]}>
+                City
+              </TextMedium15>
             )}
           </Pressable>
 
@@ -90,14 +94,14 @@ const BottomSheet = ({ navigation, scrollable }: { navigation: any; scrollable: 
             {selected === 'OutStation' ? (
               <>
                 <Image source={IMAGES.OUTSTATION_SELECTED} />
-                <TextBold22 style={tw`text-[${COLORS.SPANISH_VIRIDIAN}] mb-3`}>
+                <TextBold22 style={[tw`text-[${COLORS.SPANISH_VIRIDIAN}] mb-3`, { top: -8 }]}>
                   Outstations
                 </TextBold22>
               </>
             ) : (
               <>
                 <Image source={IMAGES.OUTSTATION_UNSELECTED} />
-                <TextMedium15 style={tw`text-[${COLORS.LIGHT_GRAY_BORDER}]`}>
+                <TextMedium15 style={[tw`text-[${COLORS.LIGHT_GRAY_BORDER}]`, { top: -8 }]}>
                   Outstations
                 </TextMedium15>
               </>
@@ -110,16 +114,6 @@ const BottomSheet = ({ navigation, scrollable }: { navigation: any; scrollable: 
         ) : (
           <TextSemiBold22 style={tw`ml-5`}>Moving out of city?</TextSemiBold22>
         )}
-        {/* <InputSearchLocation
-        imageId={IMAGES.SEARCH_ICON}
-        isEditable={false}
-        textStyle={tw`flex-1 mx-4 text-[${COLORS.LIGHT_GRAY_BORDER}] text-3.78`}
-        style={tw`h-12 mt-3 py-3 px-4.5 flex-row rounded-1.25 items-center self-stretch shadow-md bg-[${COLORS.WHITE}]`}
-        placeholder="Search Drop Location"
-        onPress={() => alert('Add your function here')} 
-        onValue={function (val: string): void {
-          throw new Error('Function not implemented.');
-        } }      /> */}
         <Pressable
           onPress={() => {
             navigation.navigate('EnterDestinationScreen');

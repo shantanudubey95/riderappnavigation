@@ -24,7 +24,7 @@ const WelcomeScreen = ({ navigation }: { navigation: any }) => {
             style={tw`h-full`}
           />
         </View>
-        <View style={tw`flex-1 bg-[${COLORS.WHITE}] p-5`}>
+        <View style={tw`flex-1 bg-[${COLORS.WHITE}] pl-5 pr-5 pt-5`}>
           <View
             style={tw`flex-1 bg-[${COLORS.WHITE}] flex-col-reverse items-center justify-between`}>
             <View style={tw`w-full`}>

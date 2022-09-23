@@ -47,6 +47,7 @@ export default function EnterOTPScreen({ route, navigation }: Props) {
           onPress={() => navigation.navigate('EnterNameAndEmailScreen')}
         />
       </KeyboardAvoidingView>
+      <View style={tw`h-5`} />
     </View>
   );
 }

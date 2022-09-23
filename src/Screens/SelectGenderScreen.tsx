@@ -59,6 +59,7 @@ const SelectGenderScreen = ({ navigation }: { navigation: any }) => {
           }}
         />
       </KeyboardAvoidingView>
+      <View style={tw`h-5`} />
     </View>
   );
 };

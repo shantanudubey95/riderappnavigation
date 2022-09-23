@@ -59,7 +59,7 @@ export default function AuthNavigation({ navigation }: { navigation: any }) {
       <Stack.Screen
         name="EnterOTPScreen"
         component={EnterOTPScreen}
-        options={{ title: 'Enter OTP', ...HEADER(navigation) }}
+        options={{ title: 'Enter OTP (1/3)', ...HEADER(navigation) }}
       />
       <Stack.Screen
         name="EnterNameAndEmailScreen"
