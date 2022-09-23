@@ -53,7 +53,7 @@ export default function HomeNavigation({ navigation }: { navigation: any }) {
       <Stack.Screen
         name="EnterDestinationScreen"
         component={EnterDestinationScreen}
-        options={{ headerShown: false }}
+        options={{ title: 'Destination', ...HEADER(navigation) }}
       />
       <Stack.Screen name="LocationErrorScreen" component={LocationErrorScreen} />
       <Stack.Screen name="InternetErrorScreen" component={InternetErrorScreen} />

@@ -12,7 +12,7 @@ import SuggaaMarker from '../Components/SuggaaMarker';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 import { withAnchorPoint } from '../utils/WithAnchorPoint';
-import EnterDestinationScreen from './EnterDestinationScreen';
+
 type region = {
   latitude: number;
   longitude: number;

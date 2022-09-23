@@ -82,3 +82,5 @@ export const OUTSTATION_SELECTED = require('../../assets/OutstationSelected.png'
 export const CITY_UNSELECTED = require('../../assets/CityUnselected.png');
 export const SUGGAA_LOGO = require('../../assets/Suggaa_logo.png');
 export const BIG_TICK = require('../../assets/Big_Tick.png');
+export const ADD = require('../../assets/add.png');
+export const LOCATION_POINT = require('../../assets/LocationPoint.png');
