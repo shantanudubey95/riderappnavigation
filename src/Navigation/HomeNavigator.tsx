@@ -55,15 +55,31 @@ export default function HomeNavigation({ navigation }: { navigation: any }) {
         component={EnterDestinationScreen}
         options={{ title: 'Destination', ...HEADER(navigation) }}
       />
-      <Stack.Screen name="LocationErrorScreen" component={LocationErrorScreen} />
-      <Stack.Screen name="InternetErrorScreen" component={InternetErrorScreen} />
-      <Stack.Screen name="ServiceNotAvailableScreen" component={ServiceNotAvailableScreen} />
+      <Stack.Screen
+        name="LocationErrorScreen"
+        component={LocationErrorScreen}
+        options={{ title: 'Location Error', ...TITLE_ONLY_HEADER }}
+      />
+      <Stack.Screen
+        name="InternetErrorScreen"
+        component={InternetErrorScreen}
+        options={{ title: 'Internet Error', ...TITLE_ONLY_HEADER }}
+      />
+      <Stack.Screen
+        name="ServiceNotAvailableScreen"
+        component={ServiceNotAvailableScreen}
+        options={{ title: 'Service Not Available', ...TITLE_ONLY_HEADER }}
+      />
       <Stack.Screen
         name="VerifyEmailScreen"
         component={VerifyEmailScreen}
-        options={{ title: 'Verify Email', ...HEADER }}
+        options={{ title: 'Verify Email', ...HEADER(navigation) }}
       />
-      <Stack.Screen name="OTPLimitScreen" component={OTPLimitScreen} />
+      <Stack.Screen
+        name="OTPLimitScreen"
+        component={OTPLimitScreen}
+        options={{ title: 'OTP Limit', ...HEADER(navigation) }}
+      />
       <Stack.Screen name="ApplyCouponScreen" component={ApplyCouponScreen} />
       <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
       <Stack.Screen name="ProcessingPaymentScreen" component={ProcessingPaymentScreen} />

@@ -7,6 +7,7 @@ import PressableButton from '../Components/PressableButton';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
+import LocationErrorScreen from './LocationErrorScreen';
 const EnterDestinationScreen = ({ navigation }: { navigation: any }) => {
   const [startAddress, setStartAddress] = React.useState('');
   const [stopAddress, setStopAddress] = React.useState('');
@@ -29,7 +30,12 @@ const EnterDestinationScreen = ({ navigation }: { navigation: any }) => {
           onValueChange={setStopAddress}
         />
         <View style={tw`w-2`} />
-        <PressableButton icon={IMAGES.ADD} onPress={() => {}} />
+        <PressableButton
+          icon={IMAGES.ADD}
+          onPress={() => {
+            navigation.navigate(LocationErrorScreen);
+          }}
+        />
       </View>
       <View style={tw`flex-1`} />
       <View
