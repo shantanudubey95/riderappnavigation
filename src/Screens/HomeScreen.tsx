@@ -75,7 +75,7 @@ const HomeScreen = ({
       <MapView
         // followsUserLocation
         zoomEnabled
-        provider="google"
+        // provider="google"
         // onMapReady={goToInitialLocation}
         // initialRegion={myLocation && { ...myLocation, latitudeDelta: 5, longitudeDelta: 5 }}
         showsMyLocationButton

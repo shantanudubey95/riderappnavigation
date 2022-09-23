@@ -34,11 +34,9 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
-        <NavigationContainer>
-          <DrawerNavigation />
-        </NavigationContainer>
-      </SafeAreaView>
+      <NavigationContainer>
+        <DrawerNavigation />
+      </NavigationContainer>
     );
   }
 }
