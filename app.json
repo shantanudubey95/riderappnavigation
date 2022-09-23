@@ -26,7 +26,12 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.shantanudubey1.RiderAppNavigation"
+      "package": "com.shantanudubey1.RiderAppNavigation",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBYkVZ398sQrKfkKccdpRPe_dA57lD3y3w"
+          }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -34,6 +34,9 @@ const EnterNameAndEmailScreen = ({ navigation }: { navigation: any }) => {
           // errorText={error}
           onChangeText={(text) => setName(text)}
           selectionColor={COLORS.SPANISH_VIRIDIAN}
+          autoComplete="name"
+          keyboardType="default"
+          autoCapitalize="words"
         />
       </View>
       <View style={tw`w-full mb-7`}>
@@ -54,6 +57,8 @@ const EnterNameAndEmailScreen = ({ navigation }: { navigation: any }) => {
           // errorText={error}
           onChangeText={(text) => setEmail(text)}
           selectionColor={COLORS.SPANISH_VIRIDIAN}
+          autoComplete="email"
+          keyboardType="email-address"
         />
       </View>
       <TextRegular15 style={tw`text-[${COLORS.FELDGRAU}]`}>We will use these details</TextRegular15>
