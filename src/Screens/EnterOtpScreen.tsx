@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, StatusBar, KeyboardAvoidingView, Platform } from 'react-native';
 import tw from 'twrnc';
 
 import AnimatedText from '../Components/AnimatedText';
@@ -9,13 +9,15 @@ import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
 import * as COLORS from '../config/colors';
 type Props = any;
-export default function EnterOTPScreen({ navigation }: Props) {
+export default function EnterOTPScreen({ route, navigation }: Props) {
+  const { phoneNumber } = route.params;
   const [OTP, setOTP] = React.useState('');
   return (
     <View style={tw`p-5 items-center flex-1 bg-[${COLORS.WHITE}]`}>
+      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
       <TextRegular15 style={tw`text-[${COLORS.FELDGRAU}]`}>An OTP was sent to</TextRegular15>
       <View style={tw`h-0.75`} />
-      <TextSemiBold15 style={tw`text-[${COLORS.BLACK}]`}>+91 9570919010</TextSemiBold15>
+      <TextSemiBold15 style={tw`text-[${COLORS.BLACK}]`}>+91 {phoneNumber}</TextSemiBold15>
       <View style={tw`h-1.75`} />
       <TextRegular15
         onPress={() => {

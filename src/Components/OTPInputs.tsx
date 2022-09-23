@@ -74,7 +74,10 @@ export default function OTPInputs({ numberOfInputs, setOTP }: Props) {
       {textInputRefs.map((value, index) => (
         <TextInput
           key={`textinput-${index}`}
-          style={tw`mx-2.5 h-12 w-12 border-2 rounded-md border-[${COLORS.SPANISH_VIRIDIAN}] font-bold text-xl`}
+          style={[
+            tw`border-2 rounded-md border-2 border-[${COLORS.SPANISH_VIRIDIAN}] h-12 w-12 mx-2.5 `,
+            { fontFamily: 'Poppins_400Regular', fontSize: 20, textAlign: 'center', lineHeight: 30 },
+          ]}
           keyboardType="numeric"
           textAlign="center"
           selectionColor={COLORS.SPANISH_VIRIDIAN}

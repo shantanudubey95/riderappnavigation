@@ -14,7 +14,7 @@ const WelcomeScreen = ({ navigation }: { navigation: any }) => {
     <>
       <SafeAreaView style={tw`flex-0 bg-[${COLORS.BRIGHT_GREY}]`} />
       <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-        <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+        <StatusBar backgroundColor={COLORS.BRIGHT_GREY} barStyle="dark-content" />
         <View style={tw`flex-1 justify-center bg-[#E6F2EF]`}>
           <LottieView
             onAnimationFinish={() => setAnimationFinished(true)}
@@ -41,16 +41,15 @@ const WelcomeScreen = ({ navigation }: { navigation: any }) => {
               </TextRegular12>
             </View>
             <View style={tw`w-full mt-5`}>
-              {/* <SuggaaButton text="Enter Phone Number" buttonType="FILLED" /> */}
               <TextSemiBold22>Enter Phone Number</TextSemiBold22>
               <Pressable
                 onPress={() => navigation.navigate('EnterPhoneNumberScreen')}
-                style={tw`flex-row w-full bg-[#E6F2EF] rounded-1.25 p-2.25 items-center mt-5`}>
+                style={tw`flex-row w-full border-2 border-[${COLORS.SPANISH_VIRIDIAN}] rounded-1.25 p-2.25 items-center mt-5`}>
                 <Image
                   source={require('../../assets/Flag.png')}
-                  style={{ height: 20, width: 33, marginLeft: 7, marginRight: 11 }}
+                  style={{ height: 20, width: 33, marginLeft: 7 }}
                 />
-                <TextRegular20>+91</TextRegular20>
+                <TextRegular20 style={{ marginTop: 3, marginLeft: 11 }}>+91</TextRegular20>
               </Pressable>
             </View>
           </View>
