@@ -49,8 +49,9 @@ const HomeScreen = ({
       if (status !== 'granted') {
         return;
       }
-      Location.watchPositionAsync({}, (result) => {
+      Location.getCurrentPositionAsync().then((result) => {
         setLocation({ ...result?.coords });
+        goToInitialLocation({ ...result?.coords, latitudeDelta: 0.005, longitudeDelta: 0.005 });
       });
       Location.watchHeadingAsync((result) => {
         setRotation(result.magHeading);
@@ -65,7 +66,7 @@ const HomeScreen = ({
       : null;
     if (initialRegion) {
       initialRegion['latitudeDelta'] = 0.005;
-      initialRegion['longitudeDelta'] = 0.005;
+      initialRegion['longitudeDelta'] = 0.00912;
       map?.current?.animateToRegion(initialRegion, 2000);
     }
   }
@@ -75,10 +76,10 @@ const HomeScreen = ({
       <MapView
         // followsUserLocation
         zoomEnabled
-        // provider="google"
+        provider="google"
         // onMapReady={goToInitialLocation}
         // initialRegion={myLocation && { ...myLocation, latitudeDelta: 5, longitudeDelta: 5 }}
-        showsMyLocationButton
+        // showsMyLocationButton
         ref={map}
         style={tw`w-[${Dimensions.get('window').width}] h-[${Dimensions.get('window').width}]`}>
         {myLocation && (
@@ -110,7 +111,7 @@ const HomeScreen = ({
       </MapView>
       <View
         style={tw`absolute top-[${
-          Platform.OS === 'android' ? StatusBar?.currentHeight / 3 : `2`
+          Platform.OS === 'android' ? StatusBar?.currentHeight / 3 : `15`
         }] w-full flex-row`}>
         <View style={tw`w-5`} />
         <HamburgerIcon

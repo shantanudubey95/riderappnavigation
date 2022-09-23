@@ -1,7 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { TextInput, TextInputProps, View, Text } from 'react-native';
 import tw from 'twrnc';
-
+import * as COLORS from '../config/colors';
 type Props = TextInputProps & {
   numberOfCharacters: number;
   handleInput: (inputText: string) => void;
@@ -56,7 +56,7 @@ export default function (props: Props) {
         ref={inputRef}
         {...props}
         style={[
-          tw`opacity-0, absolute self-center font-bold text-green-600 text-lg text-center tabular-nums`,
+          tw`opacity-0, absolute self-center font-bold text-[${COLORS.SPANISH_VIRIDIAN}] text-lg text-center tabular-nums`,
         ]}
         maxLength={props.numberOfCharacters}
         onKeyPress={(e) => (
