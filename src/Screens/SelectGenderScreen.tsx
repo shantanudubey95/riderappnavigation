@@ -37,14 +37,7 @@ const SelectGenderScreen = ({ navigation }: { navigation: any }) => {
       </View>
       <TextSemiBold15 style={tw`mt-17.5`}>when do you like to be wished?</TextSemiBold15>
       <View style={tw`h-4`} />
-      <DateInput
-        onValue={alert}
-        color="text-green-600"
-        textStyle={[tw`font-bold text-green-600 text-lg text-center tabular-nums`]}
-        viewStyle={[
-          tw`flex-row py-4 px-8 rounded-2 items-center border-2 border-green-600 self-start`,
-        ]}
-      />
+      <DateInput setDate={() => {}} />
       <View style={tw`flex-1`} />
       <KeyboardAvoidingView
         style={{ width: '100%' }}

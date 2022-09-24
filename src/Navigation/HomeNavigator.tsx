@@ -10,11 +10,13 @@ import ApplyCouponScreen from '../Screens/ApplyCouponScreen';
 import EnterDestinationScreen from '../Screens/EnterDestinationScreen';
 import HomeScreen from '../Screens/HomeScreen';
 import InternetErrorScreen from '../Screens/InternetErrorScreen';
+import LocateOnMapScreen from '../Screens/LocateOnMapScreen';
 import LocationErrorScreen from '../Screens/LocationErrorScreen';
 import OTPLimitScreen from '../Screens/OTPLimitScreen';
 import PaymentDoneScreen from '../Screens/PaymentDoneScreen';
 import PaymentScreen from '../Screens/PaymentScreen';
 import ProcessingPaymentScreen from '../Screens/ProcessingPaymentScreen';
+import SelectRideScreen from '../Screens/SelectRideScreen';
 import ServiceNotAvailableScreen from '../Screens/ServiceNotAvailableScreen';
 import VerifyEmailScreen from '../Screens/VerifyEmailScreen';
 import * as COLORS from '../config/colors';
@@ -54,6 +56,16 @@ export default function HomeNavigation({ navigation }: { navigation: any }) {
         name="EnterDestinationScreen"
         component={EnterDestinationScreen}
         options={{ title: 'Destination', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="LocateOnMapScreen"
+        component={LocateOnMapScreen}
+        options={{ title: 'Destination', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="SelectRideScreen"
+        component={SelectRideScreen}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="LocationErrorScreen"

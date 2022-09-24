@@ -11,6 +11,7 @@ type props = {
   inputText: string;
   onValueChange: (address: string) => void;
   clearInput: () => void;
+  autoFocus?: boolean;
 };
 
 export default function PickAndDropInput({
@@ -18,6 +19,7 @@ export default function PickAndDropInput({
   onValueChange,
   inputText,
   inputTitle,
+  autoFocus,
 }: props) {
   return (
     <View style={tw`h-12 p-1.75 shadow-md bg-[${COLORS.WHITE}] rounded-1.25 flex-1 justify-center`}>
@@ -34,6 +36,7 @@ export default function PickAndDropInput({
           }]`}
         />
         <TextInput
+          autoFocus={autoFocus}
           value={inputText}
           selectionColor={COLORS.SPANISH_VIRIDIAN}
           onChangeText={onValueChange}

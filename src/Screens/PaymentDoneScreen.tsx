@@ -1,16 +1,40 @@
-import React from "react";
-import { View, Text, Button } from "react-native";
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+
+import AnimatedBottomSheet from '../Components/AnimatedBottomSheet';
 
 const PaymentDoneScreen = ({ navigation }: { navigation: any }) => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Payment Done Screen</Text>
-      <Button
-        title="Navigate to next screen"
-        onPress={() => {
-          navigation.navigate("HomeScreen");
-        }}
-      />
+      <AnimatedBottomSheet scrollable navigation={() => {}}>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+        <Text>Payment Done Screen</Text>
+      </AnimatedBottomSheet>
     </View>
   );
 };

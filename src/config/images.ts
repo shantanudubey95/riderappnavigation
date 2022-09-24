@@ -89,3 +89,4 @@ export const SERVICE_NOT_AVAILABLE = require('../../assets/ServiceNotAvailable.p
 export const VERIFY_EMAIL = require('../../assets/VerifyEmail.png');
 export const OTP_LIMIT = require('../../assets/OTPLimit.png');
 export const INTERNET_ERROR = require('../../assets/InternetError.png');
+export const PAST_TIMER = require('../../assets/past.png');

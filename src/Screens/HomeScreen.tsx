@@ -1,7 +1,7 @@
 import * as Location from 'expo-location';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
-import { View, Dimensions, StatusBar, Platform } from 'react-native';
-import MapView from 'react-native-maps';
+import { View, StatusBar, Platform } from 'react-native';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
 import BottomSheet from '../Components/BottomSheet';
@@ -76,12 +76,12 @@ const HomeScreen = ({
       <MapView
         // followsUserLocation
         zoomEnabled
-        provider="google"
+        provider={PROVIDER_GOOGLE}
         // onMapReady={goToInitialLocation}
         // initialRegion={myLocation && { ...myLocation, latitudeDelta: 5, longitudeDelta: 5 }}
         // showsMyLocationButton
         ref={map}
-        style={tw`w-[${Dimensions.get('window').width}] h-[${Dimensions.get('window').width}]`}>
+        style={tw`w-full h-full`}>
         {myLocation && (
           <SuggaaMarker
             currentLocation
@@ -109,9 +109,14 @@ const HomeScreen = ({
           coordinate={{ latitude: 12.916733188211659, longitude: 77.52006352433035 }}
         />
       </MapView>
+
       <View
         style={tw`absolute top-[${
-          Platform.OS === 'android' ? StatusBar?.currentHeight / 3 : `15`
+          Platform.OS === 'android'
+            ? StatusBar?.currentHeight
+              ? StatusBar?.currentHeight / 3
+              : `15`
+            : `15`
         }] w-full flex-row`}>
         <View style={tw`w-5`} />
         <HamburgerIcon
@@ -128,6 +133,7 @@ const HomeScreen = ({
         />
         <View style={tw`w-5`} />
       </View>
+
       <View style={tw`absolute right-5 top-75`}>
         <CurrentLocationButton
           style={tw`p-2 self-start rounded-1.25 bg-[${COLORS.WHITE}] shadow-md`}
@@ -135,6 +141,7 @@ const HomeScreen = ({
           ImageId={IMAGES.CURRENT_LOCATION}
         />
       </View>
+
       <BottomSheet navigation={navigation} scrollable={false} />
     </View>
   );
