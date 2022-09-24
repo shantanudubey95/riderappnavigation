@@ -1,17 +1,26 @@
-import React from "react";
-import { View, Text, Button } from "react-native";
+import React from 'react';
+import { View, StatusBar } from 'react-native';
+import {
+  SafeAreaView,
+  SafeAreaProvider,
+  SafeAreaInsetsContext,
+  useSafeAreaInsets,
+  initialWindowMetrics,
+} from 'react-native-safe-area-context';
 
 const PrivacyAndTermsScreen = ({ navigation }: { navigation: any }) => {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Privacy And Terms Screen</Text>
-      <Button
-        title="Navigate to next screen"
-        onPress={() => {
-          navigation.navigate("SplashScreen");
-        }}
-      />
-    </View>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: 'red',
+        paddingTop: insets.top,
+        paddingLeft: insets.left,
+        paddingBottom: insets.bottom,
+        paddingRight: insets.right,
+      }}
+    />
   );
 };
 

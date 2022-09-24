@@ -13,6 +13,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
 import DrawerNavigation from './src/Navigation/DrawerNavigation';
@@ -35,10 +36,11 @@ export default function App() {
   } else {
     return (
       // <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
-      <NavigationContainer>
-        <DrawerNavigation />
-      </NavigationContainer>
-      // </SafeAreaView>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <DrawerNavigation />
+        </NavigationContainer>
+      </SafeAreaProvider>
     );
   }
 }

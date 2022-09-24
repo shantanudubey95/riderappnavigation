@@ -47,14 +47,14 @@ export default function AuthNavigation({ navigation }: { navigation: any }) {
     <Stack.Navigator>
       <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
       <Stack.Screen
-        name="EnterPhoneNumberScreen"
-        component={EnterPhoneNumberScreen}
-        options={{ title: 'Enter Phone Number', ...HEADER(navigation) }}
-      />
-      <Stack.Screen
         name="WelcomeScreen"
         component={WelcomeScreen}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="EnterPhoneNumberScreen"
+        component={EnterPhoneNumberScreen}
+        options={{ title: 'Enter Phone Number', ...HEADER(navigation) }}
       />
       <Stack.Screen
         name="EnterOTPScreen"
@@ -76,7 +76,11 @@ export default function AuthNavigation({ navigation }: { navigation: any }) {
         component={ProfileCreatedSplashScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="PrivacyAndTermsScreen" component={PrivacyAndTermsScreen} />
+      <Stack.Screen
+        name="PrivacyAndTermsScreen"
+        component={PrivacyAndTermsScreen}
+        options={{ title: 'zkoferfjekn', ...HEADER(navigation) }}
+      />
     </Stack.Navigator>
   );
 }

@@ -44,7 +44,6 @@ const EnterDestinationScreen = ({ navigation }: { navigation: any }) => {
         <View style={tw`w-1`} />
         <TextSemiBold15>Locate on map</TextSemiBold15>
       </View>
-
     </View>
   );
 };

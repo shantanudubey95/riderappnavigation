@@ -46,7 +46,7 @@ export default function EnterPhoneNumberScreen({ navigation }: Props) {
           <SuggaaButton text="Next" buttonType="DISABLED" onPress={() => {}} />
         )}
       </KeyboardAvoidingView>
-      <View style={tw`h-5`} />
+      <View style={tw`h-4`} />
     </View>
   );
 }
