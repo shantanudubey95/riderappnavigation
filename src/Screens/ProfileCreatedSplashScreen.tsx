@@ -12,13 +12,7 @@ const ProfileCreatedSplashScreen = ({ navigation }: { navigation: any }) => {
   const [, setAnimationFinished] = React.useState(false);
   return (
     <View style={tw`flex-1 bg-[${COLORS.WHITE}] w-full p-5 pt-6 items-center `}>
-      <TextSemiBold22
-        style={tw`mt-25`}
-        onPress={() => {
-          navigation.navigate('PrivacyAndTermsScreen');
-        }}>
-        Welcome
-      </TextSemiBold22>
+      <TextSemiBold22 style={tw`mt-25`}>Welcome</TextSemiBold22>
       <View style={tw`h-14`} />
       <Image source={IMAGES.SUGGAA_LOGO} />
       <TextSemiBold22 style={tw`text-[${COLORS.SPANISH_VIRIDIAN}] mt-6.25`}>

@@ -1,6 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { TextInput, TextInputProps, View, Text } from 'react-native';
 import tw from 'twrnc';
+
 import * as COLORS from '../config/colors';
 type Props = TextInputProps & {
   numberOfCharacters: number;

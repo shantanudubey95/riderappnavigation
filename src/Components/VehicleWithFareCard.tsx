@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, Pressable } from 'react-native';
+import { View, Image, Pressable } from 'react-native';
 import tw from 'twrnc';
 
 import TextMedium15 from '../Typography/TextMedium15';
@@ -40,11 +40,7 @@ export default function VehicleWithFareCard({ vehicleType, duration, fare, onPre
         </View>
         {/* <Text numberOfLines={1} style={tw`text-[${COLORS.BLACK}] text-3.37 text-[${COLORS.LIGHT_GRAY_BORDER}]`}>{duration} min</Text> */}
         <View style={tw`flex-1`} />
-        <Text
-          numberOfLines={1}
-          style={tw`text-[${COLORS.BLACK}] text-3.75 text-[${COLORS.BLACK}] font-medium`}>
-          ₹{fare}
-        </Text>
+        <TextMedium15>₹{fare}</TextMedium15>
         <Pressable onPress={onPress} style={tw`ml-2.75 bottom-1`}>
           <Image source={IMAGES.INFO_GREY} />
         </Pressable>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, Pressable, Image } from 'react-native';
+import { Pressable, Image } from 'react-native';
 import type { PressableProps } from 'react-native';
 import tw from 'twrnc';
 
+import TextSemiBold15 from '../Typography/TextSemiBold15';
 import * as COLORS from '../config/colors';
 type props = PressableProps & {
   text: string;
@@ -23,13 +24,13 @@ export default function SuggaaImageButton({ onPress, text, buttonType, imageId }
       } shadow-md rounded-1.25 p-2.25 items-center flex-1 self-stretch flex-row justify-center`}
       onPress={onPress}>
       <Image style={tw`mr-1.75`} source={imageId} />
-      <Text
+      <TextSemiBold15
         numberOfLines={1}
-        style={tw`text-sm  ${
+        style={tw`${
           buttonType === 'BORDER' ? `text-[${COLORS.SPANISH_VIRIDIAN}]` : `text-[${COLORS.WHITE}]`
-        } font-bold`}>
+        } top-0.5`}>
         {text}
-      </Text>
+      </TextSemiBold15>
     </Pressable>
   );
 }

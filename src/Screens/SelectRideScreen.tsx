@@ -5,13 +5,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
 import BottomModal from '../Components/BottomModel';
-import HamburgerIcon from '../Components/HamburgerIcon';
 import PressableButton from '../Components/PressableButton';
 import SuggaButton from '../Components/SuggaaButton';
 import SuggaaImageButton from '../Components/SuggaaImageButton';
 import SuggaaMarker from '../Components/SuggaaMarker';
 import VehicleWithFareCard from '../Components/VehicleWithFareCard';
-import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 // type FocusLocation = {
 //   lat: number;
