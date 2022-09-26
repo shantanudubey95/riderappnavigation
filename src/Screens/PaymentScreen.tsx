@@ -154,6 +154,7 @@ const PaymentScreen = ({ navigation }: { navigation: any }) => {
                 text="Submit and Proceed"
                 buttonType="FILLED"
                 onPress={() => {
+                  navigation.navigate('HomeScreen');
                   setShowModal(true);
                 }}
               />
