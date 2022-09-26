@@ -92,3 +92,6 @@ export const OTP_LIMIT = require('../../assets/OTPLimit.png');
 export const INTERNET_ERROR = require('../../assets/InternetError.png');
 export const PAST_TIMER = require('../../assets/past.png');
 export const CONNECT_RIDE = require('../../assets/ConnectingRide.png');
+// export const CAR_SMALL_INACTIVE = require('../../assets/carSmallInactive.png');
+export const ERROR_ICON = require('../../assets/errorIcon.png');
+export const BADGE_VIEW = require('../../assets/badgeView.png');
