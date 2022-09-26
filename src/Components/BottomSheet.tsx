@@ -4,22 +4,26 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import tw from 'twrnc';
 
-// import DriverDetails from './DriverDetails';
-// import Payment from './PaymentMethod';
-// import InputSearchLocation from '../Components/InputSearchLocation';
-// import PressableButton from '../Components/PressableButton';
-// import RideDetails from './RideDetails';
 import TextBold22 from '../Typography/TextBold22';
 import TextMedium15 from '../Typography/TextMedium15';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
+import CurrentLocationButton from './CurrentLocationButton';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 const MAX_TRANSLATE_Y = -SCREEN_HEIGHT;
 
-const BottomSheet = ({ navigation, scrollable }: { navigation: any; scrollable: boolean }) => {
+const BottomSheet = ({
+  navigation,
+  scrollable,
+  onPress,
+}: {
+  navigation: any;
+  scrollable: boolean;
+  onPress: any;
+}) => {
   const [selected, setSelected] = React.useState('City');
   const translateY = useSharedValue(0);
   const scrollTo = React.useCallback((destination: number) => {
@@ -60,8 +64,13 @@ const BottomSheet = ({ navigation, scrollable }: { navigation: any; scrollable: 
           { top: SCREEN_HEIGHT },
           BottomSheetStyle,
         ]}>
+        <CurrentLocationButton
+          style={tw`p-2 w-12 self-end rounded-1.25 bg-[${COLORS.WHITE}] shadow-md top--15 right-5`}
+          onPress={onPress}
+          ImageId={IMAGES.CURRENT_LOCATION}
+        />
         <View
-          style={tw`w-15 h-1.25 bg-[${COLORS.LIGHT_GRAY_BORDER}] self-center my-2.25 rounded-md`}
+          style={tw`w-15 h-1.25 bg-[${COLORS.LIGHT_GRAY_BORDER}] self-center top--8 rounded-md`}
         />
         <View style={tw`flex-row w-full`}>
           <Pressable

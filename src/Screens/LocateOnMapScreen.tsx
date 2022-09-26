@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { decode } from '@googlemaps/polyline-codec';
+import * as Location from 'expo-location';
 import React, { useState, useMemo, useRef } from 'react';
 import { View, StatusBar, Image, Pressable, Dimensions, Platform } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
@@ -35,8 +37,12 @@ const LocateOnMapScreen = ({
   drop?: location;
   navigation: any;
 }) => {
+  const [myLocation, setLocation] = useState<location>();
   const [startAddress, setStartAddress] = React.useState('');
+  const [rotate, setRotation] = useState(0);
   const [stopAddress, setStopAddress] = React.useState('');
+  const [polyLines, setPolyLines] = useState<location[]>([]);
+
   // const [myLocation, setLocation] = useState<location>();
   // const [rotate, setRotation] = useState(0);
   const map = useRef(null);
@@ -48,6 +54,54 @@ const LocateOnMapScreen = ({
   //   );
   // }, [rotate]);
   const insets = useSafeAreaInsets();
+  React.useEffect(() => {
+    (async () => {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        return;
+      }
+      Location.getCurrentPositionAsync().then((result) => {
+        setLocation({ ...result?.coords });
+        goToInitialLocation({ ...result?.coords, latitudeDelta: 0.005, longitudeDelta: 0.005 });
+      });
+      Location.watchHeadingAsync((result) => {
+        setRotation(result.magHeading);
+      });
+      getDirection();
+    })();
+  }, []);
+  function goToInitialLocation(region?: region) {
+    const initialRegion = region
+      ? region
+      : myLocation
+      ? { ...myLocation, latitudeDelta: 0, longitudeDelta: 0 }
+      : null;
+    if (initialRegion) {
+      initialRegion['latitudeDelta'] = 0.005;
+      initialRegion['longitudeDelta'] = 0.00912;
+      map?.current?.animateToRegion(initialRegion, 2000);
+    }
+  }
+  function getDirection() {
+    fetch(
+      `https://maps.googleapis.com/maps/api/directions/json?origin=12.918510,77.520564&destination=12.929481,77.544475&key=AIzaSyBYkVZ398sQrKfkKccdpRPe_dA57lD3y3w`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const points = data?.routes[0]?.overview_polyline?.points;
+        const decodedPoints = decode(points, 5);
+        const coords = decodedPoints.map((point) => {
+          return {
+            latitude: point[0],
+            longitude: point[1],
+          };
+        });
+        setPolyLines(coords);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   return (
     <View style={tw`flex-1 bg-[${COLORS.WHITE}] items-center`}>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
@@ -60,8 +114,20 @@ const LocateOnMapScreen = ({
         // showsMyLocationButton
         ref={map}
         style={tw`h-full w-full`}>
+        <SuggaaMarker
+          currentLocation
+          image={IMAGES.PICKUP_MARKER}
+          noTransForm
+          coordinate={{ latitude: 12.91851, longitude: 77.520564 }}
+        />
+        <SuggaaMarker
+          image={IMAGES.DROP_MARKER}
+          noTransForm
+          coordinate={{ latitude: 12.929481, longitude: 77.544475 }}
+        />
         {pickUp && <SuggaaMarker noTransForm image={IMAGES.PICKUP_MARKER} coordinate={pickUp} />}
         {drop && <SuggaaMarker noTransForm image={IMAGES.DROP_MARKER} coordinate={drop} />}
+        <Polyline coordinates={polyLines} strokeColor={COLORS.BLACK} strokeWidth={2} />
       </MapView>
       <View style={tw`w-full absolute bg-white items-center`}>
         <View style={tw`w-full px-5 h-12`}>

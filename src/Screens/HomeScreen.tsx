@@ -5,7 +5,6 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
 import BottomSheet from '../Components/BottomSheet';
-import CurrentLocationButton from '../Components/CurrentLocationButton';
 import HamburgerIcon from '../Components/HamburgerIcon';
 import PickAndDropInput from '../Components/PickAndDropInput';
 import SuggaaMarker from '../Components/SuggaaMarker';
@@ -78,7 +77,7 @@ const HomeScreen = ({
         zoomEnabled
         provider={PROVIDER_GOOGLE}
         // onMapReady={goToInitialLocation}
-        // initialRegion={myLocation && { ...myLocation, latitudeDelta: 5, longitudeDelta: 5 }}
+        initialRegion={myLocation && { ...myLocation, latitudeDelta: 5, longitudeDelta: 5 }}
         // showsMyLocationButton
         ref={map}
         style={tw`w-full h-full`}>
@@ -133,16 +132,11 @@ const HomeScreen = ({
         />
         <View style={tw`w-5`} />
       </View>
-
-      <View style={tw`absolute right-5 top-75`}>
-        <CurrentLocationButton
-          style={tw`p-2 self-start rounded-1.25 bg-[${COLORS.WHITE}] shadow-md`}
-          onPress={() => goToInitialLocation()}
-          ImageId={IMAGES.CURRENT_LOCATION}
-        />
-      </View>
-
-      <BottomSheet navigation={navigation} scrollable={false} />
+      <BottomSheet
+        onPress={() => goToInitialLocation()}
+        navigation={navigation}
+        scrollable={false}
+      />
     </View>
   );
 };
