@@ -4,7 +4,9 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import tw from 'twrnc';
 
+import FullScreenModal from '../Components/FullScreenModal';
 import Star from '../Components/Star';
+import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaImageButton from '../Components/SuggaaImageButton';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold12 from '../Typography/TextSemiBold12';
@@ -51,6 +53,7 @@ const PaymentScreen = ({ navigation }: { navigation: any }) => {
     };
   });
   const [rating, setRating] = React.useState(0);
+  const [showModal, setShowModal] = React.useState(false);
   const payCards = (name: string, value?: string, bolder?: boolean, color?: string) => {
     return (
       <View style={tw`flex-row items-center mt-3.75`}>
@@ -106,39 +109,58 @@ const PaymentScreen = ({ navigation }: { navigation: any }) => {
             </TextRegular15>
             <Star rating={rating} setRating={setRating} />
           </View>
-          <View style={tw`mt-7.5`}>
-            <View style={tw`flex-row items-center`}>
-              <View style={tw`w-4 h-4 bg-[${COLORS.SPANISH_VIRIDIAN}] rounded-full mr-2.5`} />
-              <TextRegular15>Birsa Munda Airport, Ranchi, Hurlung, ...</TextRegular15>
-            </View>
-            <View style={tw`h-4.5 w-0.25 ml-1.75 bg-[${COLORS.LIGHT_GRAY_BORDER}] self-start`} />
+          {rating === 0 ? (
+            <>
+              <View style={tw`mt-7.5`}>
+                <View style={tw`flex-row items-center`}>
+                  <View style={tw`w-4 h-4 bg-[${COLORS.SPANISH_VIRIDIAN}] rounded-full mr-2.5`} />
+                  <TextRegular15>Birsa Munda Airport, Ranchi, Hurlung, ...</TextRegular15>
+                </View>
+                <View
+                  style={tw`h-4.5 w-0.25 ml-1.75 bg-[${COLORS.LIGHT_GRAY_BORDER}] self-start`}
+                />
 
-            <View style={tw`flex-row items-center`}>
-              <View style={tw`w-4 h-4 bg-[${COLORS.LUST_RED}] rounded-full mr-2.5`} />
-              <TextRegular15>Birsa Munda Airport, Ranchi, Hurlung, ...</TextRegular15>
+                <View style={tw`flex-row items-center`}>
+                  <View style={tw`w-4 h-4 bg-[${COLORS.LUST_RED}] rounded-full mr-2.5`} />
+                  <TextRegular15>Birsa Munda Airport, Ranchi, Hurlung, ...</TextRegular15>
+                </View>
+              </View>
+              <View style={tw`mt-5`}>
+                {payCards('Payment Mode', 'Cash', true, COLORS.SPANISH_VIRIDIAN)}
+                {payCards('Bill Detail')}
+                {payCards('Ride Fare', '₹ 94.5')}
+                {payCards('Total Platform Charges', '₹ 94.5')}
+                {payCards('Coupon Savings', '₹ 94.5')}
+                {payCards('Taxes', '₹ 94.5')}
+                {payCards('Total payable', '₹ 1234', true)}
+              </View>
+              <View style={tw`flex-row w-full shadow-md bg-white rounded-md mt-8.25`}>
+                <View style={tw`flex-1 items-center justify-center py-5`}>
+                  <TextSemiBold18>2.34 KM</TextSemiBold18>
+                  <Text style={tw`font-normal text-base`}>Distance</Text>
+                </View>
+                <View style={tw`h-full w-.25 bg-[${COLORS.LIGHT_GRAY_BORDER}]`} />
+                <View style={tw`flex-1 items-center justify-center py-5`}>
+                  <TextSemiBold18>5.14</TextSemiBold18>
+                  <TextRegular15>Duration</TextRegular15>
+                </View>
+              </View>
+            </>
+          ) : (
+            <View style={{ alignItems: 'center', marginTop: 40 }}>
+              <TextSemiBold15>Great, where can we improve?</TextSemiBold15>
+              <View style={tw`h-90`} />
+              <SuggaaButton
+                text="Submit and Proceed"
+                buttonType="FILLED"
+                onPress={() => {
+                  setShowModal(true);
+                }}
+              />
             </View>
-          </View>
-          <View style={tw`mt-5`}>
-            {payCards('Payment Mode', 'Cash', true, COLORS.SPANISH_VIRIDIAN)}
-            {payCards('Bill Detail')}
-            {payCards('Ride Fare', '₹ 94.5')}
-            {payCards('Total Platform Charges', '₹ 94.5')}
-            {payCards('Coupon Savings', '₹ 94.5')}
-            {payCards('Taxes', '₹ 94.5')}
-            {payCards('Total payable', '₹ 1234', true)}
-          </View>
-          <View style={tw`flex-row w-full shadow-md bg-white rounded-md mt-8.25`}>
-            <View style={tw`flex-1 items-center justify-center py-5`}>
-              <TextSemiBold18>2.34 KM</TextSemiBold18>
-              <Text style={tw`font-normal text-base`}>Distance</Text>
-            </View>
-            <View style={tw`h-full w-.25 bg-[${COLORS.LIGHT_GRAY_BORDER}]`} />
-            <View style={tw`flex-1 items-center justify-center py-5`}>
-              <TextSemiBold18>5.14</TextSemiBold18>
-              <TextRegular15>Duration</TextRegular15>
-            </View>
-          </View>
+          )}
         </View>
+        <FullScreenModal showModal={showModal} />
       </Animated.View>
     </GestureDetector>
   );

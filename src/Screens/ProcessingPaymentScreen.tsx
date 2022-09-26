@@ -1,16 +1,18 @@
-import React from "react";
-import { View, Text, Button } from "react-native";
+import React from 'react';
+import { View } from 'react-native';
+
+import TextRegular18 from '../Typography/TextRegular18';
 
 const ProcessingPaymentScreen = ({ navigation }: { navigation: any }) => {
+  React.useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('PaymentDoneScreen');
+    }, 2000);
+  });
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Processing Payment Screen</Text>
-      <Button
-        title="Navigate to next screen"
-        onPress={() => {
-          navigation.navigate("PaymentDoneScreen");
-        }}
-      />
+    <View
+      style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+      <TextRegular18>Please Wait. Verifying Payment Status</TextRegular18>
     </View>
   );
 };

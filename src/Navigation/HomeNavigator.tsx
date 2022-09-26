@@ -122,12 +122,20 @@ export default function HomeNavigation({ navigation }: { navigation: any }) {
         options={{ headerShown: false }}
       />
       <Stack.Screen
+        name="ProcessingPaymentScreen"
+        component={ProcessingPaymentScreen}
+        options={{ title: 'Processing Payment', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="PaymentDoneScreen"
+        component={PaymentDoneScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
         name="PaymentScreen"
         component={PaymentScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="ProcessingPaymentScreen" component={ProcessingPaymentScreen} />
-      <Stack.Screen name="PaymentDoneScreen" component={PaymentDoneScreen} />
     </Stack.Navigator>
   );
 }

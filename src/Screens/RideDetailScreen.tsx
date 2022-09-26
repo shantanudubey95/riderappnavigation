@@ -136,7 +136,7 @@ const RideDetailScreen = ({
             />
             <Payment
               onPress={() => {
-                navigation.navigate('PaymentScreen');
+                navigation.navigate('ProcessingPaymentScreen');
               }}
               price={121}
             />
