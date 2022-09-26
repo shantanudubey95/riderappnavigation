@@ -6,8 +6,13 @@ import tw from 'twrnc';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 const MAX_TRANSLATE_Y = -SCREEN_HEIGHT;
+type props = {
+  navigation?: any;
+  scrollable?: boolean;
+  children?: any;
+};
 
-const AnimatedBottomSheet = ({ navigation, scrollable, children }) => {
+const AnimatedBottomSheet = ({ navigation, scrollable, children }: props) => {
   const translateY = useSharedValue(0);
   const scrollTo = React.useCallback((destination: number) => {
     'worklet';
@@ -30,7 +35,7 @@ const AnimatedBottomSheet = ({ navigation, scrollable, children }) => {
       }
     });
   React.useEffect(() => {
-    scrollTo(-SCREEN_HEIGHT / 2.5);
+    scrollTo(-SCREEN_HEIGHT / 2.2);
   }, []);
 
   const BottomSheetStyle = useAnimatedStyle(() => {

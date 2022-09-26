@@ -73,6 +73,7 @@ export const RICKSHAW_INACTIVE = require('../../assets/rickshawInactive.png');
 
 export const COUPON = require('../../assets/coupon.png');
 export const CASH = require('../../assets/cash.png');
+export const WALLET = require('../../assets/Wallet.png');
 export const INDIAN_FLAG = require('../../assets/indianFlag.png');
 export const SPLASH_SCREEN_LOGO = require('../../assets/splashScreenLogo.png');
 export const HEADER_BACK_ARROW = require('../../assets/headerBackArrow.png');
@@ -90,3 +91,4 @@ export const VERIFY_EMAIL = require('../../assets/VerifyEmail.png');
 export const OTP_LIMIT = require('../../assets/OTPLimit.png');
 export const INTERNET_ERROR = require('../../assets/InternetError.png');
 export const PAST_TIMER = require('../../assets/past.png');
+export const CONNECT_RIDE = require('../../assets/ConnectingRide.png');

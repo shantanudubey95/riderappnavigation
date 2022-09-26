@@ -7,6 +7,8 @@ import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
 import ApplyCouponScreen from '../Screens/ApplyCouponScreen';
+import CancelRideScreen from '../Screens/CancelRideScreen';
+import ConnectingToDriverScreen from '../Screens/ConnectingToDriverScreen';
 import EnterDestinationScreen from '../Screens/EnterDestinationScreen';
 import HomeScreen from '../Screens/HomeScreen';
 import InternetErrorScreen from '../Screens/InternetErrorScreen';
@@ -16,6 +18,8 @@ import OTPLimitScreen from '../Screens/OTPLimitScreen';
 import PaymentDoneScreen from '../Screens/PaymentDoneScreen';
 import PaymentScreen from '../Screens/PaymentScreen';
 import ProcessingPaymentScreen from '../Screens/ProcessingPaymentScreen';
+import RideDetailScreen from '../Screens/RideDetailScreen';
+import SelectPaymentMethodScreen from '../Screens/SelectPaymentMethodScreen';
 import SelectRideScreen from '../Screens/SelectRideScreen';
 import ServiceNotAvailableScreen from '../Screens/ServiceNotAvailableScreen';
 import VerifyEmailScreen from '../Screens/VerifyEmailScreen';
@@ -92,8 +96,36 @@ export default function HomeNavigation({ navigation }: { navigation: any }) {
         component={OTPLimitScreen}
         options={{ title: 'OTP Limit', ...HEADER(navigation) }}
       />
-      <Stack.Screen name="ApplyCouponScreen" component={ApplyCouponScreen} />
-      <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
+      <Stack.Screen
+        name="ApplyCouponScreen"
+        component={ApplyCouponScreen}
+        options={{ title: 'Apply Coupon', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="SelectPaymentMethodScreen"
+        component={SelectPaymentMethodScreen}
+        options={{ title: 'Payment', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="ConnectingToDriverScreen"
+        component={ConnectingToDriverScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="RideDetailScreen"
+        component={RideDetailScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CancelRideScreen"
+        component={CancelRideScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PaymentScreen"
+        component={PaymentScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="ProcessingPaymentScreen" component={ProcessingPaymentScreen} />
       <Stack.Screen name="PaymentDoneScreen" component={PaymentDoneScreen} />
     </Stack.Navigator>

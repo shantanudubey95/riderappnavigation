@@ -4,7 +4,8 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
-import BottomModal from '../Components/BottomModel';
+import AnimatedBottomSheet from '../Components/AnimatedBottomSheet';
+// import BottomModal from '../Components/BottomModel';
 import PressableButton from '../Components/PressableButton';
 import SuggaButton from '../Components/SuggaaButton';
 import SuggaaImageButton from '../Components/SuggaaImageButton';
@@ -63,7 +64,7 @@ const SelectRideScreen = ({
         <PressableButton icon={IMAGES.HEADER_BACK_ARROW} onPress={() => navigation.openDrawer()} />
         <View style={tw`w-5`} />
       </View>
-      <BottomModal showModal height="60%">
+      <AnimatedBottomSheet scrollable>
         <VehicleWithFareCard
           vehicleType="Book any"
           duration="0"
@@ -99,27 +100,27 @@ const SelectRideScreen = ({
             imageId={IMAGES.COUPON}
             buttonType="BORDER"
             text="Coupon"
-            onPress={() => alert('here')}
+            onPress={() => navigation.navigate('ApplyCouponScreen')}
           />
           <View style={tw`w-5`} />
           <SuggaaImageButton
             imageId={IMAGES.CASH}
             buttonType="BORDER"
             text="Cash"
-            onPress={() => alert('here')}
+            onPress={() => {
+              navigation.navigate('SelectPaymentMethodScreen');
+            }}
           />
         </View>
         <View style={tw`h-5`} />
         <View style={[tw`w-full px-5`, { paddingBottom: insets.bottom || 20 }]}>
-          <SuggaButton buttonType="FILLED" text="Book Mini" onPress={() => alert('here')} />
+          <SuggaButton
+            buttonType="FILLED"
+            text="Book Mini"
+            onPress={() => navigation.navigate('ConnectingToDriverScreen')}
+          />
         </View>
-      </BottomModal>
-
-      <SuggaButton
-        buttonType="FILLED"
-        text="Booking Modal"
-        onPress={() => {}} // onPress={() => dispatch({ type: 'showModal', payload: true })}
-      />
+      </AnimatedBottomSheet>
     </View>
   );
 };
