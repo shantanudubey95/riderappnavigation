@@ -6,8 +6,8 @@ import {
 import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
-import RideDetailScreen from '../Screens/RideDetailScreen';
 import RideSupportScreen from '../Screens/RideSupportScreen';
+import YourRideDetailScreen from '../Screens/YourRideDetailScreen';
 import YourRideScreen from '../Screens/YourRideScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
@@ -44,7 +44,7 @@ export default function YourRidesNavigation({ navigation }: { navigation: any })
         component={YourRideScreen}
         options={{ title: 'Destination', ...HEADER(navigation) }}
       />
-      <Stack.Screen name="RideDetailScreen" component={RideDetailScreen} />
+      <Stack.Screen name="YourRideDetailScreen" component={YourRideDetailScreen} />
       <Stack.Screen name="RideSupportScreen" component={RideSupportScreen} />
     </Stack.Navigator>
   );

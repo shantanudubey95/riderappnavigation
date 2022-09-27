@@ -16,6 +16,9 @@ const YourRideScreen = ({ navigation }: { navigation: any }) => {
         backgroundColor: 'white',
       }}>
       <RidesCard
+        onPress={() => {
+          navigation.navigate('YourRideDetailScreen');
+        }}
         values={{
           date: new Date(),
           fare: '123',
@@ -26,104 +29,6 @@ const YourRideScreen = ({ navigation }: { navigation: any }) => {
         // viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
         imageUrl="https://picsum.photos/200/300"
         // imageStyle="w-11.65 h-11.65 rounded-11.25"
-      />
-      <RidesCard
-        onPress={() => {
-          navigation.navigate('');
-        }}
-        values={{
-          date: '12/04/1995',
-          fare: '123',
-          location: 'some long address',
-          status: 'Completed',
-          vehicleType: 'AUTO',
-        }}
-        viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
-        imageUrl="https://picsum.photos/200/300"
-      />
-      <RidesCard
-        values={{
-          date: '12/04/1995',
-          fare: '123',
-          location: 'some long address',
-          status: 'Completed',
-          vehicleType: 'AUTO',
-        }}
-        viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
-        imageUrl="https://picsum.photos/200/300"
-        imageStyle="w-11.65 h-11.65 rounded-11.25"
-      />
-      <RidesCard
-        values={{
-          date: '12/04/1995',
-          fare: '123',
-          location: 'some long address',
-          status: 'Completed',
-          vehicleType: 'AUTO',
-        }}
-        viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
-        imageUrl="https://picsum.photos/200/300"
-        imageStyle="w-11.65 h-11.65 rounded-11.25"
-      />
-      <RidesCard
-        values={{
-          date: '12/04/1995',
-          fare: '123',
-          location: 'some long address',
-          status: 'Completed',
-          vehicleType: 'AUTO',
-        }}
-        viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
-        imageUrl="https://picsum.photos/200/300"
-        imageStyle="w-11.65 h-11.65 rounded-11.25"
-      />
-      <RidesCard
-        values={{
-          date: '12/04/1995',
-          fare: '123',
-          location: 'some long address',
-          status: 'Completed',
-          vehicleType: 'AUTO',
-        }}
-        viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
-        imageUrl="https://picsum.photos/200/300"
-        imageStyle="w-11.65 h-11.65 rounded-11.25"
-      />
-      <RidesCard
-        values={{
-          date: '12/04/1995',
-          fare: '123',
-          location: 'some long address',
-          status: 'Completed',
-          vehicleType: 'AUTO',
-        }}
-        viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
-        imageUrl="https://picsum.photos/200/300"
-        imageStyle="w-11.65 h-11.65 rounded-11.25"
-      />
-      <RidesCard
-        values={{
-          date: '12/04/1995',
-          fare: '123',
-          location: 'some long address',
-          status: 'Completed',
-          vehicleType: 'AUTO',
-        }}
-        viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
-        imageUrl="https://picsum.photos/200/300"
-        imageStyle="w-11.65 h-11.65 rounded-11.25"
-      />
-      <RidesCard
-        values={{
-          date: new Date(),
-          fare: '123',
-          location: 'some long address',
-          status: 'Completed',
-          vehicleType: 'AUTO',
-        }}
-        viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
-        imageUrl="https://picsum.photos/200/300"
-        imageStyle="w-11.65 h-11.65 rounded-11.25"
       />
     </ScrollView>
   );
