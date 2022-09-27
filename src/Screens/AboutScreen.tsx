@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, StatusBar } from 'react-native';
 import tw from 'twrnc';
 
 import SettingsButton from '../Components/SettingsButton';
@@ -15,6 +15,8 @@ type Props = any;
 export default function AboutScreen({ navigation }: Props) {
   return (
     <View style={ROOT_VIEW_STYLE}>
+      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+
       <SettingsButton title="Terms & Conditions" onPress={() => {}} />
       <View style={tw`h-2.5`} />
       <SettingsButton title="Privacy Policy" onPress={() => {}} />

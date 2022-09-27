@@ -29,7 +29,6 @@ export default function DrawerNavigation() {
       useLegacyImplementation
       screenOptions={{
         headerShown: false,
-        // drawerActiveBackgroundColor: '#68f',
         drawerActiveBackgroundColor: COLORS.CHINESE_WHITE,
       }}
       drawerContent={(props) => <DrawerComponent {...props} />}>
@@ -42,7 +41,7 @@ export default function DrawerNavigation() {
           drawerLabelStyle: LABEL_STYLE,
         }}
       />
-      {/* <Drawer.Screen name="Account" component={AccountNavigation} /> */}
+      <Drawer.Screen name="Account" component={AccountNavigation} />
       <Drawer.Screen
         name="Your Rides"
         component={YourRidesNavigation}

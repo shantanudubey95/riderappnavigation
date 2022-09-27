@@ -1,10 +1,8 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
-import tw from 'twrnc';
+import { ScrollView, StatusBar } from 'react-native';
 
 import RidesCard from '../Components/RidesCard';
 import * as COLORS from '../config/colors';
-import * as IMAGES from '../config/images';
 
 const YourRideScreen = ({ navigation }: { navigation: any }) => {
   return (
@@ -15,6 +13,7 @@ const YourRideScreen = ({ navigation }: { navigation: any }) => {
         alignItems: 'center',
         backgroundColor: 'white',
       }}>
+      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
       <RidesCard
         onPress={() => {
           navigation.navigate('YourRideDetailScreen');

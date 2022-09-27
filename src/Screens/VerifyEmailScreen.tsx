@@ -17,7 +17,7 @@ const VerifyEmailScreen = ({ navigation }: { navigation: any }) => {
         suppressHighlighting
         style={tw`text-[${COLORS.BLUE}]`}
         onPress={() => {
-          navigation.navigate('OTPLimitScreen');
+          navigation.navigate('AccountScreen');
         }}>
         Verify Email
       </TextRegular15>

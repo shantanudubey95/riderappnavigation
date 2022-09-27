@@ -4,7 +4,7 @@ import {
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
 import React from 'react';
-import { View, Image, Text, Pressable, SafeAreaView, StatusBar } from 'react-native';
+import { View, Image, Text, Pressable } from 'react-native';
 import tw from 'twrnc';
 
 import * as COLORS from '../config/colors';
@@ -18,7 +18,7 @@ export default function DrawerComponent(props: DrawerContentComponentProps) {
         <Pressable
           style={tw`p-5 mb-4 bg-[${COLORS.SPANISH_VIRIDIAN}]`}
           onPress={() => {
-            props.navigation.navigate('ProfileStack');
+            props.navigation.navigate('Account');
           }}>
           <Image source={IMAGES.PROFILE_ICON} />
           <View style={tw`flex-row items-center mt-2.75`}>

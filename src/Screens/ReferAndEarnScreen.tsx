@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, Pressable, Share, ImageBackground } from 'react-native';
+import { View, Image, Text, Pressable, Share, ImageBackground, StatusBar } from 'react-native';
 import tw from 'twrnc';
 
 import ReferCode from '../Components/ReferCode';
@@ -32,6 +32,7 @@ export default function ReferAndEarnScreen() {
 
   return (
     <View style={ROOT_VIEW_STYLE}>
+      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
       <ImageBackground
         resizeMode="contain"
         source={IMAGES.REFER_EARN_BANNER}

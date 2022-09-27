@@ -1,15 +1,39 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { StatusBar, View } from 'react-native';
+import tw from 'twrnc';
 
+import NavigateIconButton from '../Components/NavigateIconButton';
+import * as COLORS from '../config/colors';
+import * as IMAGES from '../config/images';
 const FavoritesLocationScreen = ({ navigation }: { navigation: any }) => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Favorite Location Screen</Text>
-      <Button
-        title="Navigate to next screen"
+    <View style={{ flex: 1, backgroundColor: 'white', padding: '4%', alignItems: 'center' }}>
+       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+      <NavigateIconButton
         onPress={() => {
-          navigation.navigate('EmergencyContactScreen');
+          navigation.navigate('AccountScreen');
         }}
+        title="Add Home"
+        icon={IMAGES.HOME}
+        isRed={false}
+      />
+      <View style={tw`h-2`} />
+      <NavigateIconButton
+        onPress={() => {
+          navigation.navigate('AccountScreen');
+        }}
+        title="Add Work"
+        icon={IMAGES.WORK}
+        isRed={false}
+      />
+      <View style={tw`h-2`} />
+      <NavigateIconButton
+        onPress={() => {
+          navigation.navigate('AccountScreen');
+        }}
+        title="Add home"
+        icon={IMAGES.ADD}
+        isRed={false}
       />
     </View>
   );
