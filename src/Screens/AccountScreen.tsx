@@ -22,7 +22,7 @@ export default function AccountScreen({ navigation }: Props) {
   ) => {
     return (
       <Pressable
-        style={tw` w-full pb-7.75 items-center flex-row pr-3  bg-[${COLORS.WHITE}]`}
+        style={tw`w-full pb-7.75 items-center flex-row pr-3 bg-[${COLORS.WHITE}]`}
         onPress={onPress}>
         <View style={tw`flex-1 mr-6`}>
           <TextSemiBold15 numberOfLines={1} style={tw`text-[${COLORS.SPANISH_VIRIDIAN}]`}>
