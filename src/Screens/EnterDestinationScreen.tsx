@@ -42,7 +42,6 @@ const EnterDestinationScreen = ({
       <View style={tw`w-full  bg-white items-center`}>
         <View style={tw`w-full px-5 h-12`}>
           <PickAndDropInput
-            autoFocus
             inputTitle="Pickup"
             clearInput={() => setStartAddress('')}
             inputText={startAddress}

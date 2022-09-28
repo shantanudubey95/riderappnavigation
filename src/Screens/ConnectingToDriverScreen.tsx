@@ -10,6 +10,7 @@ import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
+import BottomSheet from '../Components/BottomSheet';
 type location = {
   latitude: number;
   longitude: number;
@@ -38,13 +39,14 @@ const ConnectingToDriverScreen = ({
         {pickUp && <SuggaaMarker noTransForm image={IMAGES.PICKUP_MARKER} coordinate={pickUp} />}
         {drop && <SuggaaMarker noTransForm image={IMAGES.DROP_MARKER} coordinate={drop} />}
       </MapView>
-      <AnimatedBottomSheet scrollable={false}>
+      <BottomSheet navigation={navigation} scrollable={false}>
+
         <TextSemiBold22 style={tw`mt-8 ml-5`}>Connecting you to a driver</TextSemiBold22>
         <TextRegular15 style={tw`mt-2 ml-5`}>We usually find ride in less than 2min</TextRegular15>
         <View style={tw`justify-center items-center`}>
           <Image source={IMAGES.CONNECT_RIDE} style={tw`mt-5`} />
         </View>
-        <View style={tw`px-4 my-5`}>
+        <View style={tw`px-4 mt-5`}>
           <Pressable
             onPress={() => {
               navigation.navigate('RideDetailScreen');
@@ -53,7 +55,7 @@ const ConnectingToDriverScreen = ({
             <TextMedium25 style={tw` text-[${COLORS.LUST_RED}]`}>Cancel</TextMedium25>
           </Pressable>
         </View>
-      </AnimatedBottomSheet>
+      </BottomSheet>
     </View>
   );
 };

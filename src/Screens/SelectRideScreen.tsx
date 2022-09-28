@@ -1,10 +1,9 @@
 import React from 'react';
 import { Platform, StatusBar, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
-import AnimatedBottomSheet from '../Components/AnimatedBottomSheet';
+import BottomSheet from '../Components/BottomSheet';
 // import BottomModal from '../Components/BottomModel';
 import PressableButton from '../Components/PressableButton';
 import SuggaButton from '../Components/SuggaaButton';
@@ -37,7 +36,7 @@ const SelectRideScreen = ({
   //   suggestedAddresses: [],
   // };
   const map = React.useRef(null);
-  const insets = useSafeAreaInsets();
+  // const insets = useSafeAreaInsets();
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
       <MapView
@@ -64,7 +63,7 @@ const SelectRideScreen = ({
         <PressableButton icon={IMAGES.HEADER_BACK_ARROW} onPress={() => navigation.openDrawer()} />
         <View style={tw`w-5`} />
       </View>
-      <AnimatedBottomSheet scrollable>
+      <BottomSheet navigation={navigation} scrollable={false}>
         <VehicleWithFareCard
           vehicleType="Book any"
           duration="0"
@@ -113,14 +112,14 @@ const SelectRideScreen = ({
           />
         </View>
         <View style={tw`h-5`} />
-        <View style={[tw`w-full px-5`, { paddingBottom: insets.bottom || 20 }]}>
+        <View style={[tw`w-full px-5`]}>
           <SuggaButton
             buttonType="FILLED"
             text="Book Mini"
             onPress={() => navigation.navigate('ConnectingToDriverScreen')}
           />
         </View>
-      </AnimatedBottomSheet>
+      </BottomSheet>
     </View>
   );
 };
