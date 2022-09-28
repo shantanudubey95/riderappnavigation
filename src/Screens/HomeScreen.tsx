@@ -1,6 +1,6 @@
 import * as Location from 'expo-location';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
-import { View, StatusBar, Platform } from 'react-native';
+import { View, StatusBar, Platform, Pressable, Image } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
@@ -8,6 +8,10 @@ import BottomSheet from '../Components/BottomSheet';
 import HamburgerIcon from '../Components/HamburgerIcon';
 import PickAndDropInput from '../Components/PickAndDropInput';
 import SuggaaMarker from '../Components/SuggaaMarker';
+import TextBold22 from '../Typography/TextBold22';
+import TextMedium15 from '../Typography/TextMedium15';
+import TextRegular15 from '../Typography/TextRegular15';
+import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 import { withAnchorPoint } from '../utils/WithAnchorPoint';
@@ -31,6 +35,7 @@ const HomeScreen = ({
   drop?: location;
   navigation: any;
 }) => {
+  const [selected, setSelected] = React.useState('City');
   const [stopAddress, setStopAddress] = React.useState('');
   const [rotate, setRotation] = useState(0);
   const [myLocation, setLocation] = useState<location>();
@@ -132,11 +137,69 @@ const HomeScreen = ({
         />
         <View style={tw`w-5`} />
       </View>
-      <BottomSheet
-        onPress={() => goToInitialLocation()}
-        navigation={navigation}
-        scrollable={false}
-      />
+      <BottomSheet onPress={() => goToInitialLocation()} navigation={navigation} scrollable={false}>
+        <View style={tw`flex-row w-full`}>
+          <Pressable
+            onPress={() => setSelected('City')}
+            style={tw`flex-1 items-center justify-center border-b-2 border-[${
+              selected === 'City' ? COLORS.SPANISH_VIRIDIAN : COLORS.WHITE
+            }]`}>
+            {selected === 'City' ? (
+              <Image source={IMAGES.CITY_SELECTED} />
+            ) : (
+              <Image source={IMAGES.CITY_UNSELECTED} />
+            )}
+
+            {selected === 'City' ? (
+              <TextBold22 style={[tw`text-[${COLORS.SPANISH_VIRIDIAN}] mb-3 `, { top: -8 }]}>
+                City
+              </TextBold22>
+            ) : (
+              <TextMedium15 style={[tw`text-[${COLORS.LIGHT_GRAY_BORDER}]`, { top: -8 }]}>
+                City
+              </TextMedium15>
+            )}
+          </Pressable>
+
+          <Pressable
+            onPress={() => setSelected('OutStation')}
+            style={tw`flex-1 items-center justify-center border-b-2 border-[${
+              selected === 'OutStation' ? COLORS.SPANISH_VIRIDIAN : COLORS.WHITE
+            }]`}>
+            {selected === 'OutStation' ? (
+              <>
+                <Image source={IMAGES.OUTSTATION_SELECTED} />
+                <TextBold22 style={[tw`text-[${COLORS.SPANISH_VIRIDIAN}] mb-3`, { top: -8 }]}>
+                  Outstations
+                </TextBold22>
+              </>
+            ) : (
+              <>
+                <Image source={IMAGES.OUTSTATION_UNSELECTED} />
+                <TextMedium15 style={[tw`text-[${COLORS.LIGHT_GRAY_BORDER}]`, { top: -8 }]}>
+                  Outstations
+                </TextMedium15>
+              </>
+            )}
+          </Pressable>
+        </View>
+        <TextMedium15 style={tw`mt-4 ml-5`}>Good Morning, Anurag</TextMedium15>
+        {selected === 'City' ? (
+          <TextSemiBold22 style={tw`ml-5`}>Where are you going?</TextSemiBold22>
+        ) : (
+          <TextSemiBold22 style={tw`ml-5`}>Moving out of city?</TextSemiBold22>
+        )}
+        <Pressable
+          onPress={() => {
+            navigation.navigate('EnterDestinationScreen');
+          }}
+          style={tw`mx-4 mt-6 px-3 h-12 rounded-md flex-row bg-[${COLORS.WHITE}] shadow-md items-center justify-start`}>
+          <Image source={IMAGES.SEARCH_ICON} />
+          <TextRegular15 style={tw`mx-4 text-[${COLORS.LIGHT_GRAY_BORDER}]`}>
+            Search Drop Location
+          </TextRegular15>
+        </Pressable>
+      </BottomSheet>
     </View>
   );
 };

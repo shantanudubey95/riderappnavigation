@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Modal, Text, ViewProps, Alert, View, StyleSheet } from 'react-native';
+import { Modal, ViewProps, View, StyleSheet } from 'react-native';
 import tw from 'twrnc';
 
 // import * as COLORS from '../config/colors';
@@ -7,50 +7,33 @@ import tw from 'twrnc';
 type props = ViewProps & {
   showModal: boolean;
   onClose?: () => void;
-  //   height: string;
 };
 export default function FullScreenModal({ onClose, children, showModal }: props) {
   const [modalVisible, setModalVisible] = React.useState(showModal);
   return (
-    <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
+    <Modal
+      animationType="fade"
+      transparent
+      visible={showModal}
+      onRequestClose={() => {
+        setModalVisible(!modalVisible);
+      }}>
+      <View
+        style={[
+          tw`flex-1 justify-center items-center px-5`,
+          { backgroundColor: 'rgba(0,0,0,0.75)' },
+        ]}>
+        <View style={[styles.modalView, tw`w-full py-12.5 rounded-md bg-white items-center`]}>
+          {children}
         </View>
-      </Modal>
-      <Pressable style={[styles.button, styles.buttonOpen]} onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
-    </View>
+      </View>
+    </Modal>
   );
 }
 
 const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
-  },
   modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
+    // backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -59,25 +42,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
   },
 });
