@@ -8,7 +8,7 @@ import * as IMAGES from '../config/images';
 const FavoritesLocationScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ flex: 1, backgroundColor: 'white', padding: '4%', alignItems: 'center' }}>
-       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
       <NavigateIconButton
         onPress={() => {
           navigation.navigate('AccountScreen');

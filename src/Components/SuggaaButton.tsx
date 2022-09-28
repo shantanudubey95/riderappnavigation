@@ -25,7 +25,7 @@ export default function SuggaaButton({ onPress, text, buttonType }: props) {
       onPress={() => buttonType !== 'DISABLED' && onPress()}>
       <TextMedium25
         numberOfLines={1}
-        style={tw`text-5  ${
+        style={tw`${
           buttonType === 'BORDER' ? `text-[${COLORS.SPANISH_VIRIDIAN}]` : `text-[${COLORS.WHITE}]`
         }`}>
         {text}
