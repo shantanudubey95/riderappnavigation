@@ -7,6 +7,7 @@ import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
 import AboutScreen from '../Screens/AboutScreen';
+import TermsConditionScreen from '../Screens/TermsConditionScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 
@@ -31,6 +32,11 @@ export default function AboutNavigation({ navigation }: { navigation: any }) {
       <Stack.Screen
         name="AboutScreen"
         component={AboutScreen}
+        options={{ title: 'About', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="TermsConditionScreen"
+        component={TermsConditionScreen}
         options={{ title: 'About', ...HEADER(navigation) }}
       />
     </Stack.Navigator>

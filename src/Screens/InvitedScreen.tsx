@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, Pressable, Share, ImageBackground, StatusBar } from 'react-native';
+import { View, Share, StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
@@ -8,8 +8,6 @@ import SuggaaButton from '../Components/SuggaaButton';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
-import * as IMAGES from '../config/images';
-import { ROOT_VIEW_STYLE } from '../config/utils';
 
 export default function InvitedScreen() {
   const referCode = 'SUGGAA OFF25';

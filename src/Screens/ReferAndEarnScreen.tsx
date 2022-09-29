@@ -4,14 +4,14 @@ import tw from 'twrnc';
 
 import ReferCode from '../Components/ReferCode';
 import SuggaaButton from '../Components/SuggaaButton';
+import TextRegular15 from '../Typography/TextRegular15';
+import TextSemiBold18 from '../Typography/TextSemiBold18';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 import { ROOT_VIEW_STYLE } from '../config/utils';
-import TextRegular15 from '../Typography/TextRegular15';
-import TextSemiBold18 from '../Typography/TextSemiBold18';
 
 export default function ReferAndEarnScreen({ navigation }: { navigation: any }) {
-  const referCode = 'SUGGAAOFF25';
+  const referCode = 'SUGGAA OFF25';
 
   const onShare = async () => {
     try {
@@ -41,7 +41,9 @@ export default function ReferAndEarnScreen({ navigation }: { navigation: any }) 
         style={tw`flex-1 w-full mb-7.5`}
       />
       <View style={tw`w-full`}>
-        <TextSemiBold18 style={tw`text-center`}>Invite your friends and get {'\n'} ₹20 each </TextSemiBold18>
+        <TextSemiBold18 style={tw`text-center`}>
+          Invite your friends and get {'\n'} ₹20 each{' '}
+        </TextSemiBold18>
 
         <View style={tw`mt-6.75 mb-8.25 w-full shadow-md bg-[${COLORS.WHITE}] rounded-1.25`}>
           <View
