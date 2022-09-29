@@ -6,6 +6,7 @@ import {
 import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
+import InvitedScreen from '../Screens/InvitedScreen';
 import ReferAndEarnScreen from '../Screens/ReferAndEarnScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
@@ -32,6 +33,11 @@ export default function AccountNavigation({ navigation }: { navigation: any }) {
         name="ReferAndEarnScreen"
         component={ReferAndEarnScreen}
         options={{ title: 'Refer and Earn', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="InvitedScreen"
+        component={InvitedScreen}
+        options={{ title: 'Invites', ...HEADER(navigation) }}
       />
     </Stack.Navigator>
   );
