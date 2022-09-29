@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, ViewProps, View, StyleSheet } from 'react-native';
+import { Modal, ViewProps, View, StyleSheet, StatusBar } from 'react-native';
 import tw from 'twrnc';
 
 // import * as COLORS from '../config/colors';
@@ -18,6 +18,7 @@ export default function FullScreenModal({ onClose, children, showModal }: props)
       onRequestClose={() => {
         setModalVisible(!modalVisible);
       }}>
+      <StatusBar backgroundColor="rgba(0,0,0,0.75)" />
       <View
         style={[
           tw`flex-1 justify-center items-center px-5`,

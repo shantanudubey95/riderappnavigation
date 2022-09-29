@@ -21,3 +21,4 @@ export const GRANITE_GRAY = '#66666';
 export const LUST_RED_LIGHT = '#EA1D1D33';
 export const FELDGRAU = '#3D6458';
 export const BRIGHT_GREY = '#E6F2EF';
+export const APPLE_GREEN = '#7FA104';

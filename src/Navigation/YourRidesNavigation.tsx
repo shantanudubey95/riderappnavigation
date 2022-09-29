@@ -6,6 +6,7 @@ import {
 import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
+import RideIssueScreen from '../Screens/RideIssueScreen';
 import RideSupportScreen from '../Screens/RideSupportScreen';
 import YourRideDetailScreen from '../Screens/YourRideDetailScreen';
 import YourRideScreen from '../Screens/YourRideScreen';
@@ -13,6 +14,7 @@ import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 const Stack = createNativeStackNavigator();
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TITLE_ONLY_HEADER: NativeStackNavigationOptions = {
   headerStyle: { backgroundColor: COLORS.WHITE },
   headerTitleStyle: { fontFamily: 'Poppins_600SemiBold', fontSize: 18 },
@@ -42,10 +44,23 @@ export default function YourRidesNavigation({ navigation }: { navigation: any })
       <Stack.Screen
         name="YourRideScreen"
         component={YourRideScreen}
-        options={{ title: 'Destination', ...HEADER(navigation) }}
+        options={{ title: 'Your Rides', ...HEADER(navigation) }}
       />
-      <Stack.Screen name="YourRideDetailScreen" component={YourRideDetailScreen} />
-      <Stack.Screen name="RideSupportScreen" component={RideSupportScreen} />
+      <Stack.Screen
+        name="YourRideDetailScreen"
+        component={YourRideDetailScreen}
+        options={{ title: 'Tue, Aug  02, 12:15 AM', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="RideSupportScreen"
+        component={RideSupportScreen}
+        options={{ title: 'Choose an issue', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="RideIssueScreen"
+        component={RideIssueScreen}
+        options={{ title: 'Choose an issue', ...HEADER(navigation) }}
+      />
     </Stack.Navigator>
   );
 }

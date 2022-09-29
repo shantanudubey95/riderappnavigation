@@ -3,14 +3,13 @@ import { View, Image, Pressable } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
-import AnimatedBottomSheet from '../Components/AnimatedBottomSheet';
+import BottomSheet from '../Components/BottomSheet';
 import SuggaaMarker from '../Components/SuggaaMarker';
 import TextMedium25 from '../Typography/TextMedium25';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
-import BottomSheet from '../Components/BottomSheet';
 type location = {
   latitude: number;
   longitude: number;
@@ -40,7 +39,6 @@ const ConnectingToDriverScreen = ({
         {drop && <SuggaaMarker noTransForm image={IMAGES.DROP_MARKER} coordinate={drop} />}
       </MapView>
       <BottomSheet navigation={navigation} scrollable={false}>
-
         <TextSemiBold22 style={tw`mt-8 ml-5`}>Connecting you to a driver</TextSemiBold22>
         <TextRegular15 style={tw`mt-2 ml-5`}>We usually find ride in less than 2min</TextRegular15>
         <View style={tw`justify-center items-center`}>

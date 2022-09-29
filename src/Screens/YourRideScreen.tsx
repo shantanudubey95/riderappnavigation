@@ -25,9 +25,46 @@ const YourRideScreen = ({ navigation }: { navigation: any }) => {
           status: 'Completed',
           vehicleType: 'AUTO',
         }}
-        // viewStyle={`border-b flex-1 ml-7  pb-3.75 pr-5 border-[${COLORS.LIGHT_GRAY_BORDER}] `}
         imageUrl="https://picsum.photos/200/300"
-        // imageStyle="w-11.65 h-11.65 rounded-11.25"
+      />
+      <RidesCard
+        onPress={() => {
+          navigation.navigate('YourRideDetailScreen');
+        }}
+        values={{
+          date: new Date(),
+          fare: '123',
+          location: 'some long address huhuhuhuh vugicyuv ti vigycthcr fu crxhx g',
+          status: 'Cancelled',
+          vehicleType: 'AUTO',
+        }}
+        imageUrl="https://picsum.photos/200/300"
+      />
+      <RidesCard
+        onPress={() => {
+          navigation.navigate('YourRideDetailScreen');
+        }}
+        values={{
+          date: new Date(),
+          fare: '123',
+          location: 'some long adieu ti viga thar fu Crux g',
+          status: 'Ongoing',
+          vehicleType: 'AUTO',
+        }}
+        imageUrl="https://picsum.photos/200/300"
+      />
+      <RidesCard
+        onPress={() => {
+          navigation.navigate('YourRideDetailScreen');
+        }}
+        values={{
+          date: new Date(),
+          fare: '123',
+          location: 'some long another fu Crux g',
+          status: 'Scheduled',
+          vehicleType: 'AUTO',
+        }}
+        imageUrl="https://picsum.photos/200/300"
       />
     </ScrollView>
   );

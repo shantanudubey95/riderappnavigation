@@ -16,6 +16,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
+import TextSemiBold20 from '../Typography/TextSemiBold20';
 import * as COLORS from '../config/colors';
 
 type Dimension = {
@@ -82,10 +83,19 @@ export default function SuggaaTextInput(props: Props) {
         {...props}
         ref={inputRef}
         value={value}
+        selectionColor={COLORS.SPANISH_VIRIDIAN}
         style={[
           style,
           {
             borderColor: color,
+            alignContent: 'center',
+            width: '100%',
+            borderWidth: 2,
+            borderRadius: 5,
+            fontSize: 20,
+            fontWeight: '400',
+            paddingHorizontal: 13,
+            paddingVertical: 10,
           },
         ]}
         {...restOfProps}
@@ -114,14 +124,12 @@ export default function SuggaaTextInput(props: Props) {
               {errorText ? '' : ''}
             </Text>
           ) : (
-            <Text
+            <TextSemiBold20
               style={{
-                fontWeight: '600',
-                fontSize: 20,
                 color: text_Color,
               }}>
               {props.label}
-            </Text>
+            </TextSemiBold20>
           )}
         </Animated.View>
       </TouchableWithoutFeedback>

@@ -137,7 +137,7 @@ const HomeScreen = ({
         />
         <View style={tw`w-5`} />
       </View>
-      <BottomSheet onPress={() => goToInitialLocation()} navigation={navigation} scrollable={false}>
+      <BottomSheet navigation={navigation} scrollable={false}>
         <View style={tw`flex-row w-full`}>
           <Pressable
             onPress={() => setSelected('City')}

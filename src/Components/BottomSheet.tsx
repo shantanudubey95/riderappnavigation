@@ -6,7 +6,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
 import * as COLORS from '../config/colors';
-type Props = any;
+type Props = {
+  navigation?: any;
+  scrollable?: boolean;
+  children?: any;
+};
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 const MAX_TRANSLATE_Y = -SCREEN_HEIGHT;
 const BottomSheet = ({ scrollable, navigation, children }: Props) => {
