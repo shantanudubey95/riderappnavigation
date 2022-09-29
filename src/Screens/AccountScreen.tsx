@@ -22,7 +22,7 @@ export default function AccountScreen({ navigation }: Props) {
   ) => {
     return (
       <Pressable
-        style={tw`w-full pb-7.75 items-center flex-row pr-3 bg-[${COLORS.WHITE}]`}
+        style={tw`w-full pb-7.75 items-center flex-row pr-1 bg-[${COLORS.WHITE}]`}
         onPress={onPress}>
         <View style={tw`flex-1 mr-6`}>
           <TextSemiBold15 numberOfLines={1} style={tw`text-[${COLORS.SPANISH_VIRIDIAN}]`}>
@@ -45,7 +45,7 @@ export default function AccountScreen({ navigation }: Props) {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={tw`w-full items-center p-0.5`}>
-        <View style={tw`h-15`} />
+        <View style={tw`h-3`} />
         <ProfilePicture defaultImage={require('../../assets/icon.png')} setPickedImage={() => {}} />
         <View style={tw`h-15`} />
         {PressableView('Full Name', 'Anurag Gautam', () => navigation.navigate('UpdateNameScreen'))}

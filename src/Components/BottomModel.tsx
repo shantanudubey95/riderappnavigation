@@ -25,13 +25,13 @@ export default function BottomModal({ onClose, children, height, showModal }: pr
 
   const viewStyle = useAnimatedStyle(() => {
     return {
-      maxHeight: withTiming(sharedValue.value, { duration: 500, easing: Easing.linear }),
+      maxHeight: withTiming(sharedValue.value, { duration: 800, easing: Easing.linear }),
     };
   });
 
   return (
     <Modal visible={showModal} transparent style={tw`h-full`} statusBarTranslucent>
-      <Pressable style={tw`flex-1 bg-[${COLORS.BLACK}] opacity-0`} onPress={onClose} />
+      <Pressable style={tw`flex-1 bg-[rgba(0,0,0,0.75)] `} onPress={onClose} />
       <Animated.View
         onLayout={onLayout}
         style={[viewStyle, tw`bg-[${COLORS.WHITE}] rounded-tl-1.25 rounded-tr-1.25`]}>

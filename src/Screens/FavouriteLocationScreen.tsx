@@ -11,7 +11,7 @@ const FavoritesLocationScreen = ({ navigation }: { navigation: any }) => {
       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
       <NavigateIconButton
         onPress={() => {
-          navigation.navigate('AccountScreen');
+          navigation.navigate('SelectFavouriteLocationScreen');
         }}
         title="Add Home"
         icon={IMAGES.HOME}
@@ -20,7 +20,7 @@ const FavoritesLocationScreen = ({ navigation }: { navigation: any }) => {
       <View style={tw`h-2`} />
       <NavigateIconButton
         onPress={() => {
-          navigation.navigate('AccountScreen');
+          navigation.navigate('SelectFavouriteLocationScreen');
         }}
         title="Add Work"
         icon={IMAGES.WORK}
@@ -29,7 +29,7 @@ const FavoritesLocationScreen = ({ navigation }: { navigation: any }) => {
       <View style={tw`h-2`} />
       <NavigateIconButton
         onPress={() => {
-          navigation.navigate('AccountScreen');
+          navigation.navigate('SelectFavouriteLocationScreen');
         }}
         title="Add home"
         icon={IMAGES.ADD}

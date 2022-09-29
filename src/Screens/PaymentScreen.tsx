@@ -153,7 +153,7 @@ const PaymentScreen = ({ navigation }: { navigation: any }) => {
                 </View>
               </>
             ) : (
-              <View style={{ alignItems: 'center', marginTop: 40 }}>
+              <View style={{ alignItems: 'center', marginTop: 40, flex: 1 }}>
                 <TextSemiBold15>Great, where can we improve?</TextSemiBold15>
                 <View style={tw`h-90`} />
                 <SuggaaButton

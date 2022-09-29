@@ -36,7 +36,7 @@ const DestinationArrivedScreen = ({ navigation }: { navigation: any }) => {
   return (
     <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
-      <View style={tw`px-4 pt-4 flex-1`}>
+      <View style={tw`px-4 pt-10 flex-1`}>
         <TextSemiBold22 style={tw`text-[${COLORS.SPANISH_VIRIDIAN}]`}>
           Destination Arrived
         </TextSemiBold22>

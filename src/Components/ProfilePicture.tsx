@@ -1,7 +1,7 @@
 import { Canvas, Paint, Path, Skia } from '@shopify/react-native-skia';
 import * as ImagePicker from 'expo-image-picker';
 import React from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity, Pressable } from 'react-native';
 
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
@@ -36,7 +36,8 @@ const ProfilePicture = ({ defaultImage, setPickedImage }: Props) => {
 
   path.addArc({ x: strokeWidth, y: strokeWidth, width: drawWidth, height: drawWidth }, 30, 340);
   return (
-    <View
+    <Pressable
+      onPress={pickImage}
       style={{
         margin,
         width: viewWidth,
@@ -80,7 +81,7 @@ const ProfilePicture = ({ defaultImage, setPickedImage }: Props) => {
       <TouchableOpacity onPress={pickImage}>
         <Image resizeMode="contain" source={IMAGES.EDIT_ICON} style={{ bottom: -50, right: -75 }} />
       </TouchableOpacity>
-    </View>
+    </Pressable>
   );
 };
 

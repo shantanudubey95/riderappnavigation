@@ -9,6 +9,7 @@ import tw from 'twrnc';
 import ApplyCouponScreen from '../Screens/ApplyCouponScreen';
 import CancelRideScreen from '../Screens/CancelRideScreen';
 import ConnectingToDriverScreen from '../Screens/ConnectingToDriverScreen';
+import DestinationArrivedScreen from '../Screens/DestinationArrivedScreen';
 import EnterDestinationScreen from '../Screens/EnterDestinationScreen';
 import HomeScreen from '../Screens/HomeScreen';
 import InternetErrorScreen from '../Screens/InternetErrorScreen';
@@ -25,7 +26,6 @@ import ServiceNotAvailableScreen from '../Screens/ServiceNotAvailableScreen';
 import VerifyEmailScreen from '../Screens/VerifyEmailScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
-import DestinationArrivedScreen from '../Screens/DestinationArrivedScreen';
 
 const Stack = createNativeStackNavigator();
 

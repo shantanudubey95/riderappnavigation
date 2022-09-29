@@ -9,6 +9,8 @@ import tw from 'twrnc';
 import AccountScreen from '../Screens/AccountScreen';
 import EmergencyContactScreen from '../Screens/EmergencyContactScreen';
 import FavoritesLocationScreen from '../Screens/FavouriteLocationScreen';
+import LocateFavouriteScreen from '../Screens/LocateFavouriteScreen';
+import SelectFavouriteLocationScreen from '../Screens/SelectFavouriteLocationScreen';
 import SelectLocationScreen from '../Screens/SelectLocationScreen';
 import UpdateEmailScreen from '../Screens/UpdateEmailScreen';
 import UpdateNameScreen from '../Screens/UpdateNameScreen';
@@ -66,6 +68,16 @@ export default function AccountNavigation({ navigation }: { navigation: any }) {
         name="FavoritesLocationScreen"
         component={FavoritesLocationScreen}
         options={{ title: 'Favorites Location', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="SelectFavouriteLocationScreen"
+        component={SelectFavouriteLocationScreen}
+        options={{ title: 'Select Location', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="LocateFavouriteScreen"
+        component={LocateFavouriteScreen}
+        options={{ title: 'Destination', ...HEADER(navigation) }}
       />
       <Stack.Screen
         name="EmergencyContactScreen"
