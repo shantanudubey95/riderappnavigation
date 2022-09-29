@@ -25,6 +25,7 @@ import ServiceNotAvailableScreen from '../Screens/ServiceNotAvailableScreen';
 import VerifyEmailScreen from '../Screens/VerifyEmailScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
+import DestinationArrivedScreen from '../Screens/DestinationArrivedScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -119,6 +120,11 @@ export default function HomeNavigation({ navigation }: { navigation: any }) {
       <Stack.Screen
         name="CancelRideScreen"
         component={CancelRideScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="DestinationArrivedScreen"
+        component={DestinationArrivedScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen
