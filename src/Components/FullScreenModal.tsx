@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, ViewProps, View, StyleSheet, StatusBar } from 'react-native';
 import tw from 'twrnc';
 
+import * as COLORS from '../config/colors';
 // import * as COLORS from '../config/colors';
 
 type props = ViewProps & {
@@ -35,7 +36,7 @@ export default function FullScreenModal({ onClose, children, showModal }: props)
 const styles = StyleSheet.create({
   modalView: {
     // backgroundColor: 'white',
-    shadowColor: '#000',
+    shadowColor: COLORS.BLACK,
     shadowOffset: {
       width: 0,
       height: 2,

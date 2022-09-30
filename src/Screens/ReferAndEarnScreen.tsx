@@ -51,7 +51,7 @@ export default function ReferAndEarnScreen({ navigation }: { navigation: any }) 
             <View
               style={tw`py-5 flex-1 items-center border-r-0.25 border-[${COLORS.LIGHT_GRAY_BORDER}]`}>
               <TextSemiBold18>₹0</TextSemiBold18>
-              <Text style={tw`text-3.75 text-[${COLORS.BLACK}]`}>Earned</Text>
+              <TextRegular15 style={tw`text-[${COLORS.BLACK}]`}>Earned</TextRegular15>
             </View>
 
             <View style={tw`py-5 flex-1 items-center`}>

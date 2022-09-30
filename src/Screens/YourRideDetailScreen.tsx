@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StatusBar, Pressable } from 'react-native';
+import { View, StatusBar, Pressable } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
@@ -11,6 +11,7 @@ import SuggaaMarker from '../Components/SuggaaMarker';
 import SuggaaTextInput from '../Components/SuggaaTextInput';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular15 from '../Typography/TextRegular15';
+import TextSemiBold15 from '../Typography/TextSemiBold15';
 import TextSemiBold18 from '../Typography/TextSemiBold18';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
@@ -21,17 +22,21 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
     return (
       <View style={tw`flex-row items-center mb-3.75`}>
         <View style={tw`flex-1`}>
-          <Text
-            style={tw`text-[${color ? color : COLORS.BLACK}] ${
-              bolder ? 'font-bold text-3.75' : ''
-            }`}>
-            {name}
-          </Text>
+          {bolder ? (
+            <TextSemiBold15 style={tw`text-[${color ? color : COLORS.BLACK}]`}>
+              {name}
+            </TextSemiBold15>
+          ) : (
+            <TextRegular15 style={tw`text-[${color ? color : COLORS.BLACK}]`}>{name}</TextRegular15>
+          )}
         </View>
-        <Text
-          style={tw`text-[${color ? color : COLORS.BLACK}] ${bolder ? 'font-bold text-3.75' : ''}`}>
-          {value}
-        </Text>
+        {bolder ? (
+          <TextSemiBold15 style={tw`text-[${color ? color : COLORS.BLACK}]`}>
+            {value}
+          </TextSemiBold15>
+        ) : (
+          <TextRegular15 style={tw`text-[${color ? color : COLORS.BLACK}]`}>{value}</TextRegular15>
+        )}
       </View>
     );
   };

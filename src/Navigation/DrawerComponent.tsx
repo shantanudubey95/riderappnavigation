@@ -9,6 +9,7 @@ import tw from 'twrnc';
 
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
+import TextMedium20 from '../Typography/TextMedium20';
 
 export default function DrawerComponent(props: DrawerContentComponentProps) {
   return (
@@ -22,7 +23,7 @@ export default function DrawerComponent(props: DrawerContentComponentProps) {
           }}>
           <Image source={IMAGES.PROFILE_ICON} />
           <View style={tw`flex-row items-center mt-2.75`}>
-            <Text style={tw`text-5 text-[${COLORS.WHITE}]`}>Anurag Gautam</Text>
+            <TextMedium20 style={tw`text-[${COLORS.WHITE}]`}>Anurag Gautam</TextMedium20>
             <View style={tw`flex-1`} />
             <Image source={IMAGES.RIGHT_ARROW} />
           </View>

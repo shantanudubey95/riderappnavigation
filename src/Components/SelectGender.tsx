@@ -1,7 +1,9 @@
 import React from 'react';
 import { Text, Pressable, Image } from 'react-native';
 import tw from 'twrnc';
-
+import TextRegular20 from '../Typography/TextRegular20';
+import * as COLORS from '../config/colors';
+import * as IMAGES from '../config/images';
 type props = {
   title: string;
   isActive: boolean;
@@ -13,12 +15,14 @@ export default function SuggaaSelectGender({ title, isActive, onPress }: props) 
     <Pressable
       onPress={() => onPress(title)}
       style={tw`h-12 py-2.25 px-7.75 bg-[${
-        isActive ? '#04825C' : '#fff'
+        isActive ? COLORS.SPANISH_VIRIDIAN : COLORS.WHITE
       }] border-2 items-center justify-center flex-row rounded-md border-[${
-        !isActive ? '#AAB4B1' : '#04825C'
+        !isActive ? COLORS.SILVER_FOIL : COLORS.SPANISH_VIRIDIAN
       }]`}>
-      <Text style={tw`text-xl text-[${isActive ? '#fff' : '#D3D6D5'}] font-normal`}>{title}</Text>
-      <Image style={tw`absolute top-1.5 right-1.5`} source={require('../../assets/Tick.png')} />
+      <TextRegular20 style={tw`text-[${isActive ? COLORS.WHITE : COLORS.LIGHT_GRAY_BORDER}`}>
+        {title}
+      </TextRegular20>
+      <Image style={tw`absolute top-1.5 right-1.5`} source={require(IMAGES.TICK)} />
     </Pressable>
   );
 }
