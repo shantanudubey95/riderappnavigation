@@ -15,7 +15,7 @@ const EnterNameAndEmailScreen = ({ navigation }: { navigation: any }) => {
     <View style={tw`flex-1 bg-[${COLORS.WHITE}] w-full p-5 pt-6 items-center`}>
       <View style={tw`w-full mb-7`}>
         <SuggaaTextInput
-          autoFocus
+          // autoFocus
           style={
             // tw`content-center w-full border-2 border-[${COLORS.SPANISH_VIRIDIAN}] rounded-1.75 text-xl font-normal px-3 py-2.5`
             {

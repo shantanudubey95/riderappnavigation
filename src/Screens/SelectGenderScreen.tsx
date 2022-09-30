@@ -10,6 +10,7 @@ import * as COLORS from '../config/colors';
 
 const SelectGenderScreen = ({ navigation }: { navigation: any }) => {
   const [selectedCheckBox, setSelectedCheckBox] = React.useState('');
+  console.log(selectedCheckBox);
   return (
     <View style={tw`flex-1 bg-[${COLORS.WHITE}] p-5 pt-7`}>
       <TextSemiBold15>How would you like to be addressed?</TextSemiBold15>

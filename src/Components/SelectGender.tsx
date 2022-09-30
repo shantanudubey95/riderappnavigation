@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Image } from 'react-native';
+import { Text, Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
 import TextRegular20 from '../Typography/TextRegular20';
@@ -20,7 +20,7 @@ export default function SuggaaSelectGender({ title, isActive, onPress }: props) 
       }] border-2 items-center justify-center flex-row rounded-md border-[${
         !isActive ? COLORS.SILVER_FOIL : COLORS.SPANISH_VIRIDIAN
       }]`}>
-      <TextRegular20 style={tw`text-[${isActive ? COLORS.WHITE : COLORS.LIGHT_GRAY_BORDER}`}>
+      <TextRegular20 style={tw`text-[${isActive ? COLORS.WHITE : COLORS.LIGHT_GRAY_BORDER}]`}>
         {title}
       </TextRegular20>
       <Image style={tw`absolute top-1.5 right-1.5`} source={IMAGES.TICK} />

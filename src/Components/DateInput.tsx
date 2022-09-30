@@ -96,7 +96,7 @@ export default function DateInput({ numberOfInputs = 8, setDate }: Props) {
             textAlign="center"
             selectionColor={COLORS.SPANISH_VIRIDIAN}
             ref={value}
-            autoFocus={index === 0}
+            // autoFocus={index === 0}
             onKeyPress={onKeyPress(index)}
             onChangeText={onChangeText(index)}
             returnKeyType={index === numberOfInputs - 1 ? 'done' : 'next'}

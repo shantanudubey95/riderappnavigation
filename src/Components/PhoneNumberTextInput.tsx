@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { View, TextInput, Image, Pressable } from 'react-native';
+import { View, Text, TextInput, Image, Pressable } from 'react-native';
 import type { TextInputProps } from 'react-native';
 import tw from 'twrnc';
 
-import TextRegular20 from '../Typography/TextRegular20';
 import * as IMAGES from '../config/images';
+import { fontPixel } from '../utils/Normalize';
 type props = TextInputProps & {
   COUNTRY_CODE: string;
 };
@@ -13,7 +13,13 @@ export default function PhoneNumberTextInput(props: props) {
     <View style={tw`w-full flex-row border-2 border-[#04825C] rounded-1.25 items-center h-12 px-4`}>
       <Image source={require('../../assets/Flag.png')} style={tw`h-5 w-8.25`} />
       <View style={{ marginTop: 3, marginLeft: 10 }}>
-        <TextRegular20>{props.COUNTRY_CODE}</TextRegular20>
+        <Text
+          style={{
+            fontFamily: 'Poppins_400Regular',
+            fontSize: fontPixel(20),
+          }}>
+          {props.COUNTRY_CODE}
+        </Text>
       </View>
       <View style={tw`flex-1 mt-0.75 ml-2.5`}>
         <TextInput
@@ -31,7 +37,7 @@ export default function PhoneNumberTextInput(props: props) {
           }}
           style={{
             fontFamily: 'Poppins_400Regular',
-            fontSize: 20,
+            fontSize: fontPixel(20),
             flex: 1,
           }}
         />

@@ -66,6 +66,45 @@ const YourRideScreen = ({ navigation }: { navigation: any }) => {
         }}
         imageUrl="https://picsum.photos/200/300"
       />
+      <RidesCard
+        onPress={() => {
+          navigation.navigate('YourRideDetailScreen');
+        }}
+        values={{
+          date: new Date(),
+          fare: '123',
+          location: 'some long another fu Crux g',
+          status: 'Scheduled',
+          vehicleType: 'AUTO',
+        }}
+        imageUrl="https://picsum.photos/200/300"
+      />
+      <RidesCard
+        onPress={() => {
+          navigation.navigate('YourRideDetailScreen');
+        }}
+        values={{
+          date: new Date(),
+          fare: '123',
+          location: 'some long another fu Crux g',
+          status: 'Scheduled',
+          vehicleType: 'AUTO',
+        }}
+        imageUrl="https://picsum.photos/200/300"
+      />
+      <RidesCard
+        onPress={() => {
+          navigation.navigate('YourRideDetailScreen');
+        }}
+        values={{
+          date: new Date(),
+          fare: '123',
+          location: 'some long another fu Crux g',
+          status: 'Scheduled',
+          vehicleType: 'AUTO',
+        }}
+        imageUrl="https://picsum.photos/200/300"
+      />
     </ScrollView>
   );
 };
