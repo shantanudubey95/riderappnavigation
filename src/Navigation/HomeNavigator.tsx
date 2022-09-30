@@ -105,7 +105,7 @@ export default function HomeNavigation({ navigation }: { navigation: any }) {
       <Stack.Screen
         name="SelectPaymentMethodScreen"
         component={SelectPaymentMethodScreen}
-        options={{ title: 'Payment', ...HEADER(navigation) }}
+        options={{ title: 'Select Payment Mode', ...HEADER(navigation) }}
       />
       <Stack.Screen
         name="ConnectingToDriverScreen"
