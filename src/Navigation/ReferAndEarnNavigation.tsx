@@ -10,6 +10,8 @@ import InvitedScreen from '../Screens/InvitedScreen';
 import ReferAndEarnScreen from '../Screens/ReferAndEarnScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
+import TopTabNavigation from './TopTabNavigation';
+import ReferralEarningScreen from '../Screens/ReferralEarningScreen';
 const Stack = createNativeStackNavigator();
 function HEADER(navigation: any): NativeStackNavigationOptions {
   return {
@@ -36,8 +38,13 @@ export default function AccountNavigation({ navigation }: { navigation: any }) {
       />
       <Stack.Screen
         name="InvitedScreen"
-        component={InvitedScreen}
+        component={TopTabNavigation}
         options={{ title: 'Invites', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="ReferralEarningScreen"
+        component={ReferralEarningScreen}
+        options={{ title: 'Referral Earnings', ...HEADER(navigation) }}
       />
     </Stack.Navigator>
   );

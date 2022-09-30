@@ -34,7 +34,7 @@ export default function InvitedScreen() {
   return (
     <View style={tw`flex-1 px-5 pt-5 bg-[${COLORS.WHITE}]`}>
       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
-      <TextSemiBold22>No Invites yet</TextSemiBold22>
+      {/* <TextSemiBold22>No Invites yet</TextSemiBold22>
       <TextRegular15>
         Once someone uses your code to sign up. You will be able to see them here!
       </TextRegular15>
@@ -42,7 +42,7 @@ export default function InvitedScreen() {
       <ReferCode code={referCode} />
       <View style={tw`h-6.25`} />
       <SuggaaButton buttonType="FILLED" text="Share Code" onPress={onShare} />
-      <View style={[tw`h-1`, { paddingBottom: insets.bottom + 20 }]} />
+      <View style={[tw`h-1`, { paddingBottom: insets.bottom + 20 }]} /> */}
     </View>
   );
 }

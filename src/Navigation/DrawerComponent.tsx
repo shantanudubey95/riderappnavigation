@@ -4,12 +4,12 @@ import {
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
 import React from 'react';
-import { View, Image, Text, Pressable } from 'react-native';
+import { View, Image, Pressable } from 'react-native';
 import tw from 'twrnc';
 
+import TextMedium20 from '../Typography/TextMedium20';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
-import TextMedium20 from '../Typography/TextMedium20';
 
 export default function DrawerComponent(props: DrawerContentComponentProps) {
   return (
