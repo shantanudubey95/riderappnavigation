@@ -4,6 +4,7 @@ import tw from 'twrnc';
 
 import PhoneNumberTextInput from '../Components/PhoneNumberTextInput';
 import SuggaaButton from '../Components/SuggaaButton';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular15 from '../Typography/TextRegular15';
 import * as COLORS from '../config/colors';
 type Props = any;
@@ -11,9 +12,10 @@ const COUNTRY_CODE = '+91';
 export default function EnterPhoneNumberScreen({ navigation }: Props) {
   const [phoneNumber, setPhoneNumber] = React.useState('');
   return (
-    <View style={tw`p-5 items-center flex-1 bg-[${COLORS.WHITE}]`}>
-      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
-      <View style={tw`h-4`} />
+    // <View style={tw`p-5 items-center flex-1 bg-[${COLORS.WHITE}]`}>
+    // <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+    <SuggaaScreen header>
+      <View style={tw`h-2`} />
       <PhoneNumberTextInput
         COUNTRY_CODE={COUNTRY_CODE}
         selectionColor={COLORS.SPANISH_VIRIDIAN}
@@ -27,26 +29,27 @@ export default function EnterPhoneNumberScreen({ navigation }: Props) {
         We will send an OTP to{'\n'}verify your number
       </TextRegular15>
       <View style={tw`flex-1`} />
-      <KeyboardAvoidingView
+      {/* <KeyboardAvoidingView
         style={{ width: '100%' }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         // Fix this keyboard
-        keyboardVerticalOffset={110}>
-        {phoneNumber.length > 9 ? (
-          <SuggaaButton
-            text="Next"
-            buttonType="FILLED"
-            onPress={() =>
-              navigation.navigate('EnterOTPScreen', {
-                phoneNumber,
-              })
-            }
-          />
-        ) : (
-          <SuggaaButton text="Next" buttonType="DISABLED" onPress={() => {}} />
-        )}
-      </KeyboardAvoidingView>
+        keyboardVerticalOffset={0}> */}
+      {phoneNumber.length > 9 ? (
+        <SuggaaButton
+          text="Next"
+          buttonType="FILLED"
+          onPress={() =>
+            navigation.navigate('EnterOTPScreen', {
+              phoneNumber,
+            })
+          }
+        />
+      ) : (
+        <SuggaaButton text="Next" buttonType="DISABLED" onPress={() => {}} />
+      )}
+      {/* </KeyboardAvoidingView> */}
       <View style={tw`h-4`} />
-    </View>
+      {/* </View> */}
+    </SuggaaScreen>
   );
 }

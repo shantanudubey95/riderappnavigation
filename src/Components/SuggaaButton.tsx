@@ -21,7 +21,7 @@ export default function SuggaaButton({ onPress, text, buttonType }: props) {
           : buttonType === 'DISABLED'
           ? `bg-[${COLORS.LIGHT_GRAY_BORDER}]`
           : ''
-      }  rounded-1.25 p-2.25 items-center self-stretch`}
+      }  rounded-1.25 justify-center px-2.25 items-center self-stretch h-15`}
       onPress={() => buttonType !== 'DISABLED' && onPress()}>
       <TextMedium25
         numberOfLines={1}

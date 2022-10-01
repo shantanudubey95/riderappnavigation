@@ -67,7 +67,7 @@ const SelectRideScreen = ({
         <VehicleWithFareCard
           vehicleType="Book any"
           duration="0"
-          fare={120}
+          fare={120120}
           onPress={() => alert('onPress')}
         />
         <VehicleWithFareCard
