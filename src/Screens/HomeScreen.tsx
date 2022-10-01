@@ -1,15 +1,18 @@
 import * as Location from 'expo-location';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
-import { View, StatusBar, Platform, Pressable, Image } from 'react-native';
+import { View, Pressable, Image } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
 import BottomSheet from '../Components/BottomSheet';
 import HamburgerIcon from '../Components/HamburgerIcon';
-import PickAndDropInput from '../Components/PickAndDropInput';
+import PressableButton from '../Components/PressableButton';
+import SuggaaMapScreen from '../Components/SuggaaMapScreen';
 import SuggaaMarker from '../Components/SuggaaMarker';
 import TextBold22 from '../Typography/TextBold22';
 import TextMedium15 from '../Typography/TextMedium15';
+import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
@@ -36,7 +39,6 @@ const HomeScreen = ({
   navigation: any;
 }) => {
   const [selected, setSelected] = React.useState('City');
-  const [stopAddress, setStopAddress] = React.useState('');
   const [rotate, setRotation] = useState(0);
   const [myLocation, setLocation] = useState<location>();
   const map = useRef(null);
@@ -74,9 +76,9 @@ const HomeScreen = ({
       map?.current?.animateToRegion(initialRegion, 2000);
     }
   }
+  const insets = useSafeAreaInsets();
   return (
-    <View style={tw`flex-1 bg-[${COLORS.WHITE}] items-center justify-center`}>
-      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+    <SuggaaMapScreen header={false}>
       <MapView
         // followsUserLocation
         zoomEnabled
@@ -114,14 +116,7 @@ const HomeScreen = ({
         />
       </MapView>
 
-      <View
-        style={tw`absolute top-[${
-          Platform.OS === 'android'
-            ? StatusBar?.currentHeight
-              ? StatusBar?.currentHeight / 3
-              : `15`
-            : `15`
-        }] w-full flex-row`}>
+      <View style={[tw`absolute  w-full flex-row`, { paddingTop: Math.max(40, insets.top) }]}>
         <View style={tw`w-5`} />
         <HamburgerIcon
           ImageId={IMAGES.HAMBURGER_ICON}
@@ -129,15 +124,37 @@ const HomeScreen = ({
           onPress={() => navigation.openDrawer()}
         />
         <View style={tw`w-4`} />
-        <PickAndDropInput
-          inputTitle="Pickup"
-          clearInput={() => setStopAddress('')}
-          inputText={stopAddress}
-          onValueChange={setStopAddress}
-        />
+
+        <Pressable
+          onPress={() => {
+            navigation.navigate('EnterDestinationScreen');
+          }}
+          style={tw`h-12 py-1 shadow-md bg-[${COLORS.WHITE}] rounded-1.25 flex-1 justify-center`}>
+          <View style={tw`justify-center`}>
+            <TextRegular12 style={tw`ml-5  text-[${COLORS.SPANISH_VIRIDIAN}]`}>
+              Pickup
+            </TextRegular12>
+          </View>
+          <View style={tw`items-center flex-row w-10/11`}>
+            <View style={tw`ml-1.75 h-1.5 w-1.5 rounded-full bg-[${COLORS.SPANISH_VIRIDIAN}]`} />
+            <TextRegular15 numberOfLines={1} ellipsizeMode="tail" style={tw`ml-2`}>
+              BLOCK-A, MANTRI ALPYNE, Bhadrtyvdtfuftyubdtudfuytjvguffc...
+            </TextRegular15>
+          </View>
+        </Pressable>
+
         <View style={tw`w-5`} />
       </View>
+
       <BottomSheet navigation={navigation} scrollable={false}>
+        <View style={tw`absolute top--30 right-5`}>
+          <PressableButton
+            icon={IMAGES.CURRENT_LOCATION}
+            onPress={() => {
+              goToInitialLocation();
+            }}
+          />
+        </View>
         <View style={tw`flex-row w-full`}>
           <Pressable
             onPress={() => setSelected('City')}
@@ -199,8 +216,9 @@ const HomeScreen = ({
             Search Drop Location
           </TextRegular15>
         </Pressable>
+        <View style={tw`h-17.5`} />
       </BottomSheet>
-    </View>
+    </SuggaaMapScreen>
   );
 };
 

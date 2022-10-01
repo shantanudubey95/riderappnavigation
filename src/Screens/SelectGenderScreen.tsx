@@ -7,11 +7,9 @@ import SelectGender from '../Components/SelectGender';
 import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaScreen from '../Components/SuggaaScreen';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
-import * as COLORS from '../config/colors';
 
 const SelectGenderScreen = ({ navigation }: { navigation: any }) => {
   const [selectedCheckBox, setSelectedCheckBox] = React.useState('');
-  console.log(selectedCheckBox);
   return (
     <SuggaaScreen header>
       <TextSemiBold15>How would you like to be addressed?</TextSemiBold15>
