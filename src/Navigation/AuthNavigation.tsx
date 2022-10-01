@@ -55,8 +55,6 @@ export default function AuthNavigation({ navigation }: { navigation: any }) {
         name="EnterPhoneNumberScreen"
         component={EnterPhoneNumberScreen}
         options={{ title: 'Enter Phone Number', ...HEADER(navigation) }}
-        // options={{ headerShown: false }}
-
       />
       <Stack.Screen
         name="EnterOTPScreen"

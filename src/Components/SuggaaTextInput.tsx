@@ -73,7 +73,7 @@ export default function SuggaaTextInput(props: Props) {
     ? COLORS.LUST_RED
     : isFocused || value
     ? COLORS.SPANISH_VIRIDIAN
-    : COLORS.LIGHT_GRAY_BORDER;
+    : COLORS.SPANISH_VIRIDIAN;
   const text_Color = isFocused || value ? COLORS.SPANISH_VIRIDIAN : COLORS.LIGHT_GRAY_BORDER;
   const error_Text_Color = COLORS.LUST_RED;
 
@@ -89,13 +89,14 @@ export default function SuggaaTextInput(props: Props) {
           {
             borderColor: color,
             alignContent: 'center',
+            justifyContent: 'center',
             width: '100%',
             borderWidth: 2,
             borderRadius: 5,
             fontSize: 20,
             fontWeight: '400',
             paddingHorizontal: 13,
-            paddingVertical: 10,
+            height: 48,
           },
         ]}
         {...restOfProps}

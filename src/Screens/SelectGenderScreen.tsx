@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, KeyboardAvoidingView, Platform } from 'react-native';
+import { View } from 'react-native';
 import tw from 'twrnc';
 
 import DateInput from '../Components/DateInput';
 import SelectGender from '../Components/SelectGender';
 import SuggaaButton from '../Components/SuggaaButton';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
 import * as COLORS from '../config/colors';
 
@@ -12,7 +13,7 @@ const SelectGenderScreen = ({ navigation }: { navigation: any }) => {
   const [selectedCheckBox, setSelectedCheckBox] = React.useState('');
   console.log(selectedCheckBox);
   return (
-    <View style={tw`flex-1 bg-[${COLORS.WHITE}] p-5 pt-7`}>
+    <SuggaaScreen header>
       <TextSemiBold15>How would you like to be addressed?</TextSemiBold15>
       <View style={tw`h-5`} />
       <View style={tw`w-full flex-row`}>
@@ -36,25 +37,19 @@ const SelectGenderScreen = ({ navigation }: { navigation: any }) => {
           isActive={selectedCheckBox === 'I prefer not to say'}
         />
       </View>
-      <TextSemiBold15 style={tw`mt-17.5`}>when do you like to be wished?</TextSemiBold15>
+      <TextSemiBold15 style={tw`mt-17.5`}>When do you like to be wished?</TextSemiBold15>
       <View style={tw`h-4`} />
       <DateInput setDate={() => {}} />
+      <TextSemiBold15 style={tw`mt-17.5`}>Do you have a referral code?</TextSemiBold15>
       <View style={tw`flex-1`} />
-      <KeyboardAvoidingView
-        style={{ width: '100%' }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        // Fix this keyboard issue
-        keyboardVerticalOffset={110}>
-        <SuggaaButton
-          text="Next"
-          buttonType={selectedCheckBox ? 'FILLED' : 'DISABLED'}
-          onPress={() => {
-            navigation.navigate('ProfileCreatedSplashScreen');
-          }}
-        />
-      </KeyboardAvoidingView>
-      <View style={tw`h-5`} />
-    </View>
+      <SuggaaButton
+        text="Next"
+        buttonType={selectedCheckBox ? 'FILLED' : 'DISABLED'}
+        onPress={() => {
+          navigation.navigate('ProfileCreatedSplashScreen');
+        }}
+      />
+    </SuggaaScreen>
   );
 };
 
