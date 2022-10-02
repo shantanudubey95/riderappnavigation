@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { Image, View } from 'react-native';
+import tw from 'twrnc';
+
+import TextSemiBold18 from '../Typography/TextSemiBold18';
 
 const InsuranceScreen = ({ navigation }: { navigation: any }) => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Insurance Screen</Text>
-      <Button title="Navigate to next screen" />
+    <View style={tw`flex-1 items-center bg-white`}>
+      <Image source={require('../../assets/NoInsurance.png')} />
+      <TextSemiBold18>Coming Soon!</TextSemiBold18>
     </View>
   );
 };
