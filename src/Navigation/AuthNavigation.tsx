@@ -16,6 +16,7 @@ import SplashScreen from '../Screens/SplashScreen';
 import WelcomeScreen from '../Screens/WelcomeScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
+import EnterReferralScreen from '../Screens/EnterReferralScreen';
 const Stack = createNativeStackNavigator();
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -70,6 +71,11 @@ export default function AuthNavigation({ navigation }: { navigation: any }) {
         name="SelectGenderScreen"
         component={SelectGenderScreen}
         options={{ title: 'Final step', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="EnterReferralScreen"
+        component={EnterReferralScreen}
+        options={{ title: 'Enter Referral', ...HEADER(navigation) }}
       />
       <Stack.Screen
         name="ProfileCreatedSplashScreen"

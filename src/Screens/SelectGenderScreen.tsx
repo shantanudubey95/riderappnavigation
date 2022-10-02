@@ -44,7 +44,7 @@ const SelectGenderScreen = ({ navigation }: { navigation: any }) => {
         text="Next"
         buttonType={selectedCheckBox ? 'FILLED' : 'DISABLED'}
         onPress={() => {
-          navigation.navigate('ProfileCreatedSplashScreen');
+          navigation.navigate('EnterReferralScreen');
         }}
       />
     </SuggaaScreen>
