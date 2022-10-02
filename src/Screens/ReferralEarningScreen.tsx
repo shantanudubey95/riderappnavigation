@@ -11,7 +11,7 @@ import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 const ReferralEarningScreen = ({ navigation }: { navigation: any }) => {
   return (
-    <ScrollView contentContainerStyle={tw`p-5`} style={tw`bg-[${COLORS.WHITE}]`}>
+    <ScrollView bounces={false} contentContainerStyle={tw`p-5`} style={tw`bg-[${COLORS.WHITE}]`}>
       <View style={tw`flex-2 px-3.75 items-center flex-row`}>
         <Image style={tw`h-12 w-12`} source={IMAGES.PIC26} />
         <View style={tw`ml-3.75 flex-1`}>

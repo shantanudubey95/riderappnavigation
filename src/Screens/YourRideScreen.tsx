@@ -7,6 +7,7 @@ import * as COLORS from '../config/colors';
 const YourRideScreen = ({ navigation }: { navigation: any }) => {
   return (
     <ScrollView
+      bounces={false}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{
         padding: '4%',
@@ -40,19 +41,7 @@ const YourRideScreen = ({ navigation }: { navigation: any }) => {
         }}
         imageUrl="https://picsum.photos/200/300"
       />
-      <RidesCard
-        onPress={() => {
-          navigation.navigate('YourRideDetailScreen');
-        }}
-        values={{
-          date: new Date(),
-          fare: '123',
-          location: 'some long adieu ti viga thar fu Crux g',
-          status: 'Ongoing',
-          vehicleType: 'AUTO',
-        }}
-        imageUrl="https://picsum.photos/200/300"
-      />
+     
       <RidesCard
         onPress={() => {
           navigation.navigate('YourRideDetailScreen');

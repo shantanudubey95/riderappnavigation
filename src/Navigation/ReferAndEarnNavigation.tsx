@@ -6,12 +6,11 @@ import {
 import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
-import InvitedScreen from '../Screens/InvitedScreen';
 import ReferAndEarnScreen from '../Screens/ReferAndEarnScreen';
+import ReferralEarningScreen from '../Screens/ReferralEarningScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 import TopTabNavigation from './TopTabNavigation';
-import ReferralEarningScreen from '../Screens/ReferralEarningScreen';
 const Stack = createNativeStackNavigator();
 function HEADER(navigation: any): NativeStackNavigationOptions {
   return {

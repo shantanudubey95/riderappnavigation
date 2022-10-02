@@ -63,7 +63,7 @@ const CancelRideScreen = ({
             <SuggaaCheckBox isActive={false} />
             <TextRegular15 style={tw`ml-4`}>My reason is not listed</TextRegular15>
           </Pressable>
-          <View style={tw`w-full mt-4 flex-row justify-around`}>
+          <View style={tw`w-full mt-4 flex-row justify-between`}>
             <SuggaaButton
               buttonType="BORDER"
               text="Don't Cancel"

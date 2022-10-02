@@ -5,13 +5,14 @@ import tw from 'twrnc';
 
 import CouponCard from '../Components/CouponCard';
 import SuggaButton from '../Components/SuggaaButton';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import SuggaaTextInput from '../Components/SuggaaTextInput';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
 
 export default function ApplyCouponScreen({ navigation }: { navigation: any }) {
   return (
-    <View style={tw`p-5 pb-0 flex-1 bg-[${COLORS.WHITE}]`}>
+    <SuggaaScreen header>
       <SuggaaTextInput
         style={{
           alignContent: 'center',
@@ -28,13 +29,13 @@ export default function ApplyCouponScreen({ navigation }: { navigation: any }) {
         //   errorText={error}
         selectionColor={COLORS.SPANISH_VIRIDIAN}
       />
-      <View style={tw`my-3.75`}>
+      <View style={tw`mt-6 mb-3`}>
         <TextSemiBold22>Available Coupons</TextSemiBold22>
       </View>
       <FlatList
         ItemSeparatorComponent={() => <View style={tw`h-5.5`} />}
         showsVerticalScrollIndicator={false}
-        data={[1, 2, 3, 4, 4]}
+        data={[1, 2, 3, 4, 5]}
         renderItem={() => (
           <CouponCard
             title="Suggaa"
@@ -44,15 +45,14 @@ export default function ApplyCouponScreen({ navigation }: { navigation: any }) {
           />
         )}
       />
-      <View style={tw`my-5`}>
-        <SuggaButton
-          buttonType="FILLED"
-          text="Apply Coupon Code"
-          onPress={() => {
-            navigation.navigate('SelectRideScreen');
-          }}
-        />
-      </View>
-    </View>
+      <View style={tw`h-5`} />
+      <SuggaButton
+        buttonType="FILLED"
+        text="Apply Coupon Code"
+        onPress={() => {
+          navigation.navigate('SelectRideScreen');
+        }}
+      />
+    </SuggaaScreen>
   );
 }

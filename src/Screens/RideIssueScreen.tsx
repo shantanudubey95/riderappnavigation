@@ -1,22 +1,19 @@
 import React from 'react';
-import { View, StatusBar, Pressable } from 'react-native';
+import { View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
 import RoutePoints from '../Components/RoutePoints';
 import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaMarker from '../Components/SuggaaMarker';
-import TextMedium25 from '../Typography/TextMedium25';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 const RideIssueScreen = ({ navigation }: { navigation: any }) => {
-  const insets = useSafeAreaInsets();
   return (
-    <View style={{ flex: 1, backgroundColor: 'white', padding: '4%' }}>
-      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+    <SuggaaScreen header>
       <View style={tw`h-42 shadow-md overflow-hidden w-full bg-[${COLORS.WHITE}] rounded-1.25`}>
         <MapView
           region={{
@@ -55,14 +52,16 @@ const RideIssueScreen = ({ navigation }: { navigation: any }) => {
         <TextSemiBold15>₹ 117</TextSemiBold15>
       </View>
       <View style={tw`flex-1`} />
-      <View style={[tw`flex-row w-full justify-between`, { paddingBottom: insets.bottom || 20 }]}>
-        <Pressable
-          style={tw`border-2 border-[${COLORS.LUST_RED}] rounded-1.25 p-2.25 items-center self-stretch`}>
-          <TextMedium25 style={tw`text-[${COLORS.LUST_RED}]`}>Cancel Ride</TextMedium25>
-        </Pressable>
-        <SuggaaButton text="Support" buttonType="BORDER" onPress={() => {}} />
+      <View style={tw`flex-row`}>
+        <View style={tw`flex-1`}>
+          <SuggaaButton text="Support" buttonType="BORDER" onPress={() => {}} />
+        </View>
+        <View style={tw`w-5`} />
+        <View style={tw`flex-1`}>
+          <SuggaaButton text="Support" buttonType="BORDER" onPress={() => {}} />
+        </View>
       </View>
-    </View>
+    </SuggaaScreen>
   );
 };
 

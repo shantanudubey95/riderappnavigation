@@ -1,15 +1,15 @@
 import React from 'react';
-import { Image, Pressable, ScrollView, StatusBar, View } from 'react-native';
+import { Image, Pressable, ScrollView, View } from 'react-native';
 import tw from 'twrnc';
 
 import NavigateIconButton from '../Components/NavigateIconButton';
 import ProfilePicture from '../Components/ProfilePicture';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular20 from '../Typography/TextRegular20';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
-import { ROOT_VIEW_STYLE } from '../config/utils';
 
 type Props = any;
 
@@ -40,8 +40,7 @@ export default function AccountScreen({ navigation }: Props) {
     );
   };
   return (
-    <View style={ROOT_VIEW_STYLE}>
-      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+    <SuggaaScreen header>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={tw`w-full items-center p-0.5`}>
@@ -77,6 +76,6 @@ export default function AccountScreen({ navigation }: Props) {
           icon={IMAGES.EMERGENCY}
         />
       </ScrollView>
-    </View>
+    </SuggaaScreen>
   );
 }

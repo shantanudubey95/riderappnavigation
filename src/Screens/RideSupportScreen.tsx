@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, StatusBar, Pressable, Image } from 'react-native';
+import { View, Pressable, Image } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
 import RoutePoints from '../Components/RoutePoints';
 import SuggaaMarker from '../Components/SuggaaMarker';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
@@ -12,8 +13,7 @@ import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 const RideSupportScreen = ({ navigation }: { navigation: any }) => {
   return (
-    <View style={{ flex: 1, backgroundColor: 'white', padding: '4%' }}>
-      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+    <SuggaaScreen header>
       <View style={tw`h-42 shadow-md overflow-hidden w-full bg-[${COLORS.WHITE}] rounded-1.25`}>
         <MapView
           region={{
@@ -95,7 +95,7 @@ const RideSupportScreen = ({ navigation }: { navigation: any }) => {
         }}>
         <TextRegular15 style={tw`text-[${COLORS.BLUE}]`}>Other Help Topics</TextRegular15>
       </Pressable>
-    </View>
+    </SuggaaScreen>
   );
 };
 

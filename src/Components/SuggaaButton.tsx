@@ -3,7 +3,7 @@ import { Pressable } from 'react-native';
 import type { PressableProps } from 'react-native';
 import tw from 'twrnc';
 
-import TextMedium25 from '../Typography/TextMedium25';
+import TextMedium22 from '../Typography/TextMedium22';
 import * as COLORS from '../config/colors';
 type props = PressableProps & {
   text: string;
@@ -21,15 +21,15 @@ export default function SuggaaButton({ onPress, text, buttonType }: props) {
           : buttonType === 'DISABLED'
           ? `bg-[${COLORS.LIGHT_GRAY_BORDER}]`
           : ''
-      }  rounded-1.25 justify-center px-2.25 items-center self-stretch h-15`}
+      }  rounded-1.25 justify-center px-3 items-center self-stretch h-15`}
       onPress={() => buttonType !== 'DISABLED' && onPress()}>
-      <TextMedium25
+      <TextMedium22
         numberOfLines={1}
         style={tw`${
           buttonType === 'BORDER' ? `text-[${COLORS.SPANISH_VIRIDIAN}]` : `text-[${COLORS.WHITE}]`
         }`}>
         {text}
-      </TextMedium25>
+      </TextMedium22>
     </Pressable>
   );
 }

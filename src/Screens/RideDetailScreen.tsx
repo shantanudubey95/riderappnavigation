@@ -106,12 +106,14 @@ const RideDetailScreen = ({
                 driver_image=""
               />
             </View>
-            <View style={tw`flex-row justify-between items-center mt-5 w-full`}>
+            <View style={tw`flex-row items-center mt-5 w-full`}>
               <TextInput
                 placeholder="Any pickup notes?"
                 style={tw`h-12 w-56 bg-white rounded-md shadow-lg px-2.25`}
               />
+              <View style={tw`flex-1`} />
               <PressableButton onPress={() => {}} icon={IMAGES.CALL} />
+              <View style={tw`w-2`}/>
               <PressableButton onPress={() => {}} icon={IMAGES.SHARE} />
             </View>
             <View

@@ -5,6 +5,7 @@ import tw from 'twrnc';
 
 import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaCheckBox from '../Components/SuggaaCheckBox';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
@@ -12,7 +13,7 @@ import * as IMAGES from '../config/images';
 const SelectPaymentMethodScreen = ({ navigation }: { navigation: any }) => {
   const insets = useSafeAreaInsets();
   return (
-    <View style={tw`flex-1 bg-white p-4`}>
+    <SuggaaScreen header>
       <TextSemiBold22>UPI</TextSemiBold22>
       <Pressable style={tw`w-full mt-4 items-center h-8 flex-row`}>
         <SuggaaCheckBox isActive />
@@ -54,7 +55,7 @@ const SelectPaymentMethodScreen = ({ navigation }: { navigation: any }) => {
         }}
         text="Confirm Payment Method"
       />
-    </View>
+    </SuggaaScreen>
   );
 };
 

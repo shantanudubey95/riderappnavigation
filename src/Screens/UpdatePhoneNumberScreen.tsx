@@ -1,9 +1,10 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 import tw from 'twrnc';
 
 import PhoneNumberTextInput from '../Components/PhoneNumberTextInput';
 import SuggaaButton from '../Components/SuggaaButton';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular15 from '../Typography/TextRegular15';
 import * as COLORS from '../config/colors';
 type Props = any;
@@ -13,10 +14,7 @@ export default function UpdatePhoneNumberScreen({ navigation }: Props) {
   const [phoneNumber, setPhoneNumber] = React.useState('');
 
   return (
-    <View style={tw`p-5 items-center flex-1 bg-[${COLORS.WHITE}]`}>
-      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
-      <View style={tw`h-4`} />
-
+    <SuggaaScreen header>
       <PhoneNumberTextInput
         COUNTRY_CODE={COUNTRY_CODE}
         selectionColor={COLORS.SPANISH_VIRIDIAN}
@@ -34,6 +32,6 @@ export default function UpdatePhoneNumberScreen({ navigation }: Props) {
         buttonType={phoneNumber ? 'FILLED' : 'DISABLED'}
         onPress={() => navigation.navigate('AccountScreen', { phoneNumber })}
       />
-    </View>
+    </SuggaaScreen>
   );
 }

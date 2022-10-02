@@ -1,14 +1,13 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 import tw from 'twrnc';
 
 import NavigateIconButton from '../Components/NavigateIconButton';
-import * as COLORS from '../config/colors';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import * as IMAGES from '../config/images';
 const FavoritesLocationScreen = ({ navigation }: { navigation: any }) => {
   return (
-    <View style={{ flex: 1, backgroundColor: 'white', padding: '4%', alignItems: 'center' }}>
-      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+    <SuggaaScreen header>
       <NavigateIconButton
         onPress={() => {
           navigation.navigate('SelectFavouriteLocationScreen');
@@ -35,7 +34,7 @@ const FavoritesLocationScreen = ({ navigation }: { navigation: any }) => {
         icon={IMAGES.ADD}
         isRed={false}
       />
-    </View>
+    </SuggaaScreen>
   );
 };
 

@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, StatusBar, Pressable } from 'react-native';
+import { View, Pressable } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
 import FullScreenModal from '../Components/FullScreenModal';
 import RoutePoints from '../Components/RoutePoints';
 import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaMarker from '../Components/SuggaaMarker';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import SuggaaTextInput from '../Components/SuggaaTextInput';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular15 from '../Typography/TextRegular15';
@@ -40,10 +40,8 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
       </View>
     );
   };
-  const insets = useSafeAreaInsets();
   return (
-    <View style={{ flex: 1, backgroundColor: 'white', padding: '4%' }}>
-      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+    <SuggaaScreen header>
       <View style={tw`h-42 shadow-md overflow-hidden w-full bg-[${COLORS.WHITE}] rounded-1.25`}>
         <MapView
           region={{
@@ -89,7 +87,7 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
 
       {payCards('Total Payable', '₹ 117', true)}
       <View style={tw`flex-1`} />
-      <View style={[tw`flex-row`, { paddingBottom: insets.bottom || 20 }]}>
+      <View style={tw`flex-row`}>
         <View style={tw`flex-1`}>
           <SuggaaButton onPress={() => setShowModal(true)} text="Mail" buttonType="FILLED" />
         </View>
@@ -125,7 +123,7 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
           </View>
         </FullScreenModal>
       )}
-    </View>
+    </SuggaaScreen>
   );
 };
 

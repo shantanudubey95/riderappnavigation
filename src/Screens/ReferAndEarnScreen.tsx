@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Image, Text, Pressable, Share, ImageBackground, StatusBar } from 'react-native';
+import { View, Image, Pressable, Share, ImageBackground } from 'react-native';
 import tw from 'twrnc';
 
 import ReferCode from '../Components/ReferCode';
 import SuggaaButton from '../Components/SuggaaButton';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold18 from '../Typography/TextSemiBold18';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
-import { ROOT_VIEW_STYLE } from '../config/utils';
 
 export default function ReferAndEarnScreen({ navigation }: { navigation: any }) {
   const referCode = 'SUGGAA OFF25';
@@ -33,8 +33,7 @@ export default function ReferAndEarnScreen({ navigation }: { navigation: any }) 
   };
 
   return (
-    <View style={ROOT_VIEW_STYLE}>
-      <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
+    <SuggaaScreen header>
       <ImageBackground
         resizeMode="contain"
         source={IMAGES.REFER_EARN_BANNER}
@@ -74,6 +73,6 @@ export default function ReferAndEarnScreen({ navigation }: { navigation: any }) 
       </View>
       <View style={tw`h-7.5`} />
       <SuggaaButton buttonType="FILLED" text="Share Code" onPress={onShare} />
-    </View>
+    </SuggaaScreen>
   );
 }

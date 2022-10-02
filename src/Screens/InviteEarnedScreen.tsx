@@ -9,7 +9,9 @@ type Props = any;
 
 export default function InviteEarnedScreen({ navigation }: Props) {
   return (
-    <ScrollView contentContainerStyle={tw`flex-1 p-5 bg-[${COLORS.WHITE}]`}>
+    <ScrollView
+    // bounces={false}
+    contentContainerStyle={tw`flex-1 p-5 bg-[${COLORS.WHITE}]`}>
       <InviteCard
         name="Rajat Kumar"
         image={IMAGES.PIC26}
