@@ -216,7 +216,7 @@ const HomeScreen = ({
             Search Drop Location
           </TextRegular15>
         </Pressable>
-        <View style={tw`h-17.5`} />
+        <View style={tw`h-8`} />
       </BottomSheet>
     </SuggaaMapScreen>
   );
