@@ -12,7 +12,6 @@ import HomeNavigator from './HomeNavigator';
 import InsuranceNavigation from './InsuranceNavigation';
 import PaymentNavigation from './PaymentNavigation';
 import ReferAndEarnNavigation from './ReferAndEarnNavigation';
-import SettingNavigation from './SettingNavigation';
 import SupportNavigation from './SupportNavigation';
 import YourRidesNavigation from './YourRidesNavigation';
 type iconProps = {
@@ -62,7 +61,7 @@ export default function DrawerNavigation() {
         name="Insurance"
         component={InsuranceNavigation}
         options={{
-          drawerIcon: () => <Icon image={IMAGES.INSURANCE} />,
+          drawerIcon: () => <Icon image={IMAGES.HEART} />,
           drawerLabelStyle: LABEL_STYLE,
         }}
       />
@@ -79,14 +78,6 @@ export default function DrawerNavigation() {
         component={SupportNavigation}
         options={{
           drawerIcon: () => <Icon image={IMAGES.SUPPORT} />,
-          drawerLabelStyle: LABEL_STYLE,
-        }}
-      />
-      <Drawer.Screen
-        name="Settings"
-        component={SettingNavigation}
-        options={{
-          drawerIcon: () => <Icon image={IMAGES.SETTINGS} />,
           drawerLabelStyle: LABEL_STYLE,
         }}
       />

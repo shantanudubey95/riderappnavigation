@@ -43,8 +43,6 @@ const EnterReferralScreen = ({ navigation }: { navigation: any }) => {
           navigation.navigate('ProfileCreatedSplashScreen');
         }}
       />
-
-      {/* <View style={tw`h-4`} /> */}
     </SuggaaScreen>
   );
 };
