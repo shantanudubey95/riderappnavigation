@@ -1,7 +1,7 @@
 import { Canvas, Paint, Path, Skia } from '@shopify/react-native-skia';
 import * as ImagePicker from 'expo-image-picker';
 import React from 'react';
-import { View, Image, TouchableOpacity, Pressable } from 'react-native';
+import { Image, TouchableOpacity, Pressable } from 'react-native';
 
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';

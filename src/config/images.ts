@@ -101,3 +101,6 @@ export const EMERGENCY = require('../../assets/Emergency.png');
 export const HEART = require('../../assets/heart.png');
 export const HOME = require('../../assets/Home.png');
 export const WORK = require('../../assets/Work.png');
+export const LOGOUT = require('../../assets/Logout.png');
+export const PROFILE = require('../../assets/Profile.png');
+export const DELETE_RED = require('../../assets/Deletered.png');

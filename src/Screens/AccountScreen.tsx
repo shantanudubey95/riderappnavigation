@@ -6,6 +6,7 @@ import NavigateIconButton from '../Components/NavigateIconButton';
 import ProfilePicture from '../Components/ProfilePicture';
 import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular12 from '../Typography/TextRegular12';
+import TextRegular15 from '../Typography/TextRegular15';
 import TextRegular20 from '../Typography/TextRegular20';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
 import * as COLORS from '../config/colors';
@@ -35,15 +36,16 @@ export default function AccountScreen({ navigation }: Props) {
           <TextRegular12 style={tw`text-[${COLORS.SPANISH_VIRIDIAN}]`}>Verified</TextRegular12>
         )}
         <View style={tw`w-4`} />
-        <Image source={IMAGES.ARROW_RIGHT_GREEN} resizeMode="contain" />
+        <Image source={IMAGES.ARROW_RIGHT_GREEN} resizeMode="contain" style={tw`h-7 w-7`} />
       </Pressable>
     );
   };
   return (
     <SuggaaScreen header>
       <ScrollView
+        bounces={false}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={tw`w-full items-center p-0.5`}>
+        contentContainerStyle={tw`w-full items-center`}>
         <View style={tw`h-3`} />
         <ProfilePicture defaultImage={require('../../assets/icon.png')} setPickedImage={() => {}} />
         <View style={tw`h-15`} />
@@ -75,6 +77,10 @@ export default function AccountScreen({ navigation }: Props) {
           title="Emergency Contacts"
           icon={IMAGES.EMERGENCY}
         />
+        <Pressable style={tw`flex-row items-center w-full mt-6.25`}>
+          <Image style={{ tintColor: COLORS.LUST_RED }} source={IMAGES.LOGOUT} />
+          <TextRegular15 style={tw`text-[${COLORS.LUST_RED}] ml-1.75 `}>Logout</TextRegular15>
+        </Pressable>
       </ScrollView>
     </SuggaaScreen>
   );

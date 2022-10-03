@@ -1,6 +1,6 @@
 import * as Location from 'expo-location';
 import React, { useState, useRef } from 'react';
-import { View, StatusBar, Text } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
@@ -139,6 +139,29 @@ const LocateFavouriteScreen = ({
             </View>
             <View style={tw`h-5`} />
             <SuggaaTextInput label="Name your Favourite" />
+            <View style={tw`h-5`} />
+            <View style={tw`flex-row w-full`}>
+              <View style={tw`flex-1`}>
+                <SuggaaButton
+                  buttonType="BORDER"
+                  text="Cancel"
+                  onPress={() => {
+                    navigation.navigate('AccountScreen');
+                  }}
+                />
+              </View>
+              <View style={tw`w-5`} />
+              <View style={tw`flex-1`}>
+                <SuggaaButton
+                  buttonType="FILLED"
+                  text="Save"
+                  onPress={() => {
+                    navigation.navigate('AccountScreen');
+                  }}
+                />
+              </View>
+            </View>
+            <View style={tw`h-5`} />
           </View>
         </BottomModal>
       ) : null}

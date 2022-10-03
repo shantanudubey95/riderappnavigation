@@ -7,6 +7,7 @@ import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
 import AccountScreen from '../Screens/AccountScreen';
+import EditEmergencyContactScreen from '../Screens/EditEmergencyContactScreen';
 import EmergencyContactScreen from '../Screens/EmergencyContactScreen';
 import FavoritesLocationScreen from '../Screens/FavouriteLocationScreen';
 import LocateFavouriteScreen from '../Screens/LocateFavouriteScreen';
@@ -83,6 +84,11 @@ export default function AccountNavigation({ navigation }: { navigation: any }) {
         name="EmergencyContactScreen"
         component={EmergencyContactScreen}
         options={{ title: 'Setup Emergency Contact', ...HEADER(navigation) }}
+      />
+      <Stack.Screen
+        name="EditEmergencyContactScreen"
+        component={EditEmergencyContactScreen}
+        options={{ title: '', ...HEADER(navigation) }}
       />
       <Stack.Screen name="SelectLocationScreen" component={SelectLocationScreen} />
       <Stack.Screen

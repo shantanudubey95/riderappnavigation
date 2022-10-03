@@ -24,7 +24,7 @@ export default function CouponCard({ title, icon, onPress, isRed }: props) {
           <TextSemiBold18 style={tw`text-[${COLORS.LUST_RED}]`}>{title}</TextSemiBold18>
           <View style={tw`flex-1`} />
           <Image
-            style={{ tintColor: COLORS.LUST_RED }}
+            style={[{ tintColor: COLORS.LUST_RED }, tw`h-7 w-7`]}
             source={IMAGES.ARROW_RIGHT_GREEN}
             resizeMode="contain"
           />
@@ -33,7 +33,7 @@ export default function CouponCard({ title, icon, onPress, isRed }: props) {
         <>
           <TextSemiBold18>{title}</TextSemiBold18>
           <View style={tw`flex-1`} />
-          <Image source={IMAGES.ARROW_RIGHT_GREEN} resizeMode="contain" />
+          <Image source={IMAGES.ARROW_RIGHT_GREEN} resizeMode="contain" style={tw`h-7 w-7`} />
         </>
       )}
     </Pressable>
