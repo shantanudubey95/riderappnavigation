@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, StatusBar, SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import tw from 'twrnc';
 
 import DriverDetails from '../Components/DriverDetails';
 import SuggaaButton from '../Components/SuggaaButton';
+import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
 import TextSemiBold18 from '../Typography/TextSemiBold18';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
-import SuggaaScreen from '../Components/SuggaaScreen';
 
 const DestinationArrivedScreen = ({ navigation }: { navigation: any }) => {
   const payCards = (name: string, value?: string, bolder?: boolean, color?: string) => {
@@ -35,11 +35,8 @@ const DestinationArrivedScreen = ({ navigation }: { navigation: any }) => {
     );
   };
   return (
-    // <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
-    //   <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
-    // <View style={tw`px-4 pt-10 flex-1`}>
     <SuggaaScreen header={false}>
-      <TextSemiBold22 style={tw`text-[${COLORS.SPANISH_VIRIDIAN}]`}>
+      <TextSemiBold22 style={tw`text-[${COLORS.SPANISH_VIRIDIAN}] mt-5`}>
         Destination Arrived
       </TextSemiBold22>
       <View style={[tw`my-2.5`, { borderWidth: 0.5, borderColor: '#00000040' }]} />

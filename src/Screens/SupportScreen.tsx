@@ -15,7 +15,7 @@ const SupportScreen = ({ navigation }: { navigation: any }) => {
       <TextRegular15 style={tw`mt-2`}>
         Select a ride to get help with your billing, driver or other ride related issues.
       </TextRegular15>
-      <View style={tw`h-2`} />
+      <View style={tw`h-3`} />
       <FlatList
         data={[1, 2, 3, 4]}
         showsVerticalScrollIndicator={false}

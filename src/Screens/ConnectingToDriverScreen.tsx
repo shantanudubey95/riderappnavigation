@@ -1,5 +1,6 @@
+import LottieView from 'lottie-react-native';
 import React from 'react';
-import { View, Image, Pressable } from 'react-native';
+import { View, Pressable } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
@@ -24,6 +25,8 @@ const ConnectingToDriverScreen = ({
   navigation: any;
 }) => {
   const map = React.useRef(null);
+  const ANIMATION = require('../../assets/Carsearching.json');
+  const [, setAnimationFinished] = React.useState(false);
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <MapView
@@ -41,8 +44,16 @@ const ConnectingToDriverScreen = ({
       <BottomSheet navigation={navigation} scrollable={false}>
         <TextSemiBold22 style={tw`mt-8 ml-5`}>Connecting you to a driver</TextSemiBold22>
         <TextRegular15 style={tw`mt-2 ml-5`}>We usually find ride in less than 2min</TextRegular15>
-        <View style={tw`justify-center items-center`}>
-          <Image source={IMAGES.CONNECT_RIDE} style={tw`mt-5`} />
+        <View style={tw`w-full items-center flex-1 mt-5`}>
+          <View
+            style={tw`justify-center border-2 rounded-full border-[${COLORS.SPANISH_VIRIDIAN}] items-center w-30 h-30 `}>
+            <LottieView
+              onAnimationFinish={() => setAnimationFinished(true)}
+              autoPlay
+              source={ANIMATION}
+              loop
+            />
+          </View>
         </View>
         <View style={tw`px-4 mt-5`}>
           <Pressable

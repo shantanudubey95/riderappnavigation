@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
@@ -7,6 +7,7 @@ import RoutePoints from '../Components/RoutePoints';
 import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaMarker from '../Components/SuggaaMarker';
 import SuggaaScreen from '../Components/SuggaaScreen';
+import TextMedium22 from '../Typography/TextMedium22';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
 import * as COLORS from '../config/colors';
@@ -54,11 +55,25 @@ const RideIssueScreen = ({ navigation }: { navigation: any }) => {
       <View style={tw`flex-1`} />
       <View style={tw`flex-row`}>
         <View style={tw`flex-1`}>
-          <SuggaaButton text="Support" buttonType="BORDER" onPress={() => {}} />
+          <Pressable
+            style={tw`border-[${COLORS.LUST_RED}] border-2 rounded-1.25 justify-center px-3 items-center self-stretch h-15`}
+            onPress={() => {
+              navigation.navigate('YourRideScreen');
+            }}>
+            <TextMedium22 numberOfLines={1} style={tw`text-[${COLORS.LUST_RED}]`}>
+              Cancel
+            </TextMedium22>
+          </Pressable>
         </View>
         <View style={tw`w-5`} />
         <View style={tw`flex-1`}>
-          <SuggaaButton text="Support" buttonType="BORDER" onPress={() => {}} />
+          <SuggaaButton
+            text="Support"
+            buttonType="BORDER"
+            onPress={() => {
+              navigation.navigate('YourRideScreen');
+            }}
+          />
         </View>
       </View>
     </SuggaaScreen>

@@ -43,7 +43,7 @@ export default function SupportCard({ imageUrl, onPress, values }: props) {
 
   return (
     <Pressable
-      style={tw`bg-[${COLORS.WHITE}] pl-3 mx-0.5 py-5 rounded-1.25 shadow-md`}
+      style={tw`bg-[${COLORS.WHITE}] pl-3 m-0.5 py-5 rounded-1.25 shadow-md`}
       onPress={onPress}>
       <View style={tw`w-full flex-row`}>
         <Image style={tw`w-11.65 h-11.65 mt-2 rounded-full`} source={{ uri: imageUrl }} />
