@@ -1,9 +1,9 @@
+import BottomSheet, { useBottomSheetDynamicSnapPoints } from '@gorhom/bottom-sheet';
 import React from 'react';
-import { Platform, StatusBar, View } from 'react-native';
+import { Platform, StatusBar, View, Text } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
-import BottomSheet from '../Components/BottomSheet';
 // import BottomModal from '../Components/BottomModel';
 import PressableButton from '../Components/PressableButton';
 import SuggaButton from '../Components/SuggaaButton';
@@ -11,10 +11,7 @@ import SuggaaImageButton from '../Components/SuggaaImageButton';
 import SuggaaMarker from '../Components/SuggaaMarker';
 import VehicleWithFareCard from '../Components/VehicleWithFareCard';
 import * as IMAGES from '../config/images';
-// type FocusLocation = {
-//   lat: number;
-//   lng: number;
-// };
+import CustomBackdrop from './BD';
 type location = {
   latitude: number;
   longitude: number;
@@ -28,17 +25,40 @@ const SelectRideScreen = ({
   drop?: location;
   navigation: any;
 }) => {
-  // const initialState = {
-  //   showModal: true,
-  //   address: '',
-  //   pickUp: {} as FocusLocation,
-  //   drop: {} as FocusLocation,
-  //   suggestedAddresses: [],
-  // };
   const map = React.useRef(null);
+  const initialSnapPoints = React.useMemo(() => ['CONTENT_HEIGHT'], []);
+  const bottomSheetRef = React.useRef<BottomSheet>(null);
+  const { animatedHandleHeight, animatedContentHeight } =
+    useBottomSheetDynamicSnapPoints(initialSnapPoints);
+  const snapPoint = React.useMemo(() => ['60%'], []);
+  const snapPoints = React.useMemo(() => [1, '50%'], []);
+  const handlePresentPress = React.useCallback(() => {
+    bottomSheetRef.current?.expand();
+  }, []);
+  const handleDismiss = React.useCallback(() => {
+    // alert('Modal Been Dismissed');
+  }, []);
+
+  const sheetStyle = React.useMemo(
+    () => ({
+      backgroundColor: 'white',
+      borderTopStartRadius: 24,
+      borderTopEndRadius: 24,
+      shadowColor: 'rgba(0, 0, 0, 1)',
+      shadowOffset: {
+        width: 0,
+        height: 12,
+      },
+      shadowOpacity: 0.75,
+      shadowRadius: 16.0,
+      elevation: 24,
+    }),
+    []
+  );
+
   // const insets = useSafeAreaInsets();
   return (
-    <View style={{ flex: 1, backgroundColor: 'black' }}>
+    <View style={{ flex: 1 }}>
       <MapView
         // followsUserLocation
         zoomEnabled
@@ -63,12 +83,12 @@ const SelectRideScreen = ({
         <PressableButton icon={IMAGES.HEADER_BACK_ARROW} onPress={() => navigation.openDrawer()} />
         <View style={tw`w-5`} />
       </View>
-      <BottomSheet navigation={navigation} scrollable={false}>
+      <BottomSheet handleIndicatorStyle={tw`bg-white`} snapPoints={snapPoint} style={sheetStyle}>
         <VehicleWithFareCard
           vehicleType="Book any"
           duration="0"
           fare={120120}
-          onPress={() => alert('onPress')}
+          onPress={() => handlePresentPress()}
         />
         <VehicleWithFareCard
           vehicleType="Sedan"
@@ -118,6 +138,20 @@ const SelectRideScreen = ({
             text="Book Mini"
             onPress={() => navigation.navigate('ConnectingToDriverScreen')}
           />
+        </View>
+      </BottomSheet>
+      <BottomSheet
+        ref={bottomSheetRef}
+        onClose={handleDismiss}
+        snapPoints={snapPoints}
+        handleHeight={animatedHandleHeight}
+        contentHeight={animatedContentHeight}
+        enablePanDownToClose
+        // handleComponent={renderHeaderHandle}
+        backdropComponent={CustomBackdrop}
+        handleIndicatorStyle={tw`bg-white`}>
+        <View style={{ flex: 1, alignItems: 'center' }}>
+          <Text>fhb e ru yvb r k qn qoi dnw duw bdh qbd wv vu qgy dinxj wq</Text>
         </View>
       </BottomSheet>
     </View>

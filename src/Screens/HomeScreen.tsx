@@ -1,3 +1,4 @@
+import BottomSheet from '@gorhom/bottom-sheet';
 import * as Location from 'expo-location';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { View, Pressable, Image } from 'react-native';
@@ -5,7 +6,7 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
-import BottomSheet from '../Components/BottomSheet';
+// import BottomSheet from '../Components/BottomSheet';
 import HamburgerIcon from '../Components/HamburgerIcon';
 import PressableButton from '../Components/PressableButton';
 import SuggaaMapScreen from '../Components/SuggaaMapScreen';
@@ -38,6 +39,7 @@ const HomeScreen = ({
   drop?: location;
   navigation: any;
 }) => {
+  const snapPoints = useMemo(() => ['38%', '50%', '75%'], []);
   const [selected, setSelected] = React.useState('City');
   const [rotate, setRotation] = useState(0);
   const [myLocation, setLocation] = useState<location>();
@@ -77,6 +79,22 @@ const HomeScreen = ({
     }
   }
   const insets = useSafeAreaInsets();
+  const sheetStyle = useMemo(
+    () => ({
+      backgroundColor: 'white',
+      borderTopStartRadius: 24,
+      borderTopEndRadius: 24,
+      shadowOffset: {
+        width: 0,
+        height: 12,
+      },
+      shadowOpacity: 0.75,
+      shadowRadius: 16.0,
+      elevation: 24,
+      shadowColor: 'black',
+    }),
+    []
+  );
   return (
     <SuggaaMapScreen header={false}>
       <MapView
@@ -146,7 +164,10 @@ const HomeScreen = ({
         <View style={tw`w-5`} />
       </View>
 
-      <BottomSheet navigation={navigation} scrollable={false}>
+      <BottomSheet
+        handleIndicatorStyle={tw`w-15 bg-[${COLORS.LIGHT_GRAY_BORDER}]`}
+        snapPoints={snapPoints}
+        style={sheetStyle}>
         <View style={tw`absolute top--30 right-5`}>
           <PressableButton
             icon={IMAGES.CURRENT_LOCATION}

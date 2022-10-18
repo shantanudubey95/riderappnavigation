@@ -31,7 +31,6 @@ export default function DrawerNavigation() {
         drawerActiveBackgroundColor: COLORS.CHINESE_WHITE,
       }}
       drawerContent={(props) => <DrawerComponent {...props} />}>
-      <Drawer.Screen name="Onboarding" component={AuthNavigation} />
       <Drawer.Screen
         name="Home"
         component={HomeNavigator}
@@ -40,6 +39,7 @@ export default function DrawerNavigation() {
           drawerLabelStyle: LABEL_STYLE,
         }}
       />
+      <Drawer.Screen name="Onboarding" component={AuthNavigation} />
       <Drawer.Screen name="Account" component={AccountNavigation} />
       <Drawer.Screen
         name="Your Rides"

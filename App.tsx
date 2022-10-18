@@ -12,12 +12,11 @@ import {
 } from '@expo-google-fonts/poppins';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import tw from 'twrnc';
 
 import DrawerNavigation from './src/Navigation/DrawerNavigation';
-import * as COLORS from './src/config/colors';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -36,11 +35,22 @@ export default function App() {
   } else {
     return (
       // <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <DrawerNavigation />
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <GestureHandlerRootView style={styles.container}>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <DrawerNavigation />
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </GestureHandlerRootView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+  },
+});

@@ -1,10 +1,11 @@
+import BottomSheet, { BottomSheetTextInput } from '@gorhom/bottom-sheet';
 import * as Location from 'expo-location';
 import React, { useState, useRef } from 'react';
-import { View, StatusBar } from 'react-native';
+import { View, StatusBar, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
-import BottomModal from '../Components/BottomModel';
+// import BottomModal from '../Components/BottomModel';
 import PickAndDropInput from '../Components/PickAndDropInput';
 import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaCheckBox from '../Components/SuggaaCheckBox';
@@ -35,6 +36,7 @@ const LocateFavouriteScreen = ({
   drop?: location;
   navigation: any;
 }) => {
+  const snapPoints = React.useMemo(() => ['40%'], []);
   const [myLocation, setLocation] = useState<location>();
   const [startAddress, setStartAddress] = React.useState('');
   const [showModal, setShowModal] = React.useState(false);
@@ -110,63 +112,132 @@ const LocateFavouriteScreen = ({
           buttonType="FILLED"
         />
       </View>
-      {showModal ? (
-        <BottomModal
-          onClose={() => {
-            setShowModal(false);
-          }}
-          showModal={showModal}
-          height="50%">
-          <View style={tw`p-5`}>
-            <TextSemiBold22>Save as favourite</TextSemiBold22>
-            <View style={tw`h-2`} />
-            <TextRegular15>
-              Zolo Diamond Co-Living | Redefining PG, 5th Main Road Bharath Housing Society Layout
-              Subramanyapura Bengaluru...
-            </TextRegular15>
-            <View style={tw`flex-row mt-5 items-center`}>
-              <SuggaaCheckBox isActive />
-              <View style={tw`w-2`} />
-              <TextRegular15>Home</TextRegular15>
-              <View style={tw`flex-1`} />
-              <SuggaaCheckBox isActive={false} />
-              <View style={tw`w-2`} />
-              <TextRegular15>Work</TextRegular15>
-              <View style={tw`flex-1`} />
-              <SuggaaCheckBox isActive={false} />
-              <View style={tw`w-2`} />
-              <TextRegular15>Other</TextRegular15>
-            </View>
-            <View style={tw`h-5`} />
-            <SuggaaTextInput label="Name your Favourite" />
-            <View style={tw`h-5`} />
-            <View style={tw`flex-row w-full`}>
-              <View style={tw`flex-1`}>
-                <SuggaaButton
-                  buttonType="BORDER"
-                  text="Cancel"
-                  onPress={() => {
-                    navigation.navigate('AccountScreen');
-                  }}
-                />
-              </View>
-              <View style={tw`w-5`} />
-              <View style={tw`flex-1`}>
-                <SuggaaButton
-                  buttonType="FILLED"
-                  text="Save"
-                  onPress={() => {
-                    navigation.navigate('AccountScreen');
-                  }}
-                />
-              </View>
-            </View>
-            <View style={tw`h-5`} />
+      <BottomSheet snapPoints={snapPoints}>
+        <View style={styles.contentContainer}>
+          {/* <BottomSheetTextInput value="Awesome 🎉" style={styles.textInput} /> */}
+          <TextSemiBold22>Save as favourite</TextSemiBold22>
+          <View style={tw`h-2`} />
+          <TextRegular15>
+            Zolo Diamond Co-Living | Redefining PG, 5th Main Road Bharth Housing Society Layout
+            Subramanyapura Bengaluru... //{' '}
+          </TextRegular15>
+          <View style={tw`flex-row mt-5 items-center`}>
+            <SuggaaCheckBox isActive />
+            <View style={tw`w-2`} />
+            <TextRegular15>Home</TextRegular15>
+            <View style={tw`flex-1`} />
+            <SuggaaCheckBox isActive={false} />
+            <View style={tw`w-2`} />
+            <TextRegular15>Work</TextRegular15>
+            <View style={tw`flex-1`} />
+            <SuggaaCheckBox isActive={false} />
+            <View style={tw`w-2`} />
+            <TextRegular15>Other</TextRegular15>
           </View>
-        </BottomModal>
-      ) : null}
+          <View style={tw`h-5`} />
+          <SuggaaTextInput label="Name your Favourite" />
+          <View style={tw`h-5`} />
+          <View style={tw`flex-row w-full`}>
+            <View style={tw`flex-1`}>
+              <SuggaaButton
+                buttonType="BORDER"
+                text="Cancel"
+                onPress={() => {
+                  navigation.navigate('AccountScreen');
+                }}
+              />
+            </View>
+            <View style={tw`w-5`} />
+            <View style={tw`flex-1`}>
+              <SuggaaButton
+                buttonType="FILLED"
+                text="Save"
+                onPress={() => {
+                  navigation.navigate('AccountScreen');
+                }}
+              />
+            </View>
+          </View>
+        </View>
+      </BottomSheet>
+      {/* {showModal ? (
+        // <BottomModal
+        //   onClose={() => {
+        //     setShowModal(false);
+        //   }}
+        //   showModal={showModal}
+        //   height="50%">
+        //   <View style={tw`p-5`}>
+        //     <TextSemiBold22>Save as favourite</TextSemiBold22>
+        //     <View style={tw`h-2`} />
+        //     <TextRegular15>
+        //       Zolo Diamond Co-Living | Redefining PG, 5th Main Road Bharath Housing Society Layout
+        //       Subramanyapura Bengaluru...
+        //     </TextRegular15>
+        //     <View style={tw`flex-row mt-5 items-center`}>
+        //       <SuggaaCheckBox isActive />
+        //       <View style={tw`w-2`} />
+        //       <TextRegular15>Home</TextRegular15>
+        //       <View style={tw`flex-1`} />
+        //       <SuggaaCheckBox isActive={false} />
+        //       <View style={tw`w-2`} />
+        //       <TextRegular15>Work</TextRegular15>
+        //       <View style={tw`flex-1`} />
+        //       <SuggaaCheckBox isActive={false} />
+        //       <View style={tw`w-2`} />
+        //       <TextRegular15>Other</TextRegular15>
+        //     </View>
+        //     <View style={tw`h-5`} />
+        //     <SuggaaTextInput label="Name your Favourite" />
+        //     <View style={tw`h-5`} />
+        //     <View style={tw`flex-row w-full`}>
+        //       <View style={tw`flex-1`}>
+        //         <SuggaaButton
+        //           buttonType="BORDER"
+        //           text="Cancel"
+        //           onPress={() => {
+        //             navigation.navigate('AccountScreen');
+        //           }}
+        //         />
+        //       </View>
+        //       <View style={tw`w-5`} />
+        //       <View style={tw`flex-1`}>
+        //         <SuggaaButton
+        //           buttonType="FILLED"
+        //           text="Save"
+        //           onPress={() => {
+        //             navigation.navigate('AccountScreen');
+        //           }}
+        //         />
+        //       </View>
+        //     </View>
+        //     <View style={tw`h-5`} />
+        //   </View>
+        // </BottomModal>
+      ) : null} */}
     </View>
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: 'grey',
+  },
+  textInput: {
+    alignSelf: 'stretch',
+    marginHorizontal: 12,
+    marginBottom: 12,
+    padding: 12,
+    borderRadius: 12,
+    backgroundColor: 'grey',
+    color: 'white',
+    textAlign: 'center',
+  },
+  contentContainer: {
+    flex: 1,
+    paddingHorizontal: '4%',
+  },
+});
 export default LocateFavouriteScreen;

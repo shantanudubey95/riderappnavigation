@@ -1,23 +1,23 @@
+import BottomSheet, {
+  BottomSheetTextInput,
+  useBottomSheetDynamicSnapPoints,
+} from '@gorhom/bottom-sheet';
 import React from 'react';
-import { View, Pressable } from 'react-native';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
-import FullScreenModal from '../Components/FullScreenModal';
 import RoutePoints from '../Components/RoutePoints';
 import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaMarker from '../Components/SuggaaMarker';
 import SuggaaScreen from '../Components/SuggaaScreen';
-import SuggaaTextInput from '../Components/SuggaaTextInput';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
-import TextSemiBold18 from '../Typography/TextSemiBold18';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
+import CustomBackdropText from './BDT';
 const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
-  const [showModal, setShowModal] = React.useState(false);
-
   const payCards = (name: string, value?: string, bolder?: boolean, color?: string) => {
     return (
       <View style={tw`flex-row items-center mb-3.75`}>
@@ -40,6 +40,17 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
       </View>
     );
   };
+  const bottomSheetRef = React.useRef<BottomSheet>(null);
+  const handlePresentPress = React.useCallback(() => {
+    bottomSheetRef.current?.expand();
+  }, []);
+  const handleDismiss = React.useCallback(() => {
+    // alert('Modal Been Dismissed');
+  }, []);
+  const initialSnapPoints = React.useMemo(() => ['CONTENT_HEIGHT'], []);
+  const snapPoints = React.useMemo(() => [1, '50%'], []);
+  const { animatedHandleHeight, animatedContentHeight } =
+    useBottomSheetDynamicSnapPoints(initialSnapPoints);
   return (
     <SuggaaScreen header>
       <View style={tw`h-42 shadow-md overflow-hidden w-full bg-[${COLORS.WHITE}] rounded-1.25`}>
@@ -89,7 +100,7 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
       <View style={tw`flex-1`} />
       <View style={tw`flex-row`}>
         <View style={tw`flex-1`}>
-          <SuggaaButton onPress={() => setShowModal(true)} text="Mail" buttonType="FILLED" />
+          <SuggaaButton onPress={() => handlePresentPress()} text="Mail" buttonType="FILLED" />
         </View>
         <View style={tw`w-5`} />
         <View style={tw`flex-1`}>
@@ -102,29 +113,49 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
           />
         </View>
       </View>
-      {showModal && (
-        <FullScreenModal showModal={showModal}>
-          <View style={tw`w-full px-2.5`}>
-            <TextSemiBold18 style={tw`text-center`}>Enter email to send invoice</TextSemiBold18>
-            <View style={tw`mt-4.25`} />
-            <SuggaaTextInput label="Email" />
-            <View style={tw`flex-row mt-9.5`}>
-              <View style={tw`flex-1 items-center justify-center`}>
-                <TextRegular15
-                  onPress={() => setShowModal(false)}
-                  style={tw`text-[${COLORS.BLUE}]`}>
-                  Cancel
-                </TextRegular15>
-              </View>
-              <View style={tw`flex-1 items-center justify-center`}>
-                <TextRegular15 style={tw`text-[${COLORS.BLUE}]`}>Send</TextRegular15>
-              </View>
-            </View>
-          </View>
-        </FullScreenModal>
-      )}
+
+      <BottomSheet
+        ref={bottomSheetRef}
+        onClose={handleDismiss}
+        snapPoints={snapPoints}
+        handleHeight={animatedHandleHeight}
+        contentHeight={animatedContentHeight}
+        enablePanDownToClose
+        backdropComponent={CustomBackdropText}
+        handleIndicatorStyle={tw`bg-white`}>
+        <View style={styles.contentContainer}>
+          <Text>Awesome</Text>
+          <BottomSheetTextInput value="Awesome 🎉" style={styles.textInput} />
+        </View>
+      </BottomSheet>
     </SuggaaScreen>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 24,
+    backgroundColor: 'grey',
+  },
+  sheetContainer: {
+    // add horizontal space
+    marginHorizontal: 24,
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  textInput: {
+    alignSelf: 'stretch',
+    marginHorizontal: 12,
+    marginBottom: 12,
+    padding: 12,
+    borderRadius: 12,
+    backgroundColor: 'grey',
+    color: 'white',
+    textAlign: 'center',
+  },
+});
 
 export default YourRideDetailScreen;
