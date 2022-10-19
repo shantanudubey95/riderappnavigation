@@ -39,7 +39,7 @@ const HomeScreen = ({
   drop?: location;
   navigation: any;
 }) => {
-  const snapPoints = useMemo(() => ['38%', '50%', '75%'], []);
+  const snapPoints = useMemo(() => ['38%'], []);
   const [selected, setSelected] = React.useState('City');
   const [rotate, setRotation] = useState(0);
   const [myLocation, setLocation] = useState<location>();
@@ -167,6 +167,8 @@ const HomeScreen = ({
       <BottomSheet
         handleIndicatorStyle={tw`w-15 bg-[${COLORS.LIGHT_GRAY_BORDER}]`}
         snapPoints={snapPoints}
+        enableContentPanningGesture={false}
+        enableHandlePanningGesture={false}
         style={sheetStyle}>
         <View style={tw`absolute top--30 right-5`}>
           <PressableButton
