@@ -46,7 +46,6 @@ const HomeScreen = ({
   const initialSnapPoints = useMemo(() => ['CONTENT_HEIGHT'], []);
   const { animatedHandleHeight, animatedSnapPoints, animatedContentHeight, handleContentLayout } =
     useBottomSheetDynamicSnapPoints(initialSnapPoints);
-  // const snapPoints = useMemo(() => ['38%'], []);
   const [selected, setSelected] = React.useState('City');
   const [rotate, setRotation] = useState(0);
   const [myLocation, setLocation] = useState<location>();
@@ -104,7 +103,7 @@ const HomeScreen = ({
   );
 
   const contentContainerStyle = useMemo(
-    () => [styles.contentContainerStyle, { paddingBottom: safeBottomArea || 6 }],
+    () => [styles.contentContainerStyle, { paddingBottom: safeBottomArea || 10 }],
     [safeBottomArea]
   );
   return (
