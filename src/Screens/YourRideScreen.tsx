@@ -35,13 +35,13 @@ const YourRideScreen = ({ navigation }: { navigation: any }) => {
         values={{
           date: new Date(),
           fare: '123',
-          location: 'some long address huhuhuhuh vugicyuv ti vigycthcr fu crxhx g',
+          location: 'some long address repeated long address',
           status: 'Cancelled',
           vehicleType: 'AUTO',
         }}
         imageUrl="https://picsum.photos/200/300"
       />
-     
+
       <RidesCard
         onPress={() => {
           navigation.navigate('YourRideDetailScreen');

@@ -1,9 +1,11 @@
 import BottomSheet, {
+  BottomSheetModal,
   BottomSheetTextInput,
+  BottomSheetView,
   useBottomSheetDynamicSnapPoints,
 } from '@gorhom/bottom-sheet';
 import React from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Pressable } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
@@ -14,9 +16,9 @@ import SuggaaScreen from '../Components/SuggaaScreen';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold15 from '../Typography/TextSemiBold15';
+import TextSemiBold20 from '../Typography/TextSemiBold20';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
-import CustomBackdropText from './BDT';
 const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
   const payCards = (name: string, value?: string, bolder?: boolean, color?: string) => {
     return (
@@ -40,17 +42,19 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
       </View>
     );
   };
-  const bottomSheetRef = React.useRef<BottomSheet>(null);
-  const handlePresentPress = React.useCallback(() => {
-    bottomSheetRef.current?.expand();
-  }, []);
-  const handleDismiss = React.useCallback(() => {
-    // alert('Modal Been Dismissed');
-  }, []);
+  const bottomSheetRef = React.useRef<BottomSheetModal>(null);
   const initialSnapPoints = React.useMemo(() => ['CONTENT_HEIGHT'], []);
-  const snapPoints = React.useMemo(() => [1, '50%'], []);
-  const { animatedHandleHeight, animatedContentHeight } =
+
+  const { animatedHandleHeight, animatedSnapPoints, animatedContentHeight, handleContentLayout } =
     useBottomSheetDynamicSnapPoints(initialSnapPoints);
+
+  const handlePresentPress = React.useCallback(() => {
+    bottomSheetRef.current!.expand();
+  }, []);
+  const handleClosePress = React.useCallback(() => {
+    bottomSheetRef.current?.close();
+  }, []);
+
   return (
     <SuggaaScreen header>
       <View style={tw`h-42 shadow-md overflow-hidden w-full bg-[${COLORS.WHITE}] rounded-1.25`}>
@@ -113,49 +117,59 @@ const YourRideDetailScreen = ({ navigation }: { navigation: any }) => {
           />
         </View>
       </View>
-
       <BottomSheet
         ref={bottomSheetRef}
-        onClose={handleDismiss}
-        snapPoints={snapPoints}
+        snapPoints={animatedSnapPoints}
         handleHeight={animatedHandleHeight}
         contentHeight={animatedContentHeight}
+        bottomInset={300}
         enablePanDownToClose
-        backdropComponent={CustomBackdropText}
-        handleIndicatorStyle={tw`bg-white`}>
-        <View style={styles.contentContainer}>
-          <Text>Awesome</Text>
-          <BottomSheetTextInput value="Awesome 🎉" style={styles.textInput} />
-        </View>
+        style={{
+          marginHorizontal: 16,
+          backgroundColor: 'white',
+          borderRadius: 16,
+          shadowColor: 'rgba(0,0,0,0.25)',
+          shadowOffset: {
+            width: 0,
+            height: 5,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 16.0,
+
+          elevation: 24,
+        }}
+        backgroundComponent={null}
+        detached>
+        <BottomSheetView onLayout={handleContentLayout}>
+          <View style={tw`px-5`}>
+            <TextSemiBold20>Enter email to send invoice</TextSemiBold20>
+            <View style={tw`h-4`} />
+            <BottomSheetTextInput
+              style={{
+                marginTop: 8,
+                marginBottom: 10,
+                borderRadius: 10,
+                fontSize: 16,
+                lineHeight: 20,
+                padding: 8,
+                backgroundColor: 'rgba(151, 151, 151, 0.25)',
+              }}
+            />
+            <View style={tw`h-8`} />
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+              <TextRegular15 onPress={handleClosePress} style={tw`text-[${COLORS.BLUE}]`}>
+                Cancel
+              </TextRegular15>
+              <TextRegular15 onPress={handleClosePress} style={tw`text-[${COLORS.BLUE}]`}>
+                Send
+              </TextRegular15>
+            </View>
+            <View style={tw`h-4`} />
+          </View>
+        </BottomSheetView>
       </BottomSheet>
     </SuggaaScreen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 24,
-    backgroundColor: 'grey',
-  },
-  sheetContainer: {
-    // add horizontal space
-    marginHorizontal: 24,
-  },
-  contentContainer: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  textInput: {
-    alignSelf: 'stretch',
-    marginHorizontal: 12,
-    marginBottom: 12,
-    padding: 12,
-    borderRadius: 12,
-    backgroundColor: 'grey',
-    color: 'white',
-    textAlign: 'center',
-  },
-});
 
 export default YourRideDetailScreen;

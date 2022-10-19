@@ -3,7 +3,7 @@ import BottomSheet, {
   useBottomSheetDynamicSnapPoints,
 } from '@gorhom/bottom-sheet';
 import React from 'react';
-import { Platform, StatusBar, View, Text, StyleSheet } from 'react-native';
+import { Platform, StatusBar, View, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';

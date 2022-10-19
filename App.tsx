@@ -10,6 +10,7 @@ import {
   Poppins_800ExtraBold,
   Poppins_900Black,
 } from '@expo-google-fonts/poppins';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet } from 'react-native';
@@ -37,9 +38,11 @@ export default function App() {
       // <SafeAreaView style={tw`flex-1 bg-[${COLORS.WHITE}]`}>
       <GestureHandlerRootView style={styles.container}>
         <SafeAreaProvider>
-          <NavigationContainer>
-            <DrawerNavigation />
-          </NavigationContainer>
+          <BottomSheetModalProvider>
+            <NavigationContainer>
+              <DrawerNavigation />
+            </NavigationContainer>
+          </BottomSheetModalProvider>
         </SafeAreaProvider>
       </GestureHandlerRootView>
     );

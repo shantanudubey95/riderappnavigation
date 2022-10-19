@@ -81,7 +81,7 @@ const HomeScreen = ({
     if (initialRegion) {
       initialRegion['latitudeDelta'] = 0.005;
       initialRegion['longitudeDelta'] = 0.00912;
-      map?.current?.animateToRegion(initialRegion, 2000);
+      // map?.current?.animateToRegion(initialRegion, 2000);
     }
   }
   const insets = useSafeAreaInsets();
@@ -167,7 +167,7 @@ const HomeScreen = ({
           <View style={tw`items-center flex-row w-10/11`}>
             <View style={tw`ml-1.75 h-1.5 w-1.5 rounded-full bg-[${COLORS.SPANISH_VIRIDIAN}]`} />
             <TextRegular15 numberOfLines={1} ellipsizeMode="tail" style={tw`ml-2`}>
-              BLOCK-A, MANTRI ALPYNE, Bhadrtyvdtfuftyubdtudfuytjvguffc...
+              BLOCK-A, MANTRI ALPYNE
             </TextRegular15>
           </View>
         </Pressable>
