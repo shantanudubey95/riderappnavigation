@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Pressable, Image } from 'react-native';
+import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
 import TextRegular20 from '../Typography/TextRegular20';

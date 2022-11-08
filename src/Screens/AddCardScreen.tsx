@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import tw from 'twrnc';
 
 import SuggaaButton from '../Components/SuggaaButton';
-import SuggaaCheckBox from '../Components/SuggaaCheckBox';
 import SuggaaScreen from '../Components/SuggaaScreen';
 import SuggaaTextInput from '../Components/SuggaaTextInput';
 import TextRegular12 from '../Typography/TextRegular12';

@@ -1,11 +1,10 @@
-import BottomSheet, { BottomSheetTextInput } from '@gorhom/bottom-sheet';
+import BottomSheet from '@gorhom/bottom-sheet';
 import * as Location from 'expo-location';
 import React, { useState, useRef } from 'react';
 import { View, StatusBar, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import tw from 'twrnc';
 
-// import BottomModal from '../Components/BottomModel';
 import PickAndDropInput from '../Components/PickAndDropInput';
 import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaCheckBox from '../Components/SuggaaCheckBox';
@@ -39,7 +38,7 @@ const LocateFavouriteScreen = ({
   const snapPoints = React.useMemo(() => ['40%'], []);
   const [myLocation, setLocation] = useState<location>();
   const [startAddress, setStartAddress] = React.useState('');
-  const [showModal, setShowModal] = React.useState(false);
+  const [, setShowModal] = React.useState(false);
   // const [myLocation, setLocation] = useState<location>();
   const map = useRef(null);
   // const transform = useMemo(() => {

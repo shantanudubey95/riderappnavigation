@@ -3,10 +3,6 @@ import { View, Share, StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
-import ReferCode from '../Components/ReferCode';
-import SuggaaButton from '../Components/SuggaaButton';
-import TextRegular15 from '../Typography/TextRegular15';
-import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
 
 export default function InvitedScreen() {
@@ -30,7 +26,7 @@ export default function InvitedScreen() {
       // catch error
     }
   };
-  const insets = useSafeAreaInsets();
+
   return (
     <View style={tw`flex-1 px-5 pt-5 bg-[${COLORS.WHITE}]`}>
       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />

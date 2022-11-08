@@ -1,12 +1,6 @@
 import React from 'react';
-import { View, StatusBar } from 'react-native';
-import {
-  SafeAreaView,
-  SafeAreaProvider,
-  SafeAreaInsetsContext,
-  useSafeAreaInsets,
-  initialWindowMetrics,
-} from 'react-native-safe-area-context';
+import { View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const PrivacyAndTermsScreen = ({ navigation }: { navigation: any }) => {
   const insets = useSafeAreaInsets();

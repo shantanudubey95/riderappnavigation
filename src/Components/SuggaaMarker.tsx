@@ -45,8 +45,8 @@ export default function SuggaaMarker({
   zoom,
   currentLocation,
 }: MarkerProps) {
-  const [imWidth, setImgWidth] = useState(0);
-  const [imgHeight, setImgHeight] = useState(0);
+  const [imWidth] = useState(0);
+  const [imgHeight] = useState(0);
 
   // useEffect(() => {
   //     if (imWidth) setImgWidth(imWidth - 2)

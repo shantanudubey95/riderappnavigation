@@ -4,7 +4,7 @@ import BottomSheet, {
   BottomSheetScrollView,
 } from '@gorhom/bottom-sheet';
 import React from 'react';
-import { View, Pressable, LayoutChangeEvent, ScrollView } from 'react-native';
+import { View, Pressable, LayoutChangeEvent } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -19,7 +19,6 @@ import SuggaaCheckBox from '../Components/SuggaaCheckBox';
 import SuggaaMarker from '../Components/SuggaaMarker';
 import TextMedium15 from '../Typography/TextMedium15';
 import TextMedium25 from '../Typography/TextMedium25';
-import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
@@ -29,14 +28,6 @@ type location = {
   latitude: number;
   longitude: number;
 };
-type Dimension = {
-  width: number;
-  height: number;
-  x: number;
-  y: number;
-};
-// const { height: SCREEN_HEIGHT } = Dimensions.get('window');
-// const MAX_TRANSLATE_Y = -SCREEN_HEIGHT;
 const RideDetailScreen = ({
   navigation,
   pickUp,
@@ -46,7 +37,6 @@ const RideDetailScreen = ({
   drop?: location;
   navigation: any;
 }) => {
-  const cancelSnapPoints = React.useMemo(() => ['CONTENT_HEIGHT'], []);
   const map = React.useRef(null);
   const initialSnapPoints = React.useMemo(() => ['CONTENT_HEIGHT'], []);
   const bottomSheetRef = React.useRef<BottomSheet>(null);
