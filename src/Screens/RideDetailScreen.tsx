@@ -14,6 +14,7 @@ import DriverDetails from '../Components/DriverDetails';
 import Payment from '../Components/PaymentMethod';
 import PressableButton from '../Components/PressableButton';
 import RideDetails from '../Components/RideDetails';
+import SuggaaButton from '../Components/SuggaaButton';
 import SuggaaCheckBox from '../Components/SuggaaCheckBox';
 import SuggaaMarker from '../Components/SuggaaMarker';
 import TextMedium15 from '../Typography/TextMedium15';
@@ -24,7 +25,6 @@ import TextSemiBold22 from '../Typography/TextSemiBold22';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
 import CustomBackdrop from './BD';
-import SuggaaButton from '../Components/SuggaaButton';
 type location = {
   latitude: number;
   longitude: number;

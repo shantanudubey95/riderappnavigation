@@ -6,13 +6,13 @@ import {
 import { Pressable, Image } from 'react-native';
 import tw from 'twrnc';
 
+import AddCardScreen from '../Screens/AddCardScreen';
+import AddCashScreen from '../Screens/AddCashScreen';
+import AddUpiScreen from '../Screens/AddUpiScreen';
 import PaymentUpiScreen from '../Screens/PaymentUpiScreen';
 import Payments from '../Screens/Payments';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
-import AddUpiScreen from '../Screens/AddUpiScreen';
-import AddCardScreen from '../Screens/AddCardScreen';
-import AddCashScreen from '../Screens/AddCashScreen';
 const Stack = createNativeStackNavigator();
 function HEADER(navigation: any): NativeStackNavigationOptions {
   return {

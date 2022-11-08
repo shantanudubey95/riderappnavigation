@@ -9,6 +9,7 @@ import tw from 'twrnc';
 import EnterNameAndEmailScreen from '../Screens/EnterNameAndEmailScreen';
 import EnterOTPScreen from '../Screens/EnterOtpScreen';
 import EnterPhoneNumberScreen from '../Screens/EnterPhoneNumberScreen';
+import EnterReferralScreen from '../Screens/EnterReferralScreen';
 import PrivacyAndTermsScreen from '../Screens/PrivacyAndTermsScreen';
 import ProfileCreatedSplashScreen from '../Screens/ProfileCreatedSplashScreen';
 import SelectGenderScreen from '../Screens/SelectGenderScreen';
@@ -16,7 +17,6 @@ import SplashScreen from '../Screens/SplashScreen';
 import WelcomeScreen from '../Screens/WelcomeScreen';
 import * as COLORS from '../config/colors';
 import * as IMAGES from '../config/images';
-import EnterReferralScreen from '../Screens/EnterReferralScreen';
 const Stack = createNativeStackNavigator();
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

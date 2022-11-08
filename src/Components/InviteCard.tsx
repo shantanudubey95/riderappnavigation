@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Image, Pressable } from 'react-native';
 import tw from 'twrnc';
-import * as IMAGES from '../config/images';
+
 import TextMedium15 from '../Typography/TextMedium15';
 import TextRegular12 from '../Typography/TextRegular12';
 import TextRegular15 from '../Typography/TextRegular15';
 import TextSemiBold18 from '../Typography/TextSemiBold18';
 import * as COLORS from '../config/colors';
+import * as IMAGES from '../config/images';
 
 type props = {
   name: string;
