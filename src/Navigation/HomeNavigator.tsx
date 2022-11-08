@@ -55,7 +55,7 @@ function HEADER(navigation: any): NativeStackNavigationOptions {
 
 export default function HomeNavigation({ navigation }: { navigation: any }) {
   return (
-    <Stack.Navigator initialRouteName="RideDetailScreen">
+    <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
       <Stack.Screen
         name="EnterDestinationScreen"
